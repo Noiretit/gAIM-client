@@ -11,3 +11,7 @@
   left: 0;
   z-index: 10;
 }
+
+.container-navbar div {
+  text-align: center;
+}

@@ -21,7 +21,7 @@ class Login extends Component {
     const { username, password } = this.state;
     return (
       <div>
-        <img src="/images/logo-gAIM-negro.svg" alt="logo"/>
+        <img src="/images/logo-gAIM-negro-png.png" alt="logo"/>
         <h1>Login</h1>
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>

@@ -2,23 +2,22 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 class Signup extends Component {
-  state = { username: "", password: "", genre: "" };
+  state = { username: "", email: "", password: "", genre: "" };
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { username, password } = this.state;
-    console.log("Signup -> form submit", { username, password });
-    this.props.signup({ username, password });
+    const { username, email, password, genre } = this.state;
+    console.log("Signup -> form submit", { username, email, password, genre });
+    this.props.signup({ username, email, password, genre });
   };
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
   render() {
-    const { username, password } = this.state;
+    const { username, email, password, genre } = this.state;
     return (
       <div>
-        <img src="/images/logo-gAIM-negro.svg" alt="logo"/>
-        <h1>Sign Up</h1>
+        <img src="/images/logo-gAIM-negro-png.png" alt="logo"/>        <h1>Sign Up</h1>
         <form onSubmit={this.handleFormSubmit}>
           <label>Username*</label>
           <div>
@@ -26,6 +25,15 @@ class Signup extends Component {
               type="text"
               name="username"
               value={username}
+              onChange={this.handleChange}
+            />
+          </div>
+          <label>Email*</label>
+          <div>
+            <input
+              type="text"
+              name="email"
+              value={email}
               onChange={this.handleChange}
             />
           </div>
@@ -40,7 +48,11 @@ class Signup extends Component {
           </div>
           <label>Favorite genre*</label>
           <div>
-            <input type="genre" name="genre" onChange={this.handleChange} />
+            <input 
+            type="text" 
+            name="genre" 
+            value={genre}
+            onChange={this.handleChange} />
           </div>
           <br />
           <div>

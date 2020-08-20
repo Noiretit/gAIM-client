@@ -10,12 +10,14 @@
   right: 0;
   left: 0;
   z-index: 10;
+  transition: bottom 0.3s;
   background-color: white;
-  padding: 0.4rem 0;
-  border-top: 1px solid black;
+  padding-top: 0.2em;
 }
 
 .container-navbar div {
   text-align: center;
   z-index: 20;
+  float: left;
+  display: block;
 }

@@ -4,16 +4,16 @@
 }
 
 .App {
-  padding: 20px;;
+  padding: 20px;
 }
 
-nav.navbar { 
+nav.navbar {
   display: flex;
   padding: 20px;
-  background: #686de0; 
+  background: #686de0;
 }
 
-nav.navbar .navbar-user{
+nav.navbar .navbar-user {
   margin-left: 10px;
   color: white;
 }
@@ -28,4 +28,22 @@ button.navbar-button {
 #home-btn {
   color: white;
   text-decoration: none;
+}
+
+.image-games-homepage {
+  width: 100px;
+  height: 200px;
+}
+
+.container-all-games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.each-game {
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
+import Navbar from "../components/navbar/Navbar";
 
 class Private extends Component {
   render() {
@@ -12,6 +13,8 @@ class Private extends Component {
         <button className="navbar-button" onClick={logout}>
           Logout
         </button>
+
+        <Navbar />
       </div>
     );
   }

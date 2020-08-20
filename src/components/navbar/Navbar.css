@@ -14,4 +14,5 @@
 
 .container-navbar div {
   text-align: center;
+  z-index: 20;
 }

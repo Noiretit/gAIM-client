@@ -14,6 +14,7 @@ class Navbar extends Component {
             <img
               className="icons-navbar"
               src={"../../images/favicon-aim-navbar.svg"}
+              alt="navbar-icon"
             />
           </Link>
           <p>Home</p>
@@ -24,6 +25,7 @@ class Navbar extends Component {
             <img
               className="icons-navbar"
               src={"../../images/search-navbar.svg"}
+              alt="navbar-icon"
             />
           </Link>
           <p>Search</p>
@@ -34,6 +36,7 @@ class Navbar extends Component {
             <img
               className="icons-navbar"
               src={"../../images/marketplace-navbar.svg"}
+              alt="navbar-icon"
             />
           </Link>
           <p>Marketplace</p>
@@ -44,6 +47,7 @@ class Navbar extends Component {
             <img
               className="icons-navbar"
               src={"../../images/profile-navbar.svg"}
+              alt="navbar-icon"
             />
           </Link>
           <p>Profile</p>

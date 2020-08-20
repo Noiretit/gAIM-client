@@ -1,0 +1,13 @@
+.icons-navbar {
+  width: 50px;
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}

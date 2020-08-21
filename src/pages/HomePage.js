@@ -5,7 +5,7 @@ import axios from "axios";
 
 import Navbar from "../components/navbar/Navbar";
 
-class Test extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,4 +59,4 @@ class Test extends Component {
   }
 }
 
-export default withAuth(Test);
+export default withAuth(HomePage);

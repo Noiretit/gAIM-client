@@ -32,7 +32,7 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/home">
+          <Link to="/videogames">
             <img
               className="icons-navbar"
               src={"../../images/search-navbar.svg"}

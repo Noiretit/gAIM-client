@@ -107,7 +107,8 @@ class Home extends Component {
         <div>
           <img
             style={{ width: "100px", height: "200px" }}
-            src={videoGame.background_image}
+            src={videoGame.background_image} 
+            alt="bgimage"
           />
         </div>
         <div>
@@ -122,7 +123,8 @@ class Home extends Component {
         <div>
           <img
             style={{ width: "100px", height: "200px" }}
-            src={videoGame.background_image}
+            src={videoGame.background_image} 
+            alt="bgimage"
           />
         </div>
         <div>

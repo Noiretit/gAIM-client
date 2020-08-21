@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import { withAuth } from "../lib/AuthProvider";
 
-function Profile() {
+function MarketplacePage() {
   return (
     <div>
-      <h1>Profile</h1>
-      <p>Bienvenido en tu profile</p>
+      <h1>MARKETPLACE</h1>
+      <p>Sell your games</p>
       <Link to={"/"}>
         <button className="navbar-button">Back home</button>
       </Link>
@@ -17,4 +17,4 @@ function Profile() {
   );
 }
 
-export default withAuth(Profile);
+export default withAuth(MarketplacePage);

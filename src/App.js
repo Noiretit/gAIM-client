@@ -9,6 +9,7 @@ import Private from "./pages/Private";
 import HomePage from "./pages/HomePage";
 import UserPage from "./pages/UserPage";
 import SearchPage from "./pages/SearchPage";
+import MarketplacePage from "./pages/MarketplacePage";
 
 import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
@@ -29,6 +30,7 @@ class App extends Component {
             <PrivateRoute path="/home" component={HomePage} />
             <PrivateRoute path="/myprofile" component={UserPage} />
             <PrivateRoute path="/videogames" component={SearchPage} />
+            <PrivateRoute path="/marketplace" component={MarketplacePage} />
           </Switch>
         </div>
       </AuthProvider>

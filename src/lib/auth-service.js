@@ -14,9 +14,9 @@ class Auth {
       .then(({ data }) => data);
   }
 
-  login({ username, password }) {
+  login({ email, password }) {
     return this.auth
-      .post("/auth/login", { username, password })
+      .post("/auth/login", { email, password })
       .then(({ data }) => data);
   }
 

@@ -107,7 +107,7 @@ class Home extends Component {
         <div>
           <img
             style={{ width: "100px", height: "200px" }}
-            src={videoGame.background_image} 
+            src={videoGame.background_image}
             alt="bgimage"
           />
         </div>
@@ -123,7 +123,7 @@ class Home extends Component {
         <div>
           <img
             style={{ width: "100px", height: "200px" }}
-            src={videoGame.background_image} 
+            src={videoGame.background_image}
             alt="bgimage"
           />
         </div>
@@ -139,7 +139,7 @@ class Home extends Component {
         <Link to={"/private"}>Private</Link>
         {/* LAST RELEASES */}
         <h2>Last releases</h2>
-        <div className="container-last-releases">{lastGameReleases}</div>
+        <div className="container-games-home-page">{lastGameReleases}</div>
 
         {/* TOP SELECTED YEAR */}
         <div>
@@ -194,9 +194,7 @@ class Home extends Component {
         </div>
 
         <h2>Top {year}</h2>
-        <div className="container-top-selected-year">
-          {topGamesSelectedYear}
-        </div>
+        <div className="container-games-home-page">{topGamesSelectedYear}</div>
 
         {/* TOP SELECTED GENRE */}
         <div>
@@ -220,9 +218,7 @@ class Home extends Component {
         </div>
 
         <h2>Top {genre}</h2>
-        <div className="container-top-selected-genre">
-          {topGameSelectedGenre}
-        </div>
+        <div className="container-games-home-page">{topGameSelectedGenre}</div>
         <Navbar />
       </div>
     );

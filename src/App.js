@@ -9,10 +9,12 @@ import Private from "./pages/Private";
 import HomePage from "./pages/HomePage";
 import UserPage from "./pages/UserPage";
 import SearchPage from "./pages/SearchPage";
+import MarketplacePage from "./pages/MarketplacePage";
 
 import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import EditUserPage from "./pages/EditUserPage";
 
 
 class App extends Component {
@@ -23,12 +25,15 @@ class App extends Component {
         <div className="container">
           <Switch>
             <AnonRoute exact path="/" component={Home} />
-            <AnonRoute path="/signup" component={Signup} />
-            <AnonRoute path="/login" component={Login} />
-            <PrivateRoute path="/private" component={Private} />
-            <PrivateRoute path="/home" component={HomePage} />
-            <PrivateRoute path="/myprofile" component={UserPage} />
-            <PrivateRoute path="/videogames" component={SearchPage} />
+            <AnonRoute exact path="/signup" component={Signup} />
+            <AnonRoute exact path="/login" component={Login} />
+            
+            <PrivateRoute exact path="/private" component={Private} />
+            <PrivateRoute exact path="/home" component={HomePage} />
+            <PrivateRoute exact path="/myprofile" component={UserPage} />
+            <PrivateRoute exact path="/myprofile/edit" component={EditUserPage} />
+            <PrivateRoute exact path="/videogames" component={SearchPage} />
+            <PrivateRoute exact path="/marketplace" component={MarketplacePage} />
           </Switch>
         </div>
       </AuthProvider>

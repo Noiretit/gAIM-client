@@ -43,7 +43,7 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/home">
+          <Link to="/marketplace">
             <img
               className="icons-navbar"
               src={"../../images/marketplace-navbar.svg"}

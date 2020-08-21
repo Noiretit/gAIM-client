@@ -25,7 +25,7 @@ class HomePage extends Component {
         this.setState({ ...this.state, videoGames: test });
       });
     }
-    console.log(test);
+    //console.log(test);
   }
 
   render() {

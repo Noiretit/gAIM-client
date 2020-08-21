@@ -13,7 +13,7 @@ import PrivateRoute from "./components/PrivateRoute";
 class App extends Component {
   render() {
     return (
-      //On englobe les composants qui auront accès aux informations de AuthProvider tels que Login, signup, user, logout, isLoogedin.
+      //On englobe les composants qui auront accès aux informations de AuthProvider tels que Login, signup, user, logout, isLoogedin
       <AuthProvider>
         <div className="container">
           <Switch>

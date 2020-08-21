@@ -54,7 +54,7 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/home">
+          <Link to="/myprofile">
             <img
               className="icons-navbar"
               src={"../../images/profile-navbar.svg"}

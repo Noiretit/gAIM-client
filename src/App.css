@@ -31,6 +31,17 @@ button.navbar-button {
 }
 
 /* HOMEPAGE */
+.container-top-selected-year {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-top-selected-genre {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* SEARCH PAGE */
 .image-games-homepage {
   width: 100px;
   height: 200px;
@@ -47,14 +58,4 @@ button.navbar-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.container-top-selected-year {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.container-top-selected-genre {
-  display: flex;
-  flex-wrap: wrap;
 }

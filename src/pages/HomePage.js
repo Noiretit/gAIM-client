@@ -10,11 +10,32 @@ import Navbar from "../components/navbar/Navbar";
 
 class Home extends Component {
   state = {
+    lastReleased: [],
     topSelectedYear: [],
     topSelectedGenre: [],
     year: "[CHOOSE A YEAR]",
     genre: "[CHOOSE A GENRE]",
   };
+
+  componentDidMount() {
+    const fullDate = new Date();
+    const year = fullDate.getFullYear();
+    const month = fullDate.getMonth();
+    const formatedMonth = month < 10 ? `0${month}` : month;
+
+    const day = fullDate.getDate();
+
+    axios
+      .get(
+        `https://api.rawg.io/api/games?dates=2020-01-01,${year}-${formatedMonth}-${day}&ordering=-released&parent_platforms=1,2,3,7`
+      )
+      .then((lastReleased) => {
+        const dataResults = lastReleased.data.results.slice(0, 10);
+        console.log(dataResults);
+
+        this.setState({ ...this.state, lastReleased: dataResults });
+      });
+  }
 
   filterGamesPerYear() {
     const { year } = this.state;
@@ -57,7 +78,28 @@ class Home extends Component {
   };
 
   render() {
-    const { year, genre, topSelectedYear, topSelectedGenre } = this.state;
+    const {
+      year,
+      genre,
+      lastReleased,
+      topSelectedYear,
+      topSelectedGenre,
+    } = this.state;
+
+    //Renderisar last 10 released
+    const lastGameReleases = lastReleased.map((videoGame, index) => (
+      <div className="lastReleased" key={index}>
+        <div>
+          <img
+            style={{ width: "100px", height: "200px" }}
+            src={videoGame.background_image}
+          />
+        </div>
+        <div>
+          <p>{videoGame.name}</p>
+        </div>
+      </div>
+    ));
 
     //Renderisar top 10 selected year
     const topGamesSelectedYear = topSelectedYear.map((videoGame, index) => (
@@ -93,6 +135,9 @@ class Home extends Component {
       <div>
         <h1>Hola</h1>
         <Link to={"/private"}>Private</Link>
+        {/* LAST RELEASES */}
+        <h2>Last releases</h2>
+        <div className="container-last-releases">{lastGameReleases}</div>
 
         {/* TOP SELECTED YEAR */}
         <div>

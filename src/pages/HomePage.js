@@ -15,7 +15,7 @@ class Test extends Component {
 
   componentDidMount() {
     let test = [];
-    let oneDimTest = test.flat();
+    //let oneDimTest = test.flat();
 
     for (var i = 1; i < 12; i++) {
       axios.get("https://api.rawg.io/api/games?page=" + i).then((response) => {
@@ -29,7 +29,7 @@ class Test extends Component {
   }
 
   render() {
-    const { logout } = this.props;
+    //const { logout } = this.props;
     const allGames = this.state.videoGames.map((videoGame, index) => (
       <div className="each-game" key={index}>
         <div>

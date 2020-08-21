@@ -16,7 +16,7 @@ window.onscroll = function () {
 
 class Navbar extends Component {
   render() {
-    const { user, logout, isLoggedin } = this.props;
+    //const { user } = this.props;
 
     return (
       <nav id="container-navbar" className="container-navbar">
@@ -54,7 +54,7 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/home">
+          <Link to="/myprofile">
             <img
               className="icons-navbar"
               src={"../../images/profile-navbar.svg"}

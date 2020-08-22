@@ -21,6 +21,7 @@ class Profile extends Component {
   componentDidMount() {
     let test = [];
 
+    
     for (var i = 1; i < 10; i++) {
       axios.get("https://api.rawg.io/api/games?page=" + i).then((response) => {
         for (var i = 0; i < 20; i++) {
@@ -29,6 +30,17 @@ class Profile extends Component {
         this.setState({ videoGames: test, videoGamesToShow: test });
       });
     }
+
+    
+    //Updated loop from 10 to 40 to add more results
+    // for (var i = 1; i < 20; i++) {
+    //   axios.get("https://api.rawg.io/api/games?page_size=40&page=" + i).then((response) => {
+    //     for (var i = 0; i < 40; i++) {
+    //       test.push(response.data.results[i]);
+    //     }
+    //     this.setState({ videoGames: test, videoGamesToShow: test });
+    //   });
+    // }
   }
 
   filterGames = (searchString) => {
@@ -144,7 +156,7 @@ class Profile extends Component {
               name="platform"
               onChange={this.handleSelectedPlatform}
             >
-              <option selected>Platform:</option>
+              <option defaultValue>Platform:</option>
               <option value="8">Android</option>
               <option value="5">Apple Macintosh</option>
               <option value="9">Atari</option>
@@ -169,7 +181,7 @@ class Profile extends Component {
                 name="year"
                 onChange={this.handleSelectedYear}
               >
-                <option selected>Year:</option>
+                <option defaultValue>Year:</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
@@ -226,7 +238,7 @@ class Profile extends Component {
                 name="genre"
                 onChange={this.handleSelectedGenre}
               >
-                <option select>Genre:</option>
+                <option defaultValue>Genre:</option>
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
                 <option value="arcade">Arcade</option>
@@ -252,9 +264,9 @@ class Profile extends Component {
         {/* ALL GAMES */}
         <div className="content">
           <main>
-            {this.state.videoGamesToShow.map((gameObj, index) => {
+            {this.state.videoGamesToShow.map((gameObj) => {
               return (
-                <div className="container-all-games" key={index}>
+                <div className="container-all-games" key={gameObj.id}>
                   <img
                     style={{ width: "100%", height: "75%" }}
                     src={gameObj.background_image}

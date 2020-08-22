@@ -54,7 +54,7 @@ class Home extends Component {
         `https://api.rawg.io/api/games?dates=2010-01-01,2020-01-01&genres=${this.state.genre}&ordering=-rating&parent_platforms=1,2,3,7`
       )
       .then((topSelectedGenreResponse) => {
-        console.log(topSelectedGenreResponse.data.results);
+        // console.log(topSelectedGenreResponse.data.results);
 
         const dataResults = topSelectedGenreResponse.data.results.slice(0, 10);
 
@@ -114,7 +114,7 @@ class Home extends Component {
     } = this.state;
 
     const lastReleasedGames = lastReleased.map((videoGame) => (
-      <Carousel.Item>
+      <Carousel.Item key={videoGame.id}>
         <img
           className="d-block w-100"
           src={videoGame.background_image}
@@ -125,7 +125,7 @@ class Home extends Component {
 
     //Renderisar top 10 selected year
     const topGamesSelectedYear = topSelectedYear.map((videoGame) => (
-      <Carousel.Item>
+      <Carousel.Item key={videoGame.id}>
         <img
           className="d-block w-100"
           src={videoGame.background_image}
@@ -133,11 +133,11 @@ class Home extends Component {
         />
       </Carousel.Item>
     ));
-    console.log(lastReleasedGames);
+    // console.log(lastReleasedGames);
 
     //Renderisar top 10 selected genre
     const topGameSelectedGenre = topSelectedGenre.map((videoGame) => (
-      <Carousel.Item>
+      <Carousel.Item key={videoGame.id}>
         <img
           className="d-block w-100"
           src={videoGame.background_image}

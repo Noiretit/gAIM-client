@@ -43,14 +43,15 @@ class UserPage extends Component {
     return (
       <div className="container-my-profile">
         <img
-          class="profile-pic"
+          className="profile-pic"
           src="../../images/logo-gAIM-negro-png.png"
+          alt="profile-pic"
         ></img>
         <p>Username: {username}</p>
         <p>Email: {email}</p>
         <p>Prefered genre: {genre}</p>
         <Link to={"/myprofile/edit"}>
-          <button className="navbar-button">Edit your profile</button>
+          <button className="navbar-button">Edit</button>
         </Link>
 
         <span className="separation-line"></span>
@@ -63,13 +64,13 @@ class UserPage extends Component {
           <button className="buttons-my-profile">My transacrions</button>
         </div>
 
-        <a className="logout-link" onClick={logout}>
+        <button className="logout-link" onClick={logout}>
           <img
             className="logout-icon"
             src="../../images/logout-icon.svg"
             alt="Logout"
           />
-        </a>
+        </button>
 
         <Navbar />
       </div>

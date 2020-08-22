@@ -10,6 +10,7 @@ import Navbar from "../components/navbar/Navbar";
 
 class Home extends Component {
   state = {
+    lastReleased: [],
     topSelectedYear: [],
     topSelectedGenre: [],
     lastReleased: [],
@@ -104,7 +105,7 @@ class Home extends Component {
         <div>
           <img
             style={{ width: "100px", height: "200px" }}
-            src={videoGame.background_image} 
+            src={videoGame.background_image}
             alt="bgimage"
           />
         </div>
@@ -123,7 +124,7 @@ class Home extends Component {
         <div>
           <img
             style={{ width: "100px", height: "200px" }}
-            src={videoGame.background_image} 
+            src={videoGame.background_image}
             alt="bgimage"
           />
         </div>

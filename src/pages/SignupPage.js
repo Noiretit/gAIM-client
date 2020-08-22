@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
+
 class Signup extends Component {
-  state = { username: "", email: "", password: "", genre: "" };
+  state = { 
+    username: "", 
+    email: "", 
+    password: "", 
+    genre: "" 
+  };
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, email, password, genre } = this.state;
-    console.log("Signup -> form submit", { username, email, password, genre });
+    //console.log("Signup -> form submit", { username, email, password, genre });
     this.props.signup({ username, email, password, genre });
   };
   handleChange = (event) => {
@@ -15,9 +22,11 @@ class Signup extends Component {
   };
   render() {
     const { username, email, password, genre } = this.state;
+
     return (
       <div>
-        <img src="/images/logo-gAIM-negro-png.png" alt="logo"/>        <h1>Sign Up</h1>
+        <img src="/images/logo-gAIM-negro-png.png" alt="logo"/>        
+        <h1>Sign Up</h1>
         <form onSubmit={this.handleFormSubmit}>
           <label>Username*</label>
           <div>
@@ -49,10 +58,11 @@ class Signup extends Component {
           <label>Favorite genre*</label>
           <div>
             <input 
-            type="text" 
-            name="genre" 
-            value={genre}
-            onChange={this.handleChange} />
+              type="text" 
+              name="genre" 
+              value={genre}
+              onChange={this.handleChange} 
+            />
           </div>
           <br />
           <div>

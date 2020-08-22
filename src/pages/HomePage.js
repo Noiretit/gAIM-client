@@ -13,7 +13,6 @@ class Home extends Component {
     lastReleased: [],
     topSelectedYear: [],
     topSelectedGenre: [],
-    lastReleased: [],
     year: "...",
     genre: "...",
   };
@@ -81,8 +80,8 @@ class Home extends Component {
     const { year, genre, topSelectedYear, topSelectedGenre, lastReleased } = this.state;
     //console.log(lastReleased)
 
-    const lastReleasedGames = lastReleased.map((videoGame, index) => (
-      <div className="topSelectedYear" key={index} style={{border: "1px solid black"}}>
+    const lastReleasedGames = lastReleased.map((videoGame) => (
+      <div className="topSelectedYear" key={videoGame.id} style={{border: "1px solid black"}}>
         <div>
           <img
             style={{ width: "100px", height: "200px" }}
@@ -95,6 +94,7 @@ class Home extends Component {
         </div>
         <div>
           <button>Favorite me</button>
+          <p>ID: {videoGame.id}</p>
         </div>
       </div>
     ))
@@ -117,6 +117,7 @@ class Home extends Component {
         </div>
       </div>
     ));
+    console.log(lastReleasedGames);
 
     //Renderisar top 10 selected genre
     const topGameSelectedGenre = topSelectedGenre.map((videoGame, index) => (
@@ -223,7 +224,7 @@ class Home extends Component {
           {topGameSelectedGenre}
         </div>
 
-        <h2>Last released</h2>
+        <h2>Last released </h2>
         <div>
           {lastReleasedGames}
         </div>

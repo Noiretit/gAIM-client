@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-=======
+
 // import { Link } from "react-router-dom";
->>>>>>> 4b01078cf8b33564606f303f5e28285c16a1e128
 import { withAuth } from "../lib/AuthProvider";
+import {Link} from 'react-router-dom'
 
 import Navbar from "../components/navbar/Navbar";
 import SearchBar from "../components/searchbar/SearchBar";
@@ -262,6 +261,7 @@ class Profile extends Component {
                     alt={gameObj.name}
                   />
                   <p>{gameObj.name}</p>
+                  <Link to={`/videogames/${gameObj.id}`}>See more</Link>
                 </div>
               );
             })}

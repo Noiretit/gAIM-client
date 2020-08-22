@@ -15,7 +15,6 @@ class Home extends Component {
     lastReleased: [],
     topSelectedYear: [],
     topSelectedGenre: [],
-    lastReleased: [],
     year: "2020",
     genre: "action",
   };

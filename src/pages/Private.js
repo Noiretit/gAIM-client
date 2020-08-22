@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import Navbar from "../components/navbar/Navbar";
-import Carousel from "react-bootstrap/Carousel";
+import Avatars from "@dicebear/avatars";
+import sprites from "@dicebear/avatars-identicon-sprites";
+
+let options = {};
+let avatars = new Avatars(sprites);
+let svg = avatars.create("custom-seed");
 
 class Private extends Component {
   render() {
@@ -15,29 +20,21 @@ class Private extends Component {
           Logout
         </button>
 
-        <Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="../../images/slider1.jpg"
-              alt="First slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="../../images/slider2.jpg"
-              alt="Third slide"
-            />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="../../images/slider3.jpg"
-              alt="Third slide"
-            />
-          </Carousel.Item>
-        </Carousel>
+        <div className="container mt-5 mb-5">
+          <div className="row">
+            <div className="col-md-3">
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src="https://avatars.dicebear.com/v2/identicon/tediro.svg?options[padding]=0.4&options[background]=%2300ff99"
+                />
+                <div className="card-body text-center">
+                  <h3 className="card-title">Tedir</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <Navbar />
       </div>

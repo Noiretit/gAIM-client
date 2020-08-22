@@ -1,4 +1,5 @@
 import React from "react";
+import "./SearchBar.css";
 
 class SearchBar extends React.Component {
   state = {
@@ -15,8 +16,10 @@ class SearchBar extends React.Component {
   render() {
     return (
       <input
+        id="searchbar-search-page"
         type="text"
         name="search"
+        placeholder="ex: Super Mario Bross 2"
         value={this.state.search}
         onChange={this.handleChange}
       />

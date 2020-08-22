@@ -9,7 +9,7 @@ window.onscroll = function () {
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("container-navbar").style.bottom = "0";
   } else {
-    document.getElementById("container-navbar").style.bottom = "-75px";
+    document.getElementById("container-navbar").style.bottom = "-78px";
   }
   prevScrollpos = currentScrollPos;
 };
@@ -34,6 +34,7 @@ class Navbar extends Component {
         <div>
           <Link to="/videogames">
             <img
+              id="searchIcon"
               className="icons-navbar"
               src={"../../images/search-navbar.svg"}
               alt="navbar-icon"

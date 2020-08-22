@@ -20,11 +20,10 @@ button.navbar-button {
 }
 
 /* HOMEPAGE */
-.container-games-home-page {
-  display: flex;
-  flex-wrap: wrap;
+.carousel-item {
+  height: 172.5px;
+  overflow: hidden;
 }
-
 /* SEARCH PAGE */
 .image-games-homepage {
   width: 100px;

@@ -51,7 +51,6 @@ class Profile extends Component {
         {/* ALL GAMES */}
         <h2 id="titreAllGames">All Games</h2>
         <div className="container-all-games">{allGames}</div>
-        <Navbar />
 
         <Navbar />
       </div>

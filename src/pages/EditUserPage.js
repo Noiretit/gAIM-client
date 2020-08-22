@@ -34,7 +34,7 @@ class EditUserPage extends Component {
 
 
         userService.updateOne(updatedUser)
-        .then((updatedUser) => this.props.history.push("/myProfile"))
+        .then(() => this.props.history.push('/myprofile'))
         .catch(err => console.log(err))
     }
 

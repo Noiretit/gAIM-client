@@ -21,3 +21,6 @@
   float: left;
   display: block;
 }
+.container-navbar p {
+  margin-bottom: 0;
+}

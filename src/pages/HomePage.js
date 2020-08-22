@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
+import "../App.css";
 
 import Navbar from "../components/navbar/Navbar";
 

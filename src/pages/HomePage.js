@@ -133,6 +133,7 @@ class Home extends Component {
         />
       </Carousel.Item>
     ));
+    console.log(lastReleasedGames);
 
     //Renderisar top 10 selected genre
     const topGameSelectedGenre = topSelectedGenre.map((videoGame) => (

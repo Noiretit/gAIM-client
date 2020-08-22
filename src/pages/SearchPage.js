@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
+=======
+// import { Link } from "react-router-dom";
+>>>>>>> 4b01078cf8b33564606f303f5e28285c16a1e128
 import { withAuth } from "../lib/AuthProvider";
 
 import Navbar from "../components/navbar/Navbar";
@@ -107,21 +111,21 @@ class Profile extends Component {
 
   render() {
     //Renderisar todos los juegos
-    const allGames = this.state.videoGames.map((videoGame, index) => (
-      <div className="each-game" key={index}>
-        <div>
-          <img
-            className="image-games-homepage"
-            src={videoGame.background_image}
-            alt={videoGame.name}
-          />
-        </div>
+    // const allGames = this.state.videoGames.map((videoGame, index) => (
+    //   <div className="each-game" key={index}>
+    //     <div>
+    //       <img
+    //         className="image-games-homepage"
+    //         src={videoGame.background_image}
+    //         alt={videoGame.name}
+    //       />
+    //     </div>
 
-        <div>
-          <p>{videoGame.name}</p>
-        </div>
-      </div>
-    ));
+    //     <div>
+    //       <p>{videoGame.name}</p>
+    //     </div>
+    //   </div>
+    // ));
 
     return (
       <div>

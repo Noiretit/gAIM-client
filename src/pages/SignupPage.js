@@ -3,30 +3,54 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 
 class Signup extends Component {
-  state = { username: "", email: "", password: "", genre: "", picture: "" };
+  state = {
+    username: "",
+    email: "",
+    password: "",
+    genre: "",
+    gender: "female",
+    picture: "",
+  };
+
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { username, email, password, genre, picture } = this.state;
+    const { username, email, password, genre, gender, picture } = this.state;
     console.log("Signup -> form submit", {
       username,
       email,
       password,
       genre,
+      gender,
       picture,
     });
-    this.props.signup({ username, email, password, genre, picture });
+    this.props.signup({ username, email, password, genre, gender, picture });
   };
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
+  handleSelectedGender = (event) => {
+    this.setState({ gender: event.target.value });
+  };
+
   render() {
-    const { username, email, password, genre, picture } = this.state;
+    const { username, email, password, genre, gender, picture } = this.state;
     return (
       <div>
-        <img src="/images/logo-gAIM-negro-png.png" alt="logo" />{" "}
+        <img src="/images/logo-gAIM-negro-png.png" alt="logo" />
         <h1>Sign Up</h1>
         <form onSubmit={this.handleFormSubmit}>
+          <div>
+            <select name="gender" onChange={this.handleSelectedGender}>
+              <option defaultValue>Gender:</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="bottts">Robot</option>
+            </select>
+          </div>
+
           <label>Username*</label>
           <div>
             <input

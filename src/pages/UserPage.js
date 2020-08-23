@@ -37,19 +37,22 @@ class UserPage extends Component {
   render() {
     //console.log(this.state)
     const { logout } = this.props;
-    const { username, email, genre } = this.state;
+    const { username, email, genre, gender } = this.state;
     console.log(this.props.history);
 
     return (
       <div className="container-my-profile">
         <img
+          style={{ marginBottom: "1em" }}
           className="profile-pic"
-          src="../../images/logo-gAIM-negro-png.png"
+          src={`https://avatars.dicebear.com/v2/${gender}/${username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
           alt="profile-pic"
         ></img>
+
         <p>Username: {username}</p>
         <p>Email: {email}</p>
         <p>Prefered genre: {genre}</p>
+        <p>Gender: {gender}</p>
         <Link to={"/myprofile/edit"}>
           <button className="navbar-button">Edit</button>
         </Link>

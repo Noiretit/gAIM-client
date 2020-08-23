@@ -45,10 +45,10 @@ class AuthProvider extends React.Component {
   }
 
   signup = (user) => {
-    const { username, email, password, genre } = user;
+    const { username, email, password, genre, gender } = user;
 
     auth
-      .signup({ username, email, password, genre })
+      .signup({ username, email, password, genre, gender })
       .then((user) => this.setState({ isLoggedin: true, user }))
       .catch(({ response }) =>
         this.setState({ message: response.data.statusMessage })
@@ -88,6 +88,6 @@ class AuthProvider extends React.Component {
   }
 }
 
-export { Consumer, withAuth }; 
+export { Consumer, withAuth };
 
 export default AuthProvider;

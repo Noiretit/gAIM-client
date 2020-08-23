@@ -10,13 +10,13 @@ import HomePage from "./pages/HomePage";
 import UserPage from "./pages/UserPage";
 import SearchPage from "./pages/SearchPage";
 import MarketplacePage from "./pages/MarketplacePage";
+import AddGamePage from "./pages/AddGamePage";
 
 import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import EditUserPage from "./pages/EditUserPage";
-import ShowVideogame from './pages/showvideogame/ShowVideogame'
-
+import ShowVideogame from "./pages/showvideogame/ShowVideogame";
 
 class App extends Component {
   render() {
@@ -28,14 +28,31 @@ class App extends Component {
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
-            
+
             <PrivateRoute exact path="/private" component={Private} />
             <PrivateRoute exact path="/home" component={HomePage} />
             <PrivateRoute exact path="/myprofile" component={UserPage} />
-            <PrivateRoute exact path="/myprofile/edit" component={EditUserPage} />
+            <PrivateRoute
+              exact
+              path="/myprofile/edit"
+              component={EditUserPage}
+            />
             <PrivateRoute exact path="/videogames" component={SearchPage} />
-            <PrivateRoute exact path="/videogames/:id" component={ShowVideogame} />
-            <PrivateRoute exact path="/marketplace" component={MarketplacePage} />
+            <PrivateRoute
+              exact
+              path="/videogames/:id"
+              component={ShowVideogame}
+            />
+            <PrivateRoute
+              exact
+              path="/marketplace"
+              component={MarketplacePage}
+            />
+            <PrivateRoute
+              exact
+              path="/marketplace/add"
+              component={AddGamePage}
+            />
           </Switch>
         </div>
       </AuthProvider>

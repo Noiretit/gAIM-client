@@ -3,6 +3,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  transition: bottom 0.4s;
 }
 
 #container-button-add-game {

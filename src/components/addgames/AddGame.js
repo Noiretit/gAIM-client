@@ -34,7 +34,7 @@ class AddGame extends Component {
         />
         <div id="container-add-game">
           <div id="container-button-add-game">
-            <Link className="link-add-game" to={"/"}>
+            <Link className="link-add-game" to={"/marketplace/add"}>
               <img
                 style={{ width: "30px" }}
                 src={"../../images/plus-marketplace.svg"}

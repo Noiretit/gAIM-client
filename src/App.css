@@ -99,6 +99,9 @@ button.navbar-button {
   position: absolute;
   top: 1em;
   right: 1em;
+  padding: 0;
+  background: white;
+  border: none
 }
 
 .logout-icon {

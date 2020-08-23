@@ -15,6 +15,7 @@ import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import EditUserPage from "./pages/EditUserPage";
+import ShowVideogame from './pages/showvideogame/ShowVideogame'
 
 
 class App extends Component {
@@ -22,7 +23,7 @@ class App extends Component {
     return (
       //On englobe les composants qui auront accès aux informations de AuthProvider tels que Login, signup, user, logout, isLoogedin.
       <AuthProvider>
-        <div className="container">
+        <div>
           <Switch>
             <AnonRoute exact path="/" component={Home} />
             <AnonRoute exact path="/signup" component={Signup} />
@@ -33,6 +34,7 @@ class App extends Component {
             <PrivateRoute exact path="/myprofile" component={UserPage} />
             <PrivateRoute exact path="/myprofile/edit" component={EditUserPage} />
             <PrivateRoute exact path="/videogames" component={SearchPage} />
+            <PrivateRoute exact path="/videogames/:id" component={ShowVideogame} />
             <PrivateRoute exact path="/marketplace" component={MarketplacePage} />
           </Switch>
         </div>

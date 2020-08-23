@@ -3,20 +3,18 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import "./Navbar.css";
 
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("container-navbar").style.bottom = "0";
-  } else {
-    document.getElementById("container-navbar").style.bottom = "-78px";
-  }
-  prevScrollpos = currentScrollPos;
-};
-
 class Navbar extends Component {
   render() {
-    //const { user } = this.props;
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("container-navbar").style.bottom = "0";
+      } else {
+        document.getElementById("container-navbar").style.bottom = "-78px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
 
     return (
       <nav id="container-navbar" className="container-navbar">

@@ -3,23 +3,25 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import "./AddGame.css";
 
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("container-add-game").style.bottom = "0";
-    document.getElementById("container-button-add-game").style.marginBottom =
-      "0px";
-  } else {
-    document.getElementById("container-add-game").style.bottom = "-78px";
-    document.getElementById("container-button-add-game").style.marginBottom =
-      "10px";
-  }
-  prevScrollpos = currentScrollPos;
-};
-
 class AddGame extends Component {
   render() {
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("container-add-game").style.bottom = "0";
+        document.getElementById(
+          "container-button-add-game"
+        ).style.marginBottom = "0px";
+      } else {
+        document.getElementById("container-add-game").style.bottom = "-78px";
+        document.getElementById(
+          "container-button-add-game"
+        ).style.marginBottom = "10px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
+
     return (
       <div>
         <img

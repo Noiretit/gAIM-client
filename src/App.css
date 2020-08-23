@@ -4,8 +4,8 @@
 }
 
 body {
-  background-color: black!important;
-  color: white!important;
+  background-color: black !important;
+  color: white !important;
 }
 
 .App {
@@ -105,8 +105,8 @@ button.navbar-button {
   top: 1em;
   right: 1em;
   padding: 0;
-  background: white;
-  border: none
+  background-color: transparent;
+  border: none;
 }
 
 .logout-icon {

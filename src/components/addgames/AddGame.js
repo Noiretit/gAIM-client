@@ -17,62 +17,75 @@ window.onscroll = function () {
 class AddGame extends Component {
   render() {
     return (
-      <div id="container-add-game">
-        <Link className="link-add-game" to={"/"}>
-          <button className="add-game-marketplace">
-            <img
-              style={{ width: "30px" }}
-              src={"../../images/plus-marketplace.svg"}
-            />
-            <p style={{ color: "white", margin: 0 }}>Create an offer</p>
-          </button>
-        </Link>
-        <nav id="" className="navbar-add-game">
-          <div>
-            <Link to="/home">
+      <div>
+        <img
+          style={{ width: "100%" }}
+          src="../../../images/android-platform-full.svg"
+        />
+        <img
+          style={{ width: "100%" }}
+          src="../../../images/android-platform-full.svg"
+        />
+        <div id="container-add-game">
+          <div id="container-button-add-game">
+            <Link className="link-add-game" to={"/"}>
               <img
-                className="icons-navbar"
-                src={"../../images/favicon-aim-navbar.svg"}
-                alt="navbar-icon"
+                style={{ width: "30px" }}
+                src={"../../images/plus-marketplace.svg"}
               />
+              <p className="no-margin" style={{ color: "white" }}>
+                Create an offer
+              </p>
             </Link>
-            <p>Home</p>
           </div>
 
-          <div>
-            <Link to="/videogames">
-              <img
-                id="searchIcon"
-                className="icons-navbar"
-                src={"../../images/new-search-greyish.svg"}
-                alt="navbar-icon"
-              />
-            </Link>
-            <p>Search</p>
-          </div>
+          <nav id="" className="navbar-add-game">
+            <div>
+              <Link to="/home">
+                <img
+                  className="icons-navbar"
+                  src={"../../images/favicon-aim-navbar.svg"}
+                  alt="navbar-icon"
+                />
+              </Link>
+              <p className="no-margin">Home</p>
+            </div>
 
-          <div>
-            <Link to="/marketplace">
-              <img
-                className="icons-navbar"
-                src={"../../images/new-marketplace-greyish.svg"}
-                alt="navbar-icon"
-              />
-            </Link>
-            <p>Marketplace</p>
-          </div>
+            <div>
+              <Link to="/videogames">
+                <img
+                  id="searchIcon"
+                  className="icons-navbar"
+                  src={"../../images/new-search-greyish.svg"}
+                  alt="navbar-icon"
+                />
+              </Link>
+              <p className="no-margin">Search</p>
+            </div>
 
-          <div>
-            <Link to="/myprofile">
-              <img
-                className="icons-navbar"
-                src={"../../images/new-user-greyish.svg"}
-                alt="navbar-icon"
-              />
-            </Link>
-            <p>Profile</p>
-          </div>
-        </nav>
+            <div>
+              <Link to="/marketplace">
+                <img
+                  className="icons-navbar"
+                  src={"../../images/new-marketplace-greyish.svg"}
+                  alt="navbar-icon"
+                />
+              </Link>
+              <p className="no-margin">Marketplace</p>
+            </div>
+
+            <div>
+              <Link to="/myprofile">
+                <img
+                  className="icons-navbar"
+                  src={"../../images/new-user-greyish.svg"}
+                  alt="navbar-icon"
+                />
+              </Link>
+              <p className="no-margin">Profile</p>
+            </div>
+          </nav>
+        </div>
       </div>
     );
   }

@@ -67,7 +67,7 @@ class UserPage extends Component {
         <button className="logout-link" onClick={logout}>
           <img
             className="logout-icon"
-            src="../../images/logout-icon.svg"
+            src="../../images/logout-grey.svg"
             alt="Logout"
           />
         </button>

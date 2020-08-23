@@ -8,8 +8,12 @@ window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("container-add-game").style.bottom = "0";
+    document.getElementById("container-button-add-game").style.marginBottom =
+      "0px";
   } else {
     document.getElementById("container-add-game").style.bottom = "-78px";
+    document.getElementById("container-button-add-game").style.marginBottom =
+      "10px";
   }
   prevScrollpos = currentScrollPos;
 };

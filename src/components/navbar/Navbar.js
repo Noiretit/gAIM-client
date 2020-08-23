@@ -22,7 +22,7 @@ class Navbar extends Component {
           <Link to="/home">
             <img
               className="icons-navbar"
-              src={"../../images/favicon-aim-navbar.svg"}
+              src={"../../images/favicon-aim-navbar-grey.svg"}
               alt="navbar-icon"
             />
           </Link>

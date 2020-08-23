@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
+import '../App.css'
 
 class Signup extends Component {
   state = {
@@ -40,55 +41,59 @@ class Signup extends Component {
   }
 
   render() {
-    const { username, email, password, genre, gender, picture } = this.state;
+    // const { username, email, password, genre, gender, picture } = this.state;
+    const { username, email, password } = this.state;
+
     return (
       <div style={{textAlign: "center", marginTop: "3rem"}}>
         <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
         <h1 style={{marginTop: "1rem"}} >Sign Up</h1>
-        <hr/>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Gender:</label>
+          <label className="signup-label">Gender:</label>
           <div>
-            <select name="gender" onChange={this.handleSelectedGender}>
+            <select className="login-signup-inputs" style={{textAlignLast: "center"}} name="gender" onChange={this.handleSelectedGender}>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="bottts">Robot</option>
             </select>
           </div>
 
-          <label>Username*</label>
+          <label className="signup-label">Username*</label>
           <div>
             <input
               type="text"
               name="username"
+              className="login-signup-inputs"
               value={username}
               onChange={this.handleChange}
             />
           </div>
 
-          <label>Email*</label>
+          <label className="signup-label">Email*</label>
           <div>
             <input
               type="text"
               name="email"
+              className="login-signup-inputs"
               value={email}
               onChange={this.handleChange}
             />
           </div>
 
-          <label>Password*</label>
+          <label className="signup-label">Password*</label>
           <div>
             <input
               type="password"
               name="password"
+              className="login-signup-inputs"
               value={password}
               onChange={this.handleChange}
             />
           </div>
 
-          <label>Favorite genre*</label>
+          <label className="signup-label">Favorite genre*</label>
           <div>
-            <select name="genre" onChange={this.handleSelectedGenre}>
+            <select className="login-signup-inputs" style={{textAlignLast: "center"}} name="genre" onChange={this.handleSelectedGenre}>
             <option value="action">Action</option>
             <option value="adventure">Adventure</option>
             <option value="arcade">Arcade</option>
@@ -106,13 +111,11 @@ class Signup extends Component {
             <option value="strategy">Strategy</option>
             </select>
           </div>
-          <hr/>
           <div>
-            <input style={{padding: "0 0.5rem"}} type="submit" value="Signup" />
+            <input className="btn btn-danger start-btn" style={{marginTop: "2rem"}} type="submit" value="Signup" />
           </div>
         </form>
-        <hr/>
-        <p>
+        <p style={{marginTop: "0.5rem"}}>
           Already have account?
           <Link to={"/login"}> Login</Link>
         </p>

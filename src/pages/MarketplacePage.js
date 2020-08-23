@@ -10,6 +10,8 @@ function MarketplacePage() {
       <p>Sell your games</p>
 
       <AddGame />
+
+      <Navbar />
     </div>
   );
 }

@@ -41,6 +41,8 @@
 //     //     return [p[2],p[1],p[0] ].join("-")
 //     // }
 
+    
+
 
 //     render() {
 //         //Arrays con objetos anidados con objetos inaccesibles:
@@ -70,7 +72,7 @@
 //                      <p>Platforms: Xbox Series X, PC, PlayStation 5, PlayStation 4, PlayStation 3, Xbox 360, Xbox One</p>
 //                      <p>Genre: Action, Adventure</p>
 //                      <p>Developers: Rockstar North</p>
-//                      <p>Release date:</p>
+//                      <p>Release date: {released}</p>
 //                  </section>
 
 //                  <Navbar />

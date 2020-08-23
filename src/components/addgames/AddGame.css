@@ -27,6 +27,10 @@
   background-color: black;
 }
 
+.navbar-add-game div {
+  text-align: center;
+}
+
 .no-margin {
   margin: 0;
 }

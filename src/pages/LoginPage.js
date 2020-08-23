@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import '../App.css'
 
 class Login extends Component {
   state = { email: "", password: "" };
@@ -27,26 +28,27 @@ class Login extends Component {
         <hr/>
         <form onSubmit={this.handleFormSubmit}>
           <label>Email:</label>
-          <div>
+          <div style={{marginBottom: "0.5rem"}}>
             <input
               type="text"
               name="email"
               value={email}
+              className="login-signup-inputs"
               onChange={this.handleChange}
             />
           </div>
-          <hr/>
           <label>Password:</label>
           <div>
             <input
               type="password"
               name="password"
               value={password}
+              className="login-signup-inputs"
               onChange={this.handleChange}
             />
           </div>
           <br />
-          <input style={{padding: "0 0.5rem"}} type="submit" value="Login" />
+          <input style={{marginTop: "0.5rem"}} className="btn btn-danger start-btn" type="submit" value="Login" />
           <hr/>
           <p>
             Don't have an account yet? <Link to={"/signup"}>Sign up</Link>

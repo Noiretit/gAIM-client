@@ -27,10 +27,12 @@ class AddGame extends Component {
         <img
           style={{ width: "100%" }}
           src="../../../images/android-platform-full.svg"
+          alt="navbar-icon"
         />
         <img
           style={{ width: "100%" }}
           src="../../../images/android-platform-full.svg"
+          alt="navbar-icon"
         />
         <div id="container-add-game">
           <div id="container-button-add-game">
@@ -38,6 +40,7 @@ class AddGame extends Component {
               <img
                 style={{ width: "30px" }}
                 src={"../../images/plus-marketplace.svg"}
+                alt="navbar-icon"
               />
               <p className="no-margin" style={{ color: "white" }}>
                 Create an offer
@@ -45,12 +48,12 @@ class AddGame extends Component {
             </Link>
           </div>
 
-          <nav id="" className="navbar-add-game">
+          <nav className="navbar-add-game">
             <div>
               <Link to="/home">
                 <img
                   className="icons-navbar"
-                  src={"../../images/favicon-aim-navbar.svg"}
+                  src={"../../images/favicon-aim-navbar-grey.svg"}
                   alt="navbar-icon"
                 />
               </Link>

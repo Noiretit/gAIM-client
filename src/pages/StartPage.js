@@ -1,19 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../App.css'
 
 function StartPage() {
   return (
     <div style={{textAlign: "center", paddingTop: "6rem"}}>
       <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
-      <div style={{paddingTop: "5rem"}}>
-        <h1>Home Page</h1>
-        <p>Bienvenido en la Home</p>
-        <Link to={"/login"}>
-          <button className="navbar-button">Login</button>
-        </Link>
-        <Link to={"/signup"}>
-          <button className="navbar-button">Sign up</button>
-        </Link>
+      <div style={{paddingTop: "3rem"}}>
+        <h3>Your videogame<br/> tracking tool</h3>
+        <hr/>
+        <hr/>
+        <div>
+          <Link to={"/login"}>
+            <button className="btn btn-danger start-btn">Login</button>
+          </Link>
+        </div>
+        <hr/>
+        <div>
+          <Link to={"/signup"}>
+            <button className="btn btn-danger start-btn">Sign up</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

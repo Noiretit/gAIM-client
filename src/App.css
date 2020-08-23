@@ -19,15 +19,45 @@ button.navbar-button {
   margin: 0 10px;
 }
 
+.start-btn {
+  width: 10rem;
+}
+
 #home-btn {
   color: white;
   text-decoration: none;
 }
+/* LOGIN & SIGNUP */
+.login-signup-inputs {
+  background-color: #C8C8C8;
+  border-radius: 7px;
+}
+
+.signup-label {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 
 /* HOMEPAGE */
 .carousel-item {
   height: 172.5px;
   overflow: hidden;
+}
+
+.home-select {
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.logo-home {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.home-section {
+  margin-bottom: 1rem;
 }
 
 /* SEARCH PAGE */

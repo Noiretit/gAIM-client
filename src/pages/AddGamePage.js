@@ -9,7 +9,9 @@ class AddGamePage extends Component {
   };
 
   render() {
-    const { platform, price } = this.state;
+    // const { platform, price } = this.state;
+    const {price} = this.state;
+    
     return (
       <div>
         <p>Create an offer here</p>

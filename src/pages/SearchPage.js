@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-=======
-
-// import { Link } from "react-router-dom";
->>>>>>> 734682a8c27e600013e592adefe930e6d75ab0ef
 import { withAuth } from "../lib/AuthProvider";
 import {Link} from 'react-router-dom'
 

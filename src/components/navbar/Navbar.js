@@ -36,7 +36,7 @@ class Navbar extends Component {
             <img
               id="searchIcon"
               className="icons-navbar"
-              src={"../../images/search-navbar.svg"}
+              src={"../../images/new-search-greyish.svg"}
               alt="navbar-icon"
             />
           </Link>
@@ -47,7 +47,7 @@ class Navbar extends Component {
           <Link to="/marketplace">
             <img
               className="icons-navbar"
-              src={"../../images/marketplace-navbar.svg"}
+              src={"../../images/new-marketplace-greyish.svg"}
               alt="navbar-icon"
             />
           </Link>
@@ -58,7 +58,7 @@ class Navbar extends Component {
           <Link to="/myprofile">
             <img
               className="icons-navbar"
-              src={"../../images/profile-navbar.svg"}
+              src={"../../images/new-user-greyish.svg"}
               alt="navbar-icon"
             />
           </Link>

@@ -9,7 +9,19 @@ let avatars = new Avatars(sprites);
 let svg = avatars.create("custom-seed");
 
 class Private extends Component {
+  state = { username: "", gender: "female" };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleSelectedGender = (event) => {
+    this.setState({ gender: event.target.value });
+  };
+
   render() {
+    const { username, gender } = this.state;
     const { logout } = this.props;
     return (
       <div>
@@ -20,16 +32,34 @@ class Private extends Component {
           Logout
         </button>
 
+        <div>
+          <select name="year" onChange={this.handleSelectedGender}>
+            <option>Gender:</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+        <div>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={this.handleChange}
+          />
+        </div>
+
         <div className="container mt-5 mb-5">
           <div className="row">
             <div className="col-md-3">
               <div className="card">
                 <img
+                  style={{ borderRadius: "50%" }}
                   className="card-img-top"
-                  src="https://avatars.dicebear.com/v2/identicon/tediro.svg?options[padding]=0.4&options[background]=%2300ff99"
+                  src={`https://avatars.dicebear.com/v2/${gender}/${username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
                 />
                 <div className="card-body text-center">
-                  <h3 className="card-title">Tedir</h3>
+                  <h3 className="card-title">{username}</h3>
                 </div>
               </div>
             </div>

@@ -11,12 +11,13 @@ import UserPage from "./pages/UserPage";
 import SearchPage from "./pages/SearchPage";
 import MarketplacePage from "./pages/MarketplacePage";
 import AddGamePage from "./pages/AddGamePage";
+import EditUserPage from "./pages/EditUserPage";
+import ShowVideogame from "./pages/showvideogame/ShowVideogame";
+import SellThisGame from "./pages/SellThisGamePage";
 
 import AuthProvider from "./lib/AuthProvider";
 import AnonRoute from "./components/AnonRoute";
 import PrivateRoute from "./components/PrivateRoute";
-import EditUserPage from "./pages/EditUserPage";
-import ShowVideogame from "./pages/showvideogame/ShowVideogame";
 
 class App extends Component {
   render() {
@@ -38,20 +39,29 @@ class App extends Component {
               component={EditUserPage}
             />
             <PrivateRoute exact path="/videogames" component={SearchPage} />
+
             <PrivateRoute
               exact
               path="/videogames/:id"
               component={ShowVideogame}
             />
+
             <PrivateRoute
               exact
               path="/marketplace"
               component={MarketplacePage}
             />
+
             <PrivateRoute
               exact
               path="/marketplace/add"
               component={AddGamePage}
+            />
+
+            <PrivateRoute
+              exact
+              path="/marketplace/add/:id"
+              component={SellThisGame}
             />
           </Switch>
         </div>

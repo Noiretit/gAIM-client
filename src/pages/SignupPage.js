@@ -7,8 +7,8 @@ class Signup extends Component {
     username: "",
     email: "",
     password: "",
-    genre: "",
-    gender: "female",
+    genre: "action",
+    gender: "male",
     picture: "",
   };
 
@@ -35,16 +35,21 @@ class Signup extends Component {
     this.setState({ gender: event.target.value });
   };
 
+  handleSelectedGenre = (event) => {
+    this.setState({genre: event.target.value });
+  }
+
   render() {
     const { username, email, password, genre, gender, picture } = this.state;
     return (
-      <div>
-        <img src="/images/logo-gAIM-negro-png.png" alt="logo" />
-        <h1>Sign Up</h1>
+      <div style={{textAlign: "center", marginTop: "3rem"}}>
+        <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
+        <h1 style={{marginTop: "1rem"}} >Sign Up</h1>
+        <hr/>
         <form onSubmit={this.handleFormSubmit}>
+          <label>Gender:</label>
           <div>
             <select name="gender" onChange={this.handleSelectedGender}>
-              <option defaultValue>Gender:</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="bottts">Robot</option>
@@ -83,19 +88,30 @@ class Signup extends Component {
 
           <label>Favorite genre*</label>
           <div>
-            <input
-              type="text"
-              name="genre"
-              value={genre}
-              onChange={this.handleChange}
-            />
+            <select name="genre" onChange={this.handleSelectedGenre}>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="arcade">Arcade</option>
+            <option value="casual">Casual</option>
+            <option value="family">Family</option>
+            <option value="fighting">Fighting</option>
+            <option value="indie">Indie</option>
+            <option value="massively-multiplayer">Massively Multiplayer</option>
+            <option value="platformer">Platformer</option>
+            <option value="puzzle">Puzzle</option>
+            <option value="racing">Racing</option>
+            <option value="role-playing-games-rpg">RPG</option>
+            <option value="simulation">Simulation</option>
+            <option value="sports">Sports</option>
+            <option value="strategy">Strategy</option>
+            </select>
           </div>
-
-          <br />
+          <hr/>
           <div>
-            <input type="submit" value="Signup" />
+            <input style={{padding: "0 0.5rem"}} type="submit" value="Signup" />
           </div>
         </form>
+        <hr/>
         <p>
           Already have account?
           <Link to={"/login"}> Login</Link>

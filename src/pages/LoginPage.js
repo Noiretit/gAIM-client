@@ -20,9 +20,11 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div>
-        <img src="/images/logo-gAIM-negro-png.png" alt="logo"/>
+      <div style={{textAlign: "center", marginTop: "3rem"}}>
+        <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
+        <hr/>
         <h1>Login</h1>
+        <hr/>
         <form onSubmit={this.handleFormSubmit}>
           <label>Email:</label>
           <div>
@@ -33,6 +35,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <hr/>
           <label>Password:</label>
           <div>
             <input
@@ -43,7 +46,8 @@ class Login extends Component {
             />
           </div>
           <br />
-          <input type="submit" value="Login" />
+          <input style={{padding: "0 0.5rem"}} type="submit" value="Login" />
+          <hr/>
           <p>
             Don't have an account yet? <Link to={"/signup"}>Sign up</Link>
           </p>

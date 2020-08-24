@@ -11,14 +11,19 @@ import "./ShowVideogame.css";
 import axios from "axios";
 
 class ShowVideogame extends Component {
-  state = {};
+  state = {
+    review: "",
+  };
 
   componentDidMount() {
     this.getOneVideogame();
+    this.getVideogameReviews();
   }
 
   componentDidUpdate() {
-    // console.log(this.state)
+    console.log(this.state)
+    // console.log(this.props)
+    // console.log(this.props.user._id)
   }
 
   getOneVideogame = () => {
@@ -29,7 +34,7 @@ class ShowVideogame extends Component {
         const oneGame = gameObj.data;
         // const oneGame = gameObj.data.platforms[0].platform.name;
 
-        console.log(oneGame);
+        // console.log(this.state);
         this.setState(oneGame);
       })
       .catch((err) =>
@@ -39,6 +44,34 @@ class ShowVideogame extends Component {
         )
       );
   };
+
+  getVideogameReviews = () => {
+    const videogameId = this.state.id
+
+    axios.get(`http://localhost:4000/api/review`)
+    .then(response => {
+      console.log(response)
+    })
+    .catch((err) => console.log('Error while gathering ALL reviews in FRONT, getVideogameRewviews at ShowVideogame.js', err))
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    const {review} = this.state;
+    console.log(review)
+    const videogameId = this.state.id
+    const user = this.props.user._id
+    
+    axios
+    .post('http://localhost:4000/api/review', {review, videogameId, user})
+    .then(({ data }) => data)
+    .catch((err) => console.log('Error while creating a review', err))
+  }
 
   // convertDate = (dateString) => {
   //     var p = dateString.split(/\D/g)
@@ -64,8 +97,11 @@ class ShowVideogame extends Component {
       genres,
       developers,
       released,
+      review,
     } = this.state;
-    // console.log(this.state)
+
+    const parentPlatformsNames = parent_platforms ? (parent_platforms.map((platform, index) => 
+      { return <p key={index}>{platform.platform.name}</p>})) : null;
 
     return (
       <div>
@@ -79,13 +115,28 @@ class ShowVideogame extends Component {
         <section>{description_raw}</section>
         <hr />
         <section>
-          <p>
-            Platforms: Xbox Series X, PC, PlayStation 5, PlayStation 4,
-            PlayStation 3, Xbox 360, Xbox One
-          </p>
+          <span>
+            Platforms: {parentPlatformsNames}
+          </span>
           <p>Genre: Action, Adventure</p>
           <p>Developers: Rockstar North</p>
-          <p>Release date:</p>
+          <p>Release date: </p>
+        </section>
+        <section>
+          <p>Add a review</p>
+          <form onSubmit={this.handleFormSubmit}>
+            <div>
+              <label>Comment:</label>
+              <textarea 
+              type="text"
+              name="review"
+              value={review}
+              onChange={this.handleChange}></textarea>
+            </div>
+            <div>
+              <input type="submit" value="Create review"/>
+            </div>
+          </form>
         </section>
 
         <Navbar />

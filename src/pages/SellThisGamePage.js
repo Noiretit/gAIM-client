@@ -40,14 +40,19 @@ class ShowVideogame extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
 
-    const { price, childrenPlatform, id } = this.state;
+    const { price, childrenPlatform } = this.state;
+    const videoGameId = this.state.id;
+    const videoGameName = this.state.name;
+    const videoGamePic = this.state.background_image;
     const user = this.props.user._id;
 
     axios
       .post("http://localhost:4000/api/offer", {
         price,
         childrenPlatform,
-        id,
+        videoGameId,
+        videoGameName,
+        videoGamePic,
         user,
       })
       .then(({ data }) => data)
@@ -217,14 +222,13 @@ class ShowVideogame extends Component {
             </select>
           </div>
 
-          <Link to={"/marketplace/add"}>
-            <input
-              className="btn btn-danger start-btn"
-              style={{ marginTop: "2rem" }}
-              type="submit"
-              value="Sell it"
-            />
-          </Link>
+          <button
+            className="btn btn-danger start-btn"
+            style={{ marginTop: "2rem" }}
+            type="submit"
+          >
+            Sell it
+          </button>
         </form>
 
         <Navbar />

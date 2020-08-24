@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar/Navbar";
+import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import AddGame from "../components/addgames/AddGame";
 import axios from "axios";
-
 class MarketplacePage extends Component {
   state = {
     offersToShow: [],
@@ -29,20 +29,25 @@ class MarketplacePage extends Component {
       <div>
         <h1>MARKETPLACE</h1>
         <p>Sell your games</p>
-
         {offersToShow.map((offer) => {
           return (
             <div className="offersToShow" key={offer._id}>
+              <img
+                className="img-games-marketplace"
+                src={offer.videoGamePic}
+                alt={offer.videoGameName}
+              />
+              <p>{offer.videoGameName}</p>
               <p>{offer.childrenPlatform}</p>
               <p>{offer.price}</p>
+
+              <Link to={`/videogames/${offer.videoGameId}`}>Details</Link>
             </div>
           );
         })}
-
         <AddGame />
       </div>
     );
   }
 }
-
 export default withAuth(MarketplacePage);

@@ -15,7 +15,6 @@ class ShowVideogame extends Component {
       .get(`https://api.rawg.io/api/games/${id}`)
       .then((gameObj) => {
         const oneGame = gameObj.data;
-        // const oneGame = gameObj.data.platforms[0].platform.name;
 
         console.log(oneGame);
         this.setState(oneGame);
@@ -56,6 +55,8 @@ class ShowVideogame extends Component {
         <div>
           <input type="text" placeholder="25€" />
         </div>
+
+        <button type="submit">Sell !</button>
 
         <Navbar />
       </div>

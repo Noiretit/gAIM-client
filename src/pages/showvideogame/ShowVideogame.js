@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import authService from "../../lib/auth-service";
 import userService from "../../lib/user-service";
+import { Link } from "react-router-dom";
 
 import { withAuth } from "../../lib/AuthProvider";
 
@@ -13,7 +14,7 @@ import axios from "axios";
 class ShowVideogame extends Component {
   state = {
     review: "",
-    thisGameReviewsArray: []
+    thisGameReviewsArray: [],
   };
 
   componentDidMount() {
@@ -22,7 +23,7 @@ class ShowVideogame extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.thisGameReviewsArray)
+    console.log(this.state);
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
@@ -47,19 +48,26 @@ class ShowVideogame extends Component {
   };
 
   getVideogameReviews = () => {
-    const thisVideogameId = this.props.match.params.id //ID del videojuego
+    const thisVideogameId = this.props.match.params.id; //ID del videojuego
 
-    axios.get(`http://localhost:4000/api/review`)
-    .then(response => {
-      const AllReviews = response.data
-      const thisGameReviews = AllReviews
-      .filter(eachReview => eachReview.videogameId.includes(thisVideogameId))
+    axios
+      .get(`http://localhost:4000/api/review`)
+      .then((response) => {
+        const AllReviews = response.data;
+        const thisGameReviews = AllReviews.filter((eachReview) =>
+          eachReview.videogameId.includes(thisVideogameId)
+        );
 
-      // console.log(thisGameReviews)
+        // console.log(thisGameReviews)
 
-      this.setState({thisGameReviewsArray: thisGameReviews})
-    })
-    .catch((err) => console.log('Error while gathering ALL reviews in FRONT, getVideogameRewviews at ShowVideogame.js', err))
+        this.setState({ thisGameReviewsArray: thisGameReviews });
+      })
+      .catch((err) =>
+        console.log(
+          "Error while gathering ALL reviews in FRONT, getVideogameRewviews at ShowVideogame.js",
+          err
+        )
+      );
   };
 
   handleChange = (event) => {
@@ -69,16 +77,16 @@ class ShowVideogame extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const {review} = this.state;
-    console.log(review)
-    const videogameId = this.state.id
-    const user = this.props.user._id
-    
+    const { review } = this.state;
+    console.log(review);
+    const videogameId = this.state.id;
+    const user = this.props.user._id;
+
     axios
-    .post('http://localhost:4000/api/review', {review, videogameId, user})
-    .then(({ data }) => data)
-    .catch((err) => console.log('Error while creating a review', err))
-  }
+      .post("http://localhost:4000/api/review", { review, videogameId, user })
+      .then(({ data }) => data)
+      .catch((err) => console.log("Error while creating a review", err));
+  };
 
   render() {
     //Arrays con objetos anidados con objetos inaccesibles:
@@ -100,11 +108,15 @@ class ShowVideogame extends Component {
       developers,
       released,
       review,
-      thisGameReviewsArray
+      thisGameReviewsArray,
+      id,
     } = this.state;
 
-    const parentPlatformsNames = parent_platforms ? (parent_platforms.map((platform, index) => 
-      { return <p key={index}>{platform.platform.name}</p>})) : null;
+    const parentPlatformsNames = parent_platforms
+      ? parent_platforms.map((platform, index) => {
+          return <p key={index}>{platform.platform.name}</p>;
+        })
+      : null;
 
     return (
       <div>
@@ -118,51 +130,51 @@ class ShowVideogame extends Component {
         <section>{description_raw}</section>
         <hr />
         <section>
-          <span>
-            Platforms: {parentPlatformsNames}
-          </span>
+          <span>Platforms: {parentPlatformsNames}</span>
           <p>Genre: Action, Adventure</p>
           <p>Developers: Rockstar North</p>
           <p>Release date: </p>
         </section>
         <section>
-        <hr style={{backgroundColor: "white"}} />
+          <hr style={{ backgroundColor: "white" }} />
+          <Link to={`/marketplace/add/${id}`}>Sell this</Link>
           <p>Add a review</p>
           <form onSubmit={this.handleFormSubmit}>
             <div>
               <label>Comment:</label>
-              <textarea 
-              type="text"
-              name="review"
-              value={review}
-              onChange={this.handleChange}></textarea>
+              <textarea
+                type="text"
+                name="review"
+                value={review}
+                onChange={this.handleChange}
+              ></textarea>
             </div>
             <div>
-              <input type="submit" value="Create review"/>
+              <input type="submit" value="Create review" />
             </div>
           </form>
-          <hr style={{backgroundColor: "white"}} />
+          <hr style={{ backgroundColor: "white" }} />
         </section>
         <section className="reviews-section">
           {thisGameReviewsArray.map((reviewObj) => {
             return (
               <div className="review-container" key={reviewObj._id}>
-                <div className="profile-pic-container" >
+                <div className="profile-pic-container">
                   <img
-                        style={{ marginBottom: "1em" }}
-                        className="profile-pic-videogame-details"
-                        src={`https://avatars.dicebear.com/v2/${reviewObj.user.gender}/${reviewObj.user.username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
-                        alt="profile-pic"/>
+                    style={{ marginBottom: "1em" }}
+                    className="profile-pic-videogame-details"
+                    src={`https://avatars.dicebear.com/v2/${reviewObj.user.gender}/${reviewObj.user.username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
+                    alt="profile-pic"
+                  />
                 </div>
-                <div style={{padding: "0 1rem"}}>
+                <div style={{ padding: "0 1rem" }}>
                   <p>{reviewObj.user.username} wrote:</p>
                   <p>{reviewObj.review}</p>
                 </div>
               </div>
-            )
+            );
           })}
         </section>
-        
 
         <Navbar />
       </div>

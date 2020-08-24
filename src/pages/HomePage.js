@@ -160,7 +160,7 @@ class Home extends Component {
       <div>
         {/* <Link to={"/private"}>Private</Link> */}
         <div className="logo-home">
-          <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
+          <img src="/images/Group.svg" alt="logo" />
         </div>
         {/* LAST RELEASED */}
         <section className="home-section">

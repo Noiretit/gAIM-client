@@ -31,7 +31,12 @@ class MarketplacePage extends Component {
         <p>Sell your games</p>
 
         {offersToShow.map((offer) => {
-          return <p>{offer.price}</p>;
+          return (
+            <div className="offersToShow" key={offer._id}>
+              <p>{offer.childrenPlatform}</p>
+              <p>{offer.price}</p>
+            </div>
+          );
         })}
 
         <AddGame />

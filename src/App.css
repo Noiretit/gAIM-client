@@ -106,6 +106,11 @@ button.navbar-button {
   align-items: center;
 }
 
+/*MARKETPLACE*/
+.offersToShow {
+  border: 1px solid white;
+}
+
 /*ADD GAME PAGE*/
 .suggestion {
   padding-left: 2px;
@@ -177,7 +182,7 @@ button.navbar-button {
 
 /* VIDEOGAME DETAILS */
 
-.reviews-section{
+.reviews-section {
   margin-bottom: 4rem;
 }
 

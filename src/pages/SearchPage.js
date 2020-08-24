@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 import Navbar from "../components/navbar/Navbar";
 import SearchBar from "../components/searchbar/SearchBar";
@@ -114,12 +116,13 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <h1>VIDEO GAMES</h1>
-        <p>Look for all the games you want</p>
+        <div className="logo-home">
+          <img src="/images/Group.svg" alt="logo" />
+        </div>
 
         <div className="header" id="myHeader">
           {/* SEARCH BAR */}
-          <h2>Search:</h2>
+          <h2><span role="img" aria-label="emoji">🕵🏻‍♀️ </span>Search<span role="img" aria-label="emoji"> 🕵🏻‍♂️</span></h2>
           <SearchBar filterGames={this.filterGames} />
 
           {/* FILTER BUTTONS */}
@@ -236,20 +239,19 @@ class Profile extends Component {
           </div>
         </div>
 
+
         {/* ALL GAMES */}
-        <div className="content">
-          <main>
+        <div id="all-cards">
+          <main id="each-card">
             {this.state.videoGamesToShow.map((gameObj) => {
               return (
-                <div className="container-all-games" key={gameObj.id}>
-                  <img
-                    style={{ width: "100%", height: "75%" }}
-                    src={gameObj.background_image}
-                    alt={gameObj.name}
-                  />
-                  <p>{gameObj.name}</p>
-                  <Link to={`/videogames/${gameObj.id}`}>See more</Link>
-                </div>
+                <Card key={gameObj.id}>
+                  <Card.Img variant="top" src={gameObj.background_image} alt={gameObj.name}/>
+                  <Card.Body>
+                  <Card.Title>{gameObj.name}</Card.Title>
+                  <Link to={`/videogames/${gameObj.id}`}><Button variant="danger">See more</Button></Link>
+                  </Card.Body>
+              </Card>
               );
             })}
           </main>

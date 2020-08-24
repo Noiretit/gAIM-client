@@ -3,9 +3,12 @@
   padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 body {
-  background-color: black !important;
+  background-color: rgba(0, 0, 0, 0.932) !important;
   color: white !important;
+  font-family: 'Rubik';
 }
 
 .App {
@@ -27,6 +30,7 @@ button.navbar-button {
   color: white;
   text-decoration: none;
 }
+
 /* LOGIN & SIGNUP */
 .login-signup-inputs {
   background-color: #c8c8c8;
@@ -46,20 +50,89 @@ button.navbar-button {
 
 .home-select {
   border: none;
-  background-color: black;
   color: white;
 }
 
 .logo-home {
   text-align: center;
-  margin: 2rem 0;
+  margin: 2rem 0 0 0;
+}
+
+.logo-home img {
+  width: 4rem;
 }
 
 .home-section {
-  margin-bottom: 1rem;
+  margin: 3rem 1rem;
 }
 
+.home-section select {
+  background-color: transparent;
+  text-align-last: center;
+  /* width: 150px;
+  margin: 10px; */
+}
+
+/* .home-section select:focus {
+  min-width: 150px;
+  width: auto;
+} */
+
+.home-section h2 {
+  background-color: rgb(70, 67, 67);
+  padding: 0.3rem 0.7rem;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  text-align-last: center;
+  margin-bottom: 0;
+}
+
+
+
+/* Darkens Home img */
+.d-block {
+  opacity: 0.6;
+}
+
+/* Lightens up Home img when hovered */
+.d-block:hover {
+  opacity: 1;
+}
+
+.carousel-inner {
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+
+
+
 /* SEARCH PAGE */
+
+.header {
+  width: 90%;
+  text-align: center;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.header span {
+  font-size: 3rem;
+}
+
+#all-cards {
+  display: block;
+  text-align: -webkit-center;
+}
+
+#each-card .card {
+  background-color: rgb(37, 36, 36);
+  margin: 2rem 0;
+  width: 90%;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
 #container-search-buttons {
   display: flex;
 }
@@ -195,6 +268,7 @@ button.navbar-button {
   margin-top: auto;
   margin-bottom: auto;
 }
+
 .profile-pic-videogame-details {
   width: 4rem;
   height: 4rem;

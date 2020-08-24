@@ -137,7 +137,7 @@ class ShowVideogame extends Component {
         </section>
         <section>
           <hr style={{ backgroundColor: "white" }} />
-          <Link to={`/marketplace/add/${id}`}>Sell this</Link>
+          <Link to={`/marketplace/add/${id}`}>Sell this game</Link>
           <p>Add a review</p>
           <form onSubmit={this.handleFormSubmit}>
             <div>

@@ -14,6 +14,10 @@ class ShowVideogame extends Component {
   componentDidMount() {
     this.getOneVideogame();
   }
+  componentDidUpdate() {
+    console.log(this.state)
+    console.log(this.props.user._id)
+  }
 
   getOneVideogame = () => {
     const { id } = this.props.match.params;
@@ -40,14 +44,16 @@ class ShowVideogame extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
 
-    const { price, childrenPlatform, id } = this.state;
+    const { price, childrenPlatform } = this.state;
+    const videoGameId = this.state.id
     const user = this.props.user._id;
+    
 
     axios
       .post("http://localhost:4000/api/offer", {
         price,
         childrenPlatform,
-        id,
+        videoGameId,
         user,
       })
       .then(({ data }) => data)
@@ -72,6 +78,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/playstation-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "Xbox") {
@@ -80,6 +87,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/xbox-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "PC") {
@@ -88,6 +96,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/pc-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "Nintendo") {
@@ -96,6 +105,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/nintendo-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "Apple Macintosh") {
@@ -104,6 +114,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/apple-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "iOS") {
@@ -112,6 +123,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/apple-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "Android") {
@@ -120,6 +132,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/android-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "Linux") {
@@ -128,6 +141,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/linux-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "Web") {
@@ -136,6 +150,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/web-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "SEGA") {
@@ -144,6 +159,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/sega-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else if (platform.platform.name === "Atari") {
@@ -152,6 +168,7 @@ class ShowVideogame extends Component {
                 key={index}
                 className="platform-icon"
                 src="../../images/atari-platform-white.svg"
+                alt="platform-icon"
               />
             );
           } else {
@@ -217,14 +234,14 @@ class ShowVideogame extends Component {
             </select>
           </div>
 
-          <Link to={"/marketplace/add"}>
+          
             <input
               className="btn btn-danger start-btn"
               style={{ marginTop: "2rem" }}
               type="submit"
               value="Sell it"
             />
-          </Link>
+          
         </form>
 
         <Navbar />

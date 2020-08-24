@@ -3,19 +3,13 @@
   padding: 0;
 }
 
+body {
+  background-color: black !important;
+  color: white !important;
+}
+
 .App {
   padding: 20px;
-}
-
-nav.navbar {
-  display: flex;
-  padding: 20px;
-  background: #686de0;
-}
-
-nav.navbar .navbar-user {
-  margin-left: 10px;
-  color: white;
 }
 
 button.navbar-button {
@@ -25,9 +19,72 @@ button.navbar-button {
   margin: 0 10px;
 }
 
+.start-btn {
+  width: 10rem;
+}
+
 #home-btn {
   color: white;
   text-decoration: none;
+}
+/* LOGIN & SIGNUP */
+.login-signup-inputs {
+  background-color: #C8C8C8;
+  border-radius: 7px;
+}
+
+.signup-label {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+
+/* HOMEPAGE */
+.carousel-item {
+  height: 172.5px;
+  overflow: hidden;
+}
+
+.home-select {
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.logo-home {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.home-section {
+  margin-bottom: 1rem;
+}
+
+/* SEARCH PAGE */
+#container-search-buttons {
+  display: flex;
+}
+
+.div-year-genre {
+  width: 50%;
+}
+
+.year-and-genre {
+  width: 100%;
+  border-radius: 10px;
+  height: 6vh;
+  padding: 0.5em;
+}
+
+.platform-input {
+  width: 100%;
+  border-radius: 10px;
+  height: 6vh;
+  padding: 0.5em;
+}
+
+.platform-input-selected {
+  color: red;
 }
 
 .image-games-homepage {
@@ -36,9 +93,11 @@ button.navbar-button {
 }
 
 .container-all-games {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  height: 250px;
+  margin: 1em 0;
+  border: 1px solid;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .each-game {
@@ -46,4 +105,68 @@ button.navbar-button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/*ADD GAME PAGE*/
+.suggestion {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.suggestion:hover {
+  background-color: #adf;
+  cursor: pointer;
+}
+
+#suggestions {
+  position: absolute;
+  border: 1px solid black;
+  left: 171px;
+}
+
+/*MY PROFILE*/
+.container-my-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 88vh;
+}
+
+.profile-pic {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 150px;
+  border: 2px solid;
+  margin-top: 1rem;
+}
+
+.separation-line {
+  width: 90%;
+  border: 1px solid white;
+  margin: 1em;
+}
+
+.logout-link {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.logout-icon {
+  width: 40px;
+}
+
+#buttons-my-profile {
+  display: flex;
+}
+
+.buttons-my-profile {
+  padding: 5px 0px;
+  width: 100px;
+  border-radius: 3px;
+  margin: 0 7px;
 }

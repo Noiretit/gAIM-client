@@ -1,0 +1,36 @@
+#container-add-game {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: bottom 0.4s;
+}
+
+#container-button-add-game {
+  border: 2px solid #564d4d;
+  width: 148px;
+  padding: 0.2em 1em;
+  border-radius: 15px;
+  margin: auto;
+  background-color: black;
+}
+
+.link-add-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-add-game {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+}
+
+.navbar-add-game div {
+  text-align: center;
+}
+
+.no-margin {
+  margin: 0;
+}

@@ -62,7 +62,7 @@ This app is a tracking tool for the latest and trendiest videogames by using pre
 | `/videogames`      | VideogamesList | user `<PrivateRoute>`   | Show all videogames in la list                             |
 | `/videogames/:id`  | ShowVideogame  | user `<PrivateRoute>`   | Show details of a video game                               |
 | `/myprofile`       | UserPage       | user `<PrivateRoute>`   | Show user's profile                                        |
-| `/myprofile/edit`  | EditUserCard   | user `<PrivateRoute>`   | Edit user's profile                                        |
+| `/myprofile/edit`  | EditUserPage   | user `<PrivateRoute>`   | Edit user's profile                                        |
 | `/marketplace`     | OffersList     | user `<PrivateRoute>`   | Show all videogame offers to buy                           |
 | `/marketplace/add` | CreateOffer    | user `<PrivateRoute>`   | Add a new videogame offer                                  |
 

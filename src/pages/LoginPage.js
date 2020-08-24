@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import '../App.css'
 
 class Login extends Component {
-  state = { username: "", password: "" };
+  state = { email: "", password: "" };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const { username, password } = this.state;
-    console.log("Login -> form submit", { username, password });
-    this.props.login({ username, password });
+    const { email, password } = this.state;
+    //console.log("Login -> form submit", { email, password });
+    this.props.login({ email, password });
   };
 
   handleChange = (event) => {
@@ -18,18 +19,21 @@ class Login extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     return (
-      <div>
-        <img src="/images/logo-gAIM-negro-png.png" alt="logo"/>
+      <div style={{textAlign: "center", marginTop: "3rem"}}>
+        <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
+        <hr/>
         <h1>Login</h1>
+        <hr/>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <div>
+          <label>Email:</label>
+          <div style={{marginBottom: "0.5rem"}}>
             <input
               type="text"
-              name="username"
-              value={username}
+              name="email"
+              value={email}
+              className="login-signup-inputs"
               onChange={this.handleChange}
             />
           </div>
@@ -39,11 +43,13 @@ class Login extends Component {
               type="password"
               name="password"
               value={password}
+              className="login-signup-inputs"
               onChange={this.handleChange}
             />
           </div>
           <br />
-          <input type="submit" value="Login" />
+          <input style={{marginTop: "0.5rem"}} className="btn btn-danger start-btn" type="submit" value="Login" />
+          <hr/>
           <p>
             Don't have an account yet? <Link to={"/signup"}>Sign up</Link>
           </p>

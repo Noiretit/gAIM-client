@@ -9,9 +9,9 @@
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 10;
-  transition: bottom 0.3s;
-  background-color: white;
+  z-index: 20;
+  transition: bottom 0.4s;
+  background-color: black;
   padding-top: 0.2em;
 }
 
@@ -20,4 +20,7 @@
   z-index: 20;
   float: left;
   display: block;
+}
+.container-navbar p {
+  margin-bottom: 0;
 }

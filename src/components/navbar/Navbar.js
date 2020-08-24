@@ -3,20 +3,18 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import "./Navbar.css";
 
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("container-navbar").style.bottom = "0";
-  } else {
-    document.getElementById("container-navbar").style.bottom = "-75px";
-  }
-  prevScrollpos = currentScrollPos;
-};
-
 class Navbar extends Component {
   render() {
-    const { user, logout, isLoggedin } = this.props;
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("container-navbar").style.bottom = "0";
+      } else {
+        document.getElementById("container-navbar").style.bottom = "-78px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
 
     return (
       <nav id="container-navbar" className="container-navbar">
@@ -24,7 +22,7 @@ class Navbar extends Component {
           <Link to="/home">
             <img
               className="icons-navbar"
-              src={"../../images/favicon-aim-navbar.svg"}
+              src={"../../images/favicon-aim-navbar-grey.svg"}
               alt="navbar-icon"
             />
           </Link>
@@ -32,10 +30,11 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/home">
+          <Link to="/videogames">
             <img
+              id="searchIcon"
               className="icons-navbar"
-              src={"../../images/search-navbar.svg"}
+              src={"../../images/new-search-greyish.svg"}
               alt="navbar-icon"
             />
           </Link>
@@ -43,10 +42,10 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/home">
+          <Link to="/marketplace">
             <img
               className="icons-navbar"
-              src={"../../images/marketplace-navbar.svg"}
+              src={"../../images/new-marketplace-greyish.svg"}
               alt="navbar-icon"
             />
           </Link>
@@ -54,10 +53,10 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/home">
+          <Link to="/myprofile">
             <img
               className="icons-navbar"
-              src={"../../images/profile-navbar.svg"}
+              src={"../../images/new-user-greyish.svg"}
               alt="navbar-icon"
             />
           </Link>

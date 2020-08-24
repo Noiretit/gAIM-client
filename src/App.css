@@ -29,7 +29,7 @@ button.navbar-button {
 }
 /* LOGIN & SIGNUP */
 .login-signup-inputs {
-  background-color: #C8C8C8;
+  background-color: #c8c8c8;
   border-radius: 7px;
 }
 
@@ -37,7 +37,6 @@ button.navbar-button {
   margin-top: 10px;
   margin-bottom: 0;
 }
-
 
 /* HOMEPAGE */
 .carousel-item {
@@ -122,6 +121,11 @@ button.navbar-button {
   position: absolute;
   border: 1px solid black;
   left: 171px;
+}
+
+/*SELL THIS GAME PAGE*/
+.platform-icon {
+  width: 30px;
 }
 
 /*MY PROFILE*/

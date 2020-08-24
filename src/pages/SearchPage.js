@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import Navbar from "../components/navbar/Navbar";
 import SearchBar from "../components/searchbar/SearchBar";
@@ -19,7 +19,6 @@ class Profile extends Component {
   componentDidMount() {
     let test = [];
 
-    
     for (var i = 1; i < 10; i++) {
       axios.get("https://api.rawg.io/api/games?page=" + i).then((response) => {
         for (var i = 0; i < 20; i++) {
@@ -28,17 +27,6 @@ class Profile extends Component {
         this.setState({ videoGames: test, videoGamesToShow: test });
       });
     }
-
-    
-    //Updated loop from 10 to 40 to add more results
-    // for (var i = 1; i < 20; i++) {
-    //   axios.get("https://api.rawg.io/api/games?page_size=40&page=" + i).then((response) => {
-    //     for (var i = 0; i < 40; i++) {
-    //       test.push(response.data.results[i]);
-    //     }
-    //     this.setState({ videoGames: test, videoGamesToShow: test });
-    //   });
-    // }
   }
 
   filterGames = (searchString) => {
@@ -57,6 +45,11 @@ class Profile extends Component {
 
     this.setState({ videoGamesToShow: filteredGames });
   };
+
+  // handleChange = (event) => {
+  //   const { name, value } = event.target;
+  //   this.setState({ [name]: value }), this.filterPerGenrePlatformYear();
+  // };
 
   handleSelectedYear = (event) => {
     this.setState({ year: event.target.value }, () => {
@@ -119,23 +112,6 @@ class Profile extends Component {
   };
 
   render() {
-    //Renderisar todos los juegos
-    // const allGames = this.state.videoGames.map((videoGame, index) => (
-    //   <div className="each-game" key={index}>
-    //     <div>
-    //       <img
-    //         className="image-games-homepage"
-    //         src={videoGame.background_image}
-    //         alt={videoGame.name}
-    //       />
-    //     </div>
-
-    //     <div>
-    //       <p>{videoGame.name}</p>
-    //     </div>
-    //   </div>
-    // ));
-
     return (
       <div>
         <h1>VIDEO GAMES</h1>
@@ -152,7 +128,7 @@ class Profile extends Component {
               className="platform-input"
               id="selectedPlatform"
               name="platform"
-              onChange={this.handleSelectedPlatform}
+              onChange={this.handleChange}
             >
               <option defaultValue>Platform:</option>
               <option value="8">Android</option>
@@ -171,13 +147,14 @@ class Profile extends Component {
               <option value="12">3DO</option>
             </select>
           </div>
+
           <div id="container-search-buttons">
             <div className="searchButtons year-input div-year-genre">
               <select
                 className="year-and-genre"
                 id="selectedYear"
                 name="year"
-                onChange={this.handleSelectedYear}
+                onChange={this.handleChange}
               >
                 <option defaultValue>Year:</option>
                 <option value="2020">2020</option>
@@ -234,7 +211,7 @@ class Profile extends Component {
                 className="year-and-genre"
                 id="selectedGenre"
                 name="genre"
-                onChange={this.handleSelectedGenre}
+                onChange={this.handleChange}
               >
                 <option defaultValue>Genre:</option>
                 <option value="action">Action</option>

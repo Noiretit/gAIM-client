@@ -111,6 +111,10 @@ button.navbar-button {
   border: 1px solid white;
 }
 
+.img-games-marketplace {
+  width: 100%;
+}
+
 /*ADD GAME PAGE*/
 .suggestion {
   padding-left: 2px;

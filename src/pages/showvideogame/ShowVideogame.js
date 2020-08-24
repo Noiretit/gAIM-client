@@ -13,6 +13,7 @@ import axios from "axios";
 class ShowVideogame extends Component {
   state = {
     review: "",
+    thisGameReviewsArray: []
   };
 
   componentDidMount() {
@@ -21,7 +22,7 @@ class ShowVideogame extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state)
+    console.log(this.state.thisGameReviewsArray)
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
@@ -46,11 +47,17 @@ class ShowVideogame extends Component {
   };
 
   getVideogameReviews = () => {
-    const videogameId = this.state.id
+    const thisVideogameId = this.props.match.params.id //ID del videojuego
 
     axios.get(`http://localhost:4000/api/review`)
     .then(response => {
-      console.log(response)
+      const AllReviews = response.data
+      const thisGameReviews = AllReviews
+      .filter(eachReview => eachReview.videogameId.includes(thisVideogameId))
+
+      // console.log(thisGameReviews)
+
+      this.setState({thisGameReviewsArray: thisGameReviews})
     })
     .catch((err) => console.log('Error while gathering ALL reviews in FRONT, getVideogameRewviews at ShowVideogame.js', err))
   };
@@ -73,11 +80,6 @@ class ShowVideogame extends Component {
     .catch((err) => console.log('Error while creating a review', err))
   }
 
-  // convertDate = (dateString) => {
-  //     var p = dateString.split(/\D/g)
-  //     return [p[2],p[1],p[0] ].join("-")
-  // }
-
   render() {
     //Arrays con objetos anidados con objetos inaccesibles:
     //parent_platforms, platforms, genres, developers
@@ -98,6 +100,7 @@ class ShowVideogame extends Component {
       developers,
       released,
       review,
+      thisGameReviewsArray
     } = this.state;
 
     const parentPlatformsNames = parent_platforms ? (parent_platforms.map((platform, index) => 
@@ -123,6 +126,7 @@ class ShowVideogame extends Component {
           <p>Release date: </p>
         </section>
         <section>
+        <hr style={{backgroundColor: "white"}} />
           <p>Add a review</p>
           <form onSubmit={this.handleFormSubmit}>
             <div>
@@ -137,7 +141,28 @@ class ShowVideogame extends Component {
               <input type="submit" value="Create review"/>
             </div>
           </form>
+          <hr style={{backgroundColor: "white"}} />
         </section>
+        <section className="reviews-section">
+          {thisGameReviewsArray.map((reviewObj) => {
+            return (
+              <div className="review-container" key={reviewObj._id}>
+                <div className="profile-pic-container" >
+                  <img
+                        style={{ marginBottom: "1em" }}
+                        className="profile-pic-videogame-details"
+                        src={`https://avatars.dicebear.com/v2/${reviewObj.user.gender}/${reviewObj.user.username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
+                        alt="profile-pic"/>
+                </div>
+                <div style={{padding: "0 1rem"}}>
+                  <p>{reviewObj.user.username} wrote:</p>
+                  <p>{reviewObj.review}</p>
+                </div>
+              </div>
+            )
+          })}
+        </section>
+        
 
         <Navbar />
       </div>

@@ -7,6 +7,8 @@ import Navbar from "../../components/navbar/Navbar";
 import Rating from '../../components/rating/Rating'
 
 import Carousel from "react-bootstrap/Carousel";
+import Button from "react-bootstrap/Button";
+
 import '../../App.css'
 
 class ShowVideogame extends Component {
@@ -24,6 +26,8 @@ class ShowVideogame extends Component {
 
   componentDidUpdate() {
     console.log(this.state.thisGameScreenshootsArray);
+    console.log(this.state.developers)
+    console.log(this.state.genres)
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
@@ -114,10 +118,10 @@ class ShowVideogame extends Component {
       playtime,
       rating,
       clip,
-      slug,
       description_raw,
       platforms,
       genres,
+      stores,
       developers,
       released,
       review,
@@ -178,7 +182,7 @@ class ShowVideogame extends Component {
               <img
                 key={index}
                 className="platform-icon"
-                src="../../images/apple-platform-white.svg"
+                src="../../images/ios.svg"
                 alt="platform-icon"
               />
             );
@@ -239,6 +243,12 @@ class ShowVideogame extends Component {
       </Carousel.Item>
     ));
 
+    //Siempre hacer un ternario porque no siempre está listo para hacer un mapeo.
+    const allDevelopers = developers ? (developers.map((developer) => <p>{developer.name}</p>)) : null;
+
+    const allGenres = genres ? (genres.map(genre => <span>{genre.name} </span>)) : null;
+    
+    const allStores = stores ? (stores.map(store => <p className="store-link"><a href={store.url}>{store.store.name}</a></p>)) : null;
     
 
     return (
@@ -259,27 +269,41 @@ class ShowVideogame extends Component {
           <h2>About</h2>
           <section>{description_raw}</section>
           <hr />
-          <section style={{border: "solid 1px red"}}>
-            <div style={{border: "solid 1px orange"}}>
-              <div style={{border: "solid 1px white"}}>
-                <p>Platforms: {parentPlatformsNames}</p>
+          <section>
+            <div className="info-vg-detail-container" >
+              <div className="info-vg-detail">
+                <p className="info-vg-detail-title">Platforms</p>
+                <p>{parentPlatformsNames}</p>
               </div>
-              <div style={{border: "solid 1px white"}}>
-                <p>Genre: Action, Adventure</p>
+              <div className="info-vg-detail">
+                <p className="info-vg-detail-title">Genre</p>
+                <p>{allGenres}</p>
               </div>
             </div>
-            <div style={{border: "solid 1px orange"}}>
-              <div style={{border: "solid 1px white"}}>
-                <p>Developers: Rockstar North</p>
+            <div className="info-vg-detail-container" >
+              <div className="info-vg-detail" style={{paddingTop: "1.5rem"}}>
+                <p className="info-vg-detail-title">Developers</p>
+                <p>{allDevelopers}</p>
               </div>
-              <div style={{border: "solid 1px white"}}>
-                <p>Release date: </p>
+              <div className="info-vg-detail" style={{paddingTop: "1.5rem"}}>
+                <p className="info-vg-detail-title">Release date</p>
+                <p>{released}</p>
               </div>
             </div>
           </section>
+          <hr style={{ backgroundColor: "white" }} />
+
+          <section>
+            <h4>Buy this game online</h4>
+            <div className="stores-container">{allStores}</div>
+
+            <h4>Or sell this game in our marketplace by clicking</h4>
+            <Link to={`/marketplace/add/${id}`}><Button variant="danger">here</Button></Link>
+          </section>
+
           <section>
             <hr style={{ backgroundColor: "white" }} />
-            <Link to={`/marketplace/add/${id}`}>Sell this game</Link>
+            
             <p>Add a review</p>
             <form onSubmit={this.handleFormSubmit}>
               <div>
@@ -291,10 +315,12 @@ class ShowVideogame extends Component {
                   onChange={this.handleChange}
                 ></textarea>
               </div>
-              <div>
-                <input type="submit" value="Create review" />
-              </div>
+
+    
+              <Button type="submit" variant="danger">Post your review</Button>
+
             </form>
+
             <hr style={{ backgroundColor: "white" }} />
           </section>
           <section className="reviews-section">

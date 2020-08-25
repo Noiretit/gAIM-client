@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 import Navbar from "../components/navbar/Navbar";
 import SearchBar from "../components/searchbar/SearchBar";
@@ -61,17 +63,22 @@ class AddGamePage extends Component {
           <main>
             {this.state.videoGamesToShow.map((gameObj) => {
               return (
-                <div className="container-all-games" key={gameObj.id}>
-                  <img
-                    style={{ width: "100%", height: "75%" }}
-                    src={gameObj.background_image}
-                    alt={gameObj.name}
-                  />
-                  <p>{gameObj.name}</p>
-
-                  <Link to={`/marketplace/add/${gameObj.id}`}>
-                    Sell this game
-                  </Link>
+                <div className="container-all-offers">
+                  <main className="all-offers">
+                    <Card key={gameObj.id}>
+                      <Card.Img
+                        variant="top"
+                        src={gameObj.background_image}
+                        alt={gameObj.name}
+                      />
+                      <Card.Body>
+                        <Card.Title>{gameObj.name}</Card.Title>
+                        <Link to={`/marketplace/add/${gameObj.id}`}>
+                          <Button variant="danger">Sell this game</Button>
+                        </Link>
+                      </Card.Body>
+                    </Card>
+                  </main>
                 </div>
               );
             })}

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 import Navbar from "../components/navbar/Navbar";
 import SearchBar from "../components/searchbar/SearchBar";
@@ -247,14 +247,17 @@ class Profile extends Component {
           </div>
         </div>
 
-
         {/* ALL GAMES */}
         <div id="all-cards">
           <main id="each-card">
             {this.state.videoGamesToShow.map((gameObj) => {
               return (
                 <Card key={gameObj.id}>
-                  <Card.Img variant="top" src={gameObj.background_image} alt={gameObj.name}/>
+                  <Card.Img
+                    variant="top"
+                    src={gameObj.background_image}
+                    alt={gameObj.name}
+                  />
                   <Card.Body>
                   <Card.Title>{gameObj.name}</Card.Title>
                   <Card.Text>{gameObj.parent_platforms.map((gameObjPP, index) => {
@@ -367,7 +370,7 @@ class Profile extends Component {
                   })}</Card.Text>
                   <Link to={`/videogames/${gameObj.id}`}><Button variant="danger">See more</Button></Link>
                   </Card.Body>
-              </Card>
+                </Card>
               );
             })}
           </main>

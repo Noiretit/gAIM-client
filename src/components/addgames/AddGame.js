@@ -24,16 +24,6 @@ class AddGame extends Component {
 
     return (
       <div>
-        <img
-          style={{ width: "100%" }}
-          src="../../../images/android-platform-full.svg"
-          alt="navbar-icon"
-        />
-        <img
-          style={{ width: "100%" }}
-          src="../../../images/android-platform-full.svg"
-          alt="navbar-icon"
-        />
         <div id="container-add-game">
           <div id="container-button-add-game">
             <Link className="link-add-game" to={"/marketplace/add"}>

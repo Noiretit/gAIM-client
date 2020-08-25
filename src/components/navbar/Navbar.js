@@ -19,7 +19,7 @@ class Navbar extends Component {
     return (
       <nav id="container-navbar" className="container-navbar">
         <div>
-          <Link to="/home">
+          <Link className="links-navbar" to="/home">
             <img
               className="icons-navbar"
               src={"../../images/favicon-aim-navbar-grey.svg"}
@@ -30,7 +30,7 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/videogames">
+          <Link className="links-navbar" to="/videogames">
             <img
               id="searchIcon"
               className="icons-navbar"
@@ -42,7 +42,7 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/marketplace">
+          <Link className="links-navbar" to="/marketplace">
             <img
               className="icons-navbar"
               src={"../../images/new-marketplace-greyish.svg"}
@@ -53,7 +53,7 @@ class Navbar extends Component {
         </div>
 
         <div>
-          <Link to="/myprofile">
+          <Link className="links-navbar" to="/myprofile">
             <img
               className="icons-navbar"
               src={"../../images/new-user-greyish.svg"}

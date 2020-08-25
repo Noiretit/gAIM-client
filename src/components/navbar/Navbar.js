@@ -2,8 +2,26 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import "./Navbar.css";
+import $ from "jquery";
 
 class Navbar extends Component {
+  componentDidMount() {
+    /*Jquery*/
+    $(function () {
+      // this will get the full URL at the address bar
+      var url = window.location.href;
+
+      // passes on every "a" tag
+      $(".links-navbar").each(function () {
+        // checks if its the same on the address bar
+        if (url == this.href) {
+          //   $(this).closest("a").addClass("changeMenuColor");
+          $(this).addClass("changeMenuColor");
+        }
+      });
+    });
+  }
+
   render() {
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function () {

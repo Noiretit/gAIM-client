@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import axios from "axios";
 
@@ -183,11 +183,13 @@ class ShowVideogame extends Component {
 
     //Get the children platforms' name
     const childrenPlatforms = [];
+    // eslint-disable-next-line no-unused-vars
     const childrenPlatformsNames = platforms
       ? platforms.map((oneChild) => {
-          childrenPlatforms.push(oneChild.platform.name);
+          return childrenPlatforms.push(oneChild.platform.name);
         })
       : null;
+       
 
     return (
       <div>

@@ -256,8 +256,8 @@ class Profile extends Component {
                     alt={gameObj.name}
                   />
                   <Card.Body>
-                    <Card.Title>{gameObj.name}</Card.Title>
-                    <Card.Text>
+                    <Card.Title><h4>{gameObj.name}</h4></Card.Title>
+                    <Card.Text className="genre-card-text">
                       Genre:
                       {gameObj.genres.map((oneGenre, index) => {
                         return <span> {oneGenre.name} </span>;

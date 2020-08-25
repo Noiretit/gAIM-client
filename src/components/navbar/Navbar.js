@@ -14,7 +14,7 @@ class Navbar extends Component {
       // passes on every "a" tag
       $(".links-navbar").each(function () {
         // checks if its the same on the address bar
-        if (url == this.href) {
+        if (url === this.href) {
           //   $(this).closest("a").addClass("changeMenuColor");
           $(this).addClass("changeMenuColor");
         }

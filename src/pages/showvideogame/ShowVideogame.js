@@ -25,9 +25,9 @@ class ShowVideogame extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.thisGameScreenshootsArray);
-    console.log(this.state.developers);
-    console.log(this.state.genres);
+    // console.log(this.state.thisGameScreenshootsArray);
+    // console.log(this.state.developers);
+    // console.log(this.state.genres);
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
@@ -97,7 +97,6 @@ class ShowVideogame extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { review } = this.state;
-    console.log(review);
     const videogameId = this.state.id;
     const videogameName = this.state.name;
     const user = this.props.user._id;
@@ -114,18 +113,12 @@ class ShowVideogame extends Component {
   };
 
   render() {
-    //Arrays con objetos anidados con objetos inaccesibles:
-    //parent_platforms, platforms, genres, developers
-
-    //         //Para conseguir las imÃ¡genes y videos se debe usar el "slug" y hacer una
-    //llamada axios "api/games?search={slug}""
     const {
       background_image,
       name,
       parent_platforms,
       playtime,
       rating,
-      clip,
       description_raw,
       platforms,
       genres,
@@ -257,20 +250,24 @@ class ShowVideogame extends Component {
 
     //Siempre hacer un ternario porque no siempre está listo para hacer un mapeo.
     const allDevelopers = developers
-      ? developers.map((developer) => <p>{developer.name}</p>)
+      ? developers.map((developer) => <span key={developer.id}>{developer.name}</span>)
       : null;
 
     const allGenres = genres
-      ? genres.map((genre) => <span>{genre.name} </span>)
+      ? genres.map((genre) => <span key={genre.id}>| {genre.name} </span>)
       : null;
 
     const allStores = stores
       ? stores.map((store) => (
-          <p className="store-link">
+          <p className="store-link" key={store.id}>
             <a href={store.url}>{store.store.name}</a>
           </p>
         ))
       : null;
+
+      
+      const allChildPlatforms = platforms ? platforms.map((platform) => ( <span key={platform.id}>{platform.platform.name} |</span>)) : null;
+      console.log(allChildPlatforms)
 
     return (
       <div>
@@ -292,27 +289,27 @@ class ShowVideogame extends Component {
           </section>
           <hr />
           <h2>About</h2>
-          <section>{description_raw}</section>
+          <section className="description-vg-detail">{description_raw}</section>
           <hr />
           <section>
             <div className="info-vg-detail-container">
               <div className="info-vg-detail">
                 <p className="info-vg-detail-title">Platforms</p>
-                <p>{parentPlatformsNames}</p>
+                <section className="info-vg-section-content">| {allChildPlatforms}</section>
               </div>
               <div className="info-vg-detail">
                 <p className="info-vg-detail-title">Genre</p>
-                <p>{allGenres}</p>
+                <section className="info-vg-section-content">{allGenres} |</section>
               </div>
             </div>
             <div className="info-vg-detail-container">
               <div className="info-vg-detail" style={{ paddingTop: "1.5rem" }}>
                 <p className="info-vg-detail-title">Developers</p>
-                <p>{allDevelopers}</p>
+                <section className="info-vg-section-content">{allDevelopers}</section>
               </div>
               <div className="info-vg-detail" style={{ paddingTop: "1.5rem" }}>
                 <p className="info-vg-detail-title">Release date</p>
-                <p>{released}</p>
+                <section className="info-vg-section-content">{released}</section>
               </div>
             </div>
           </section>
@@ -322,19 +319,24 @@ class ShowVideogame extends Component {
             <h4>Buy this game online</h4>
             <div className="stores-container">{allStores}</div>
 
-            <h4>Or sell this game in our marketplace by clicking</h4>
+            <hr style={{ backgroundColor: "white" }} />
+
+            <h4>Want to get rid of this game?</h4>
             <Link to={`/marketplace/add/${id}`}>
-              <Button variant="danger">HERE</Button>
+              <Button variant="danger">Sell it here</Button>
             </Link>
           </section>
 
+          <hr style={{ backgroundColor: "white" }} />
           <section>
-            <hr style={{ backgroundColor: "white" }} />
 
-            <p>Add a review</p>
+            <div className="review-title">
+              <span role="img" aria-label="emoji" className="review-emoji">👾 </span>
+              <span>Add a review</span>
+              <span role="img" aria-label="emoji" className="review-emoji"> 👾</span>
+            </div>
             <form onSubmit={this.handleFormSubmit}>
-              <div>
-                <label>Comment:</label>
+              <div style={{marginBottom: "0.5rem"}}>
                 <textarea
                   type="text"
                   name="review"
@@ -343,15 +345,27 @@ class ShowVideogame extends Component {
                 ></textarea>
               </div>
 
-              <Button type="submit" variant="danger">
-                Post your review
-              </Button>
+              <div className="review-title">
+                <span style={{paddingLeft: "0.6rem"}} role="img" aria-label="emoji" className="review-emoji">👾</span>
+                <Button type="submit" variant="danger">
+                  Post your review
+                </Button>
+                <span style={{paddingRight: "0.6rem"}} role="img" aria-label="emoji" className="review-emoji">👾</span>
+              </div>
             </form>
 
             <hr style={{ backgroundColor: "white" }} />
           </section>
           <section className="reviews-section">
             {thisGameReviewsArray.map((reviewObj) => {
+
+              const dateOfCreation = new Date(reviewObj.createdAt);
+              const year = dateOfCreation.getFullYear();
+              const month = dateOfCreation.getMonth() + 1;
+              const day = dateOfCreation.getDate();
+              const hour = dateOfCreation.getHours();
+              const minutes = dateOfCreation.getMinutes();
+
               return (
                 <div className="review-container" key={reviewObj._id}>
                   <div className="profile-pic-container">
@@ -361,10 +375,12 @@ class ShowVideogame extends Component {
                       src={`https://avatars.dicebear.com/v2/${reviewObj.user.gender}/${reviewObj.user.username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
                       alt="profile-pic"
                     />
+                    <p>{reviewObj.user.username}</p>
                   </div>
-                  <div style={{ padding: "0 1rem" }}>
-                    <p>{reviewObj.user.username} wrote:</p>
+                  <div className="vg-detail-review-container">
+                    
                     <p>{reviewObj.review}</p>
+                    <p>{day}/{month}/{year}, at {hour}:{minutes}</p>
                   </div>
                 </div>
               );

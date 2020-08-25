@@ -3,7 +3,6 @@ import { withAuth } from "../../lib/AuthProvider";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 class MyReviews extends Component {
@@ -37,25 +36,26 @@ class MyReviews extends Component {
 
     return (
       <div>
-        {reviewsToShow.map((oneReview, index) => {
+        {reviewsToShow.map((oneReview) => {
           const dateOfCreation = new Date(oneReview.createdAt);
           const year = dateOfCreation.getFullYear();
           const month = dateOfCreation.getMonth() + 1;
           const day = dateOfCreation.getDate();
+          const hour = dateOfCreation.getHours();
+          const minutes = dateOfCreation.getMinutes();
 
           return (
-            <div className="each-review-profile" key={index}>
-              <img
-                style={{ marginBottom: "1em" }}
-                className="profile-pic-videogame-details"
-                src={`https://avatars.dicebear.com/v2/${oneReview.user.gender}/${oneReview.user.username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
-                alt="profile-pic"
-              />
-              <div>
-                <p>
-                  On: {day}/{month}/{year}
-                </p>
-                <p>{oneReview.videogameName}</p>
+            <div className="my-reviews-container" key={oneReview.id}>
+              <div className="profile-pic-container">
+                <img
+                  style={{ marginBottom: "1em" }}
+                  className="profile-pic-videogame-details"
+                  src={`https://avatars.dicebear.com/v2/${oneReview.user.gender}/${oneReview.user.username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
+                  alt="profile-pic"
+                />
+              </div>
+              <div className="vg-detail-review-container">
+                <p>{day}/{month}/{year}, at {hour}:{minutes}:</p>
                 <p>{oneReview.review}</p>
 
                 <Link to={`/videogames/${oneReview.videogameId}`}>
@@ -63,7 +63,7 @@ class MyReviews extends Component {
                     className="margin-buttons-marketplace"
                     variant="danger"
                   >
-                    Details <small>about the game</small>
+                    {oneReview.videogameName}
                   </Button>
                 </Link>
               </div>

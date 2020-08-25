@@ -53,7 +53,7 @@ class EditUserPage extends Component {
   };
 
   render() {
-    const { username, email, genre, gender } = this.state;
+    const { username, email, gender } = this.state;
     return (
       <div style={{ textAlign: "center", marginTop: "3rem" }}>
         <h3>Edit your profile</h3>

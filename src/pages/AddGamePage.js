@@ -52,13 +52,10 @@ class AddGamePage extends Component {
   };
 
   render() {
-    const oneGame = this.state.videoGamesToShow.map((gameObj) => {
-      console.log(gameObj.parent_platforms);
-    });
+  
 
     return (
       <div>
-        <p>Create an offer here</p>
 
         <div className="header" id="myHeader">
           {/* SEARCH BAR */}

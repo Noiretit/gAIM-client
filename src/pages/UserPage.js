@@ -5,6 +5,8 @@ import MyReviews from "../components/myreviews/MyReviews";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
+import Button from "react-bootstrap/Button";
+
 
 class UserPage extends Component {
   state = {};
@@ -58,6 +60,7 @@ class UserPage extends Component {
   render() {
     //console.log(this.state)
     const { logout } = this.props;
+    // eslint-disable-next-line no-unused-vars
     const { username, email, genre, gender } = this.state;
     console.log(this.props.history);
 
@@ -70,29 +73,30 @@ class UserPage extends Component {
           alt="profile-pic"
         ></img>
 
-        <p>Username: {username}</p>
-        <p>Email: {email}</p>
-        <p>Favorite genre: {genre}</p>
-        <p>Gender: {gender}</p>
+        {/* <p><span>Username:</span> {username}</p>
+        <p><span>Email:</span> {email}</p>
+        <p><span>Favorite genre:</span> {genre}</p>
+        <p><span>Gender:</span> {gender}</p> */}
         <Link to={"/myprofile/edit"}>
-          <button className="navbar-button">Edit</button>
+          <Button variant="danger">Edit your profile</Button>
         </Link>
 
         <span className="separation-line"></span>
 
         <div id="buttons-my-profile">
-          <button className="buttons-my-profile">My games</button>
+          <Button variant="danger" className="buttons-my-profile">My games</Button>
 
-          <button className="buttons-my-profile" onClick={this.displayReviews}>
+          <Button variant="danger" className="buttons-my-profile" onClick={this.displayReviews}>
             My reviews
-          </button>
+          </Button>
 
-          <button
-            className="buttons-my-profile"
+          <Button
+            style={{paddingRight: "10px"}}
+            variant="danger" className="buttons-my-profile"
             onClick={this.displayTransactions}
           >
             My transactions
-          </button>
+          </Button>
         </div>
 
         <button className="logout-link" onClick={logout}>

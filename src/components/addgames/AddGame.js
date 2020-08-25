@@ -50,9 +50,9 @@ class AddGame extends Component {
                 src={"../../images/plus-marketplace.svg"}
                 alt="navbar-icon"
               />
-              <p className="no-margin" style={{ color: "white" }}>
-                Create an offer
-              </p>
+              <span className="no-margin" style={{ color: "white" }}>
+                Sell yours
+              </span>
             </Link>
           </div>
 

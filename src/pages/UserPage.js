@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar/Navbar";
+import MyTransactions from "../components/mytransactions/MyTransactions";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
+
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 class UserPage extends Component {
   state = {};
@@ -35,6 +39,15 @@ class UserPage extends Component {
     };
   }
 
+  displayTransactions() {
+    const transactions = document.getElementById("transactions");
+    if (transactions.style.display === "none") {
+      transactions.style.display = "block";
+    } else {
+      transactions.style.display = "none";
+    }
+  }
+
   render() {
     //console.log(this.state)
     const { logout } = this.props;
@@ -65,7 +78,12 @@ class UserPage extends Component {
 
           <button className="buttons-my-profile">My reviews</button>
 
-          <button className="buttons-my-profile">My transacrions</button>
+          <button
+            className="buttons-my-profile"
+            onClick={this.displayTransactions}
+          >
+            My transacrions
+          </button>
         </div>
 
         <button className="logout-link" onClick={logout}>
@@ -75,6 +93,10 @@ class UserPage extends Component {
             alt="Logout"
           />
         </button>
+
+        <div id="transactions" style={{ display: "none" }}>
+          <MyTransactions />
+        </div>
 
         <Navbar />
       </div>

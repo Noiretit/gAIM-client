@@ -49,6 +49,8 @@ class MarketplacePage extends Component {
     this.setState({ offersToShow: filteredGames });
   };
 
+  handleChangeStatus() {}
+
   render() {
     const { offersToShow } = this.state;
 
@@ -84,10 +86,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -114,10 +127,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -144,10 +168,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -174,10 +209,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -204,10 +250,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -234,10 +291,22 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
+                      <Button variant="secondary">Buy it</Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -264,10 +333,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -294,10 +374,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -317,17 +408,28 @@ class MarketplacePage extends Component {
                       <Card.Title>{offer.videoGameName}</Card.Title>
                       <img
                         className="platform-icon"
-                        src="../../images/linux-platform-white.svg"
+                        src="../../images/pc-platform-white.svg"
                         alt="platform-icon"
                       />
                       <p>Platform: {offer.childrenPlatform} </p>
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -354,10 +456,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -384,10 +497,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -414,10 +538,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -444,10 +579,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -474,10 +620,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -504,10 +661,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -534,10 +702,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -564,10 +743,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -594,10 +784,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -624,10 +825,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -654,10 +866,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -684,10 +907,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -714,10 +948,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -744,10 +989,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -774,10 +1030,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -804,10 +1071,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -834,10 +1112,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -864,10 +1153,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -894,10 +1194,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -924,10 +1235,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -954,10 +1276,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -984,10 +1317,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1014,10 +1358,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1044,10 +1399,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1074,10 +1440,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1104,10 +1481,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1134,10 +1522,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1164,10 +1563,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1194,10 +1604,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1224,10 +1645,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1254,10 +1686,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1284,10 +1727,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1314,10 +1768,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1344,10 +1809,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1374,10 +1850,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1404,10 +1891,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1434,10 +1932,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>
@@ -1460,10 +1969,21 @@ class MarketplacePage extends Component {
 
                       <p>{offer.price} €</p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
-                        <Button variant="danger">
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="danger"
+                        >
                           Details <small>about the game</small>
                         </Button>
                       </Link>
+
+                      <Button
+                        className="margin-buttons-marketplace"
+                        variant="secondary"
+                        onClick={this.handleChangeStatus}
+                      >
+                        Buy it
+                      </Button>
                     </Card.Body>
                   </Card>
                 </main>

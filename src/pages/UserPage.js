@@ -22,6 +22,7 @@ class UserPage extends Component {
   }
 
   componentDidUpdate(nextProps) {
+    console.log(this.state);
     if (this.state === {}) {
       return true;
     }

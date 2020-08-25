@@ -105,14 +105,9 @@ class Home extends Component {
   };
 
   render() {
-    const {
-      topSelectedYear,
-      topSelectedGenre,
-      lastReleased,
-    } = this.state;
+    const { topSelectedYear, topSelectedGenre, lastReleased } = this.state;
 
     const lastReleasedGames = lastReleased.map((videoGame) => (
-      
       <Carousel.Item key={videoGame.id}>
         <Link to={`/videogames/${videoGame.id}`}>
           <img
@@ -120,10 +115,11 @@ class Home extends Component {
             src={videoGame.background_image}
             alt="bgimage"
           />
-          <Carousel.Caption>{videoGame.name}</Carousel.Caption>
+          <Carousel.Caption>
+            {videoGame.name} | {videoGame.released}
+          </Carousel.Caption>
         </Link>
       </Carousel.Item>
-      
     ));
     // <Link to={`/videogames/${gameObj.id}`}>See more</Link>
 
@@ -131,11 +127,11 @@ class Home extends Component {
     const topGamesSelectedYear = topSelectedYear.map((videoGame) => (
       <Carousel.Item key={videoGame.id}>
         <Link to={`/videogames/${videoGame.id}`}>
-            <img
-              className="d-block w-100"
-              src={videoGame.background_image}
-              alt="bgimage"
-            />
+          <img
+            className="d-block w-100"
+            src={videoGame.background_image}
+            alt="bgimage"
+          />
         </Link>
         <Carousel.Caption>{videoGame.name}</Carousel.Caption>
       </Carousel.Item>
@@ -146,11 +142,11 @@ class Home extends Component {
     const topGameSelectedGenre = topSelectedGenre.map((videoGame) => (
       <Carousel.Item key={videoGame.id}>
         <Link to={`/videogames/${videoGame.id}`}>
-            <img
-              className="d-block w-100"
-              src={videoGame.background_image}
-              alt="bgimage"
-            />
+          <img
+            className="d-block w-100"
+            src={videoGame.background_image}
+            alt="bgimage"
+          />
         </Link>
         <Carousel.Caption>{videoGame.name}</Carousel.Caption>
       </Carousel.Item>
@@ -164,19 +160,23 @@ class Home extends Component {
         </div>
 
         {/* LAST RELEASED */}
-        <section style={{marginTop: "1.5rem"}} className="home-section">
+        <section style={{ marginTop: "1.5rem" }} className="home-section">
           <div className="title-container">
             <h2>🔥 Last released 🔥</h2>
           </div>
           <Carousel>{lastReleasedGames}</Carousel>
-          
         </section>
 
         {/* TOP SELECTED YEAR */}
         <section className="home-section">
           <div className="title-container">
-            <h2>👑 Top year
-              <select className="home-select" name="year" onChange={this.handleSelectedYear}>
+            <h2>
+              👑 Top year
+              <select
+                className="home-select"
+                name="year"
+                onChange={this.handleSelectedYear}
+              >
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
@@ -223,7 +223,9 @@ class Home extends Component {
                 <option value="1977">1977</option>
                 <option value="1976">1976</option>
                 <option value="1975">1975</option>
-              </select> 👑</h2>
+              </select>{" "}
+              👑
+            </h2>
           </div>
           <Carousel>{topGamesSelectedYear}</Carousel>
         </section>
@@ -231,8 +233,13 @@ class Home extends Component {
         {/* TOP SELECTED GENRE */}
         <section className="home-section">
           <div className="title-container">
-            <h2 style={{fontSize: "1.3rem"}}>💥 Top genre
-              <select className="home-select" name="genre" onChange={this.handleSelectedGenre}>
+            <h2 style={{ fontSize: "1.3rem" }}>
+              💥 Top genre
+              <select
+                className="home-select"
+                name="genre"
+                onChange={this.handleSelectedGenre}
+              >
                 <option value="action">"action"</option>
                 <option value="adventure">"adventure"</option>
                 <option value="arcade">"arcade"</option>
@@ -248,12 +255,14 @@ class Home extends Component {
                 <option value="simulation">"simulation"</option>
                 <option value="sports">"sports"</option>
                 <option value="strategy">"strategy"</option>
-              </select> 💥</h2>
+              </select>{" "}
+              💥
+            </h2>
           </div>
           <Carousel>{topGameSelectedGenre}</Carousel>
         </section>
 
-        <div style={{marginBottom: "6rem"}} className="logo-home">
+        <div style={{ marginBottom: "6rem" }} className="logo-home">
           <img src="/images/Group.svg" alt="logo" />
         </div>
 

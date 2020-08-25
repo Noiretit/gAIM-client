@@ -28,7 +28,7 @@ class MarketplacePage extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.offersToShow);
+    console.log(this.state.allOffers.data);
   }
 
   filterGames = (searchString) => {
@@ -49,7 +49,16 @@ class MarketplacePage extends Component {
     this.setState({ offersToShow: filteredGames });
   };
 
-  handleChangeStatus() {}
+  handleChangeStatus(e, videoGameId, videoGameStatus) {
+    const id = videoGameId;
+    let status = videoGameStatus;
+
+    if (videoGameStatus === "selling") {
+      status = "booked";
+    }
+
+    axios.post("http://localhost:4000/api/marketplace/status", { id, status });
+  }
 
   render() {
     const { offersToShow } = this.state;
@@ -99,7 +108,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -140,7 +151,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -181,7 +194,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -222,7 +237,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -263,7 +280,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -304,7 +323,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -346,7 +367,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -387,7 +410,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -428,7 +453,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -469,7 +496,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -510,7 +539,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -551,7 +582,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -592,7 +625,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -633,7 +668,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -674,7 +711,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -715,7 +754,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -756,7 +797,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -797,7 +840,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -838,7 +883,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -879,7 +926,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -920,7 +969,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -961,7 +1012,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1002,7 +1055,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1043,7 +1098,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1084,7 +1141,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1125,7 +1184,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1166,7 +1227,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1207,7 +1270,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1248,7 +1313,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1289,7 +1356,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1330,7 +1399,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1371,7 +1442,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1412,7 +1485,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1453,7 +1528,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1494,7 +1571,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1535,7 +1614,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1576,7 +1657,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1617,7 +1700,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1658,7 +1743,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1699,7 +1786,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1740,7 +1829,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1781,7 +1872,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1822,7 +1915,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1863,7 +1958,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1904,7 +2001,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1945,7 +2044,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>
@@ -1982,7 +2083,9 @@ class MarketplacePage extends Component {
                       <Button
                         className="margin-buttons-marketplace"
                         variant="secondary"
-                        onClick={this.handleChangeStatus}
+                        onClick={(e) =>
+                          this.handleChangeStatus(e, offer._id, offer.status)
+                        }
                       >
                         Buy it
                       </Button>

@@ -243,6 +243,12 @@ button.navbar-button {
   border-radius: 3px;
   margin: 0 7px;
 }
+
+/*EDIT PROFILE*/
+.margin-inputs-edit-profile {
+  margin: 0.5em;
+}
+
 /* VIDEOGAME DETAILS */
 .reviews-section {
   margin-bottom: 4rem;

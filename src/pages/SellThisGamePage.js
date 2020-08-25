@@ -14,9 +14,10 @@ class ShowVideogame extends Component {
   componentDidMount() {
     this.getOneVideogame();
   }
+
   componentDidUpdate() {
-    console.log(this.state)
-    console.log(this.props.user._id)
+    console.log(this.state);
+    console.log(this.props.user._id);
   }
 
   getOneVideogame = () => {
@@ -49,7 +50,6 @@ class ShowVideogame extends Component {
     const videoGameName = this.state.name;
     const videoGamePic = this.state.background_image;
     const user = this.props.user._id;
-    
 
     axios
       .post("http://localhost:4000/api/offer", {
@@ -183,11 +183,11 @@ class ShowVideogame extends Component {
 
     //Get the children platforms' name
     const childrenPlatforms = [];
-    // const childrenPlatformsNames = platforms
-    //   ? platforms.map((oneChild) => {
-    //       childrenPlatforms.push(oneChild.platform.name);
-    //     })
-    //   : null;
+    const childrenPlatformsNames = platforms
+      ? platforms.map((oneChild) => {
+          childrenPlatforms.push(oneChild.platform.name);
+        })
+      : null;
 
     return (
       <div>

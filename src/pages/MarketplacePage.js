@@ -65,6 +65,7 @@ class MarketplacePage extends Component {
         </div>
 
         {offersToShow.map((offer) => {
+          console.log(offer.status);
           if (offer.childrenPlatform === "Linux") {
             return (
               <div className="container-all-offers">
@@ -85,6 +86,7 @@ class MarketplacePage extends Component {
                       <p>Platform: {offer.childrenPlatform} </p>
 
                       <p>{offer.price} €</p>
+
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"

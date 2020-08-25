@@ -52,7 +52,7 @@ class UserPage extends Component {
 
         <p>Username: {username}</p>
         <p>Email: {email}</p>
-        <p>Prefered genre: {genre}</p>
+        <p>Favorite genre: {genre}</p>
         <p>Gender: {gender}</p>
         <Link to={"/myprofile/edit"}>
           <button className="navbar-button">Edit</button>

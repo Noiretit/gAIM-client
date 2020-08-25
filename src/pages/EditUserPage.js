@@ -29,6 +29,10 @@ class EditUserPage extends Component {
     this.setState({ [name]: value });
   };
 
+  handleSelectedGenre = (event) => {
+    this.setState({ genre: event.target.value });
+  };
+
   handleSelectedGender = (event) => {
     this.setState({ gender: event.target.value });
   };
@@ -51,9 +55,15 @@ class EditUserPage extends Component {
   render() {
     const { username, email, genre, gender } = this.state;
     return (
-      <div>
+      <div style={{ textAlign: "center", marginTop: "3rem" }}>
         <h3>Edit your profile</h3>
-        <form onSubmit={this.handleFormSubmit}>
+        <img
+          style={{ marginBottom: "1em" }}
+          className="profile-pic"
+          src={`https://avatars.dicebear.com/v2/${gender}/${username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
+          alt="profile-pic"
+        ></img>
+        <form style={{ marginBottom: "6em" }} onSubmit={this.handleFormSubmit}>
           <div>
             <label>Username:</label>
             <div>
@@ -65,6 +75,7 @@ class EditUserPage extends Component {
               />
             </div>
           </div>
+
           <div>
             <label>Email address:</label>
             <div>
@@ -76,29 +87,55 @@ class EditUserPage extends Component {
               />
             </div>
           </div>
+
           <div>
-            <label>Prefered genre:</label>
-            <div>
-              <input
-                type="text"
-                name="genre"
-                value={genre}
-                onChange={this.handleChange}
-              />
-            </div>
+            <label className="signup-label">Favorite genre: </label>
+
+            <select
+              className="login-signup-inputs margin-inputs-edit-profile"
+              style={{ textAlignLast: "center" }}
+              name="genre"
+              onChange={this.handleSelectedGenre}
+            >
+              <option value="action">Action</option>
+              <option value="adventure">Adventure</option>
+              <option value="arcade">Arcade</option>
+              <option value="casual">Casual</option>
+              <option value="family">Family</option>
+              <option value="fighting">Fighting</option>
+              <option value="indie">Indie</option>
+              <option value="massively-multiplayer">
+                Massively Multiplayer
+              </option>
+              <option value="platformer">Platformer</option>
+              <option value="puzzle">Puzzle</option>
+              <option value="racing">Racing</option>
+              <option value="role-playing-games-rpg">RPG</option>
+              <option value="simulation">Simulation</option>
+              <option value="sports">Sports</option>
+              <option value="strategy">Strategy</option>
+            </select>
           </div>
           <div>
             <label className="signup-label">Gender:</label>
-            <div>
-              <select name="gender" onChange={this.handleSelectedGender}>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="bottts">Robot</option>
-              </select>
-            </div>
+
+            <select
+              className="login-signup-inputs margin-inputs-edit-profile"
+              style={{ textAlignLast: "center" }}
+              name="gender"
+              onChange={this.handleSelectedGender}
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="bottts">Robot</option>
+            </select>
           </div>
 
-          <button type="submit">Save changes</button>
+          <div style={{ marginTop: "1em" }}>
+            <button className="btn btn-danger start-btn" type="submit">
+              Save changes
+            </button>
+          </div>
         </form>
         <Navbar />
       </div>

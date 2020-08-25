@@ -20,6 +20,7 @@ class Profile extends Component {
 
   componentDidMount() {
     let test = [];
+    console.log(this.state)
 
     for (var i = 1; i < 10; i++) {
       axios.get("https://api.rawg.io/api/games?page=" + i).then((response) => {
@@ -29,6 +30,10 @@ class Profile extends Component {
         this.setState({ videoGames: test, videoGamesToShow: test });
       });
     }
+  }
+
+  componentDidUpdate() {
+    console.log(this.state)
   }
 
   filterGames = (searchString) => {
@@ -114,6 +119,9 @@ class Profile extends Component {
   };
 
   render() {
+
+
+
     return (
       <div>
         <div className="logo-home">
@@ -251,10 +259,116 @@ class Profile extends Component {
                     alt={gameObj.name}
                   />
                   <Card.Body>
-                    <Card.Title>{gameObj.name}</Card.Title>
-                    <Link to={`/videogames/${gameObj.id}`}>
-                      <Button variant="danger">See more</Button>
-                    </Link>
+                  <Card.Title>{gameObj.name}</Card.Title>
+                  <Card.Text>{gameObj.parent_platforms.map((gameObjPP, index) => {
+                    if (gameObjPP.platform.name === "PlayStation") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/playstation-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "Xbox") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/xbox-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "PC") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/pc-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "Nintendo") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/nintendo-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (
+                              gameObjPP.platform.name === "Apple Macintosh"
+                            ) {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/apple-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "iOS") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon-ios"
+                                  src="../../images/ios.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "Android") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/android-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "Linux") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/linux-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "Web") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/web-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "SEGA") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/sega-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (gameObjPP.platform.name === "Atari") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/atari-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else {
+                              return (
+                                <p key={index}>- {gameObjPP.platform.name}</p>
+                              );
+                            }
+                  })}</Card.Text>
+                  <Link to={`/videogames/${gameObj.id}`}><Button variant="danger">See more</Button></Link>
                   </Card.Body>
                 </Card>
               );

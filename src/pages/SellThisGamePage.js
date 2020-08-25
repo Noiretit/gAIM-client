@@ -183,11 +183,11 @@ class ShowVideogame extends Component {
 
     //Get the children platforms' name
     const childrenPlatforms = [];
-    const childrenPlatformsNames = platforms
-      ? platforms.map((oneChild) => {
-          childrenPlatforms.push(oneChild.platform.name);
-        })
-      : null;
+    // const childrenPlatformsNames = platforms
+    //   ? platforms.map((oneChild) => {
+    //       childrenPlatforms.push(oneChild.platform.name);
+    //     })
+    //   : null;
 
     return (
       <div>

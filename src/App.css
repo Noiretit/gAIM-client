@@ -173,6 +173,12 @@ button.navbar-button {
 /*SELL THIS GAME PAGE*/
 .platform-icon {
   width: 30px;
+  margin: 0 5px;
+}
+
+.platform-icon-ios {
+  width: 45px;
+  margin: 0 5px;
 }
 /*MY PROFILE*/
 .container-my-profile {

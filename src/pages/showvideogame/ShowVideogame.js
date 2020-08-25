@@ -4,18 +4,18 @@ import { withAuth } from "../../lib/AuthProvider";
 import axios from "axios";
 
 import Navbar from "../../components/navbar/Navbar";
-import Rating from '../../components/rating/Rating'
+import Rating from "../../components/rating/Rating";
 
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 
-import '../../App.css'
+import "../../App.css";
 
 class ShowVideogame extends Component {
   state = {
     review: "",
     thisGameReviewsArray: [],
-    thisGameScreenshootsArray: []
+    thisGameScreenshootsArray: [],
   };
 
   componentDidMount() {
@@ -26,8 +26,8 @@ class ShowVideogame extends Component {
 
   componentDidUpdate() {
     console.log(this.state.thisGameScreenshootsArray);
-    console.log(this.state.developers)
-    console.log(this.state.genres)
+    console.log(this.state.developers);
+    console.log(this.state.genres);
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
@@ -78,13 +78,15 @@ class ShowVideogame extends Component {
     const thisVideogameId = this.props.match.params.id;
 
     axios
-    .get(`https://api.rawg.io/api/games/${thisVideogameId}/screenshots`)
-    .then((response) => {
-      const thisVGScreenshots = response.data.results;
+      .get(`https://api.rawg.io/api/games/${thisVideogameId}/screenshots`)
+      .then((response) => {
+        const thisVGScreenshots = response.data.results;
 
-      this.setState({ thisGameScreenshootsArray: thisVGScreenshots})
-    })
-    .catch((err) => console.log('Error while getting VG screenshots, ShowVideogame.js', err))
+        this.setState({ thisGameScreenshootsArray: thisVGScreenshots });
+      })
+      .catch((err) =>
+        console.log("Error while getting VG screenshots, ShowVideogame.js", err)
+      );
   };
 
   handleChange = (event) => {
@@ -97,10 +99,16 @@ class ShowVideogame extends Component {
     const { review } = this.state;
     console.log(review);
     const videogameId = this.state.id;
+    const videogameName = this.state.name;
     const user = this.props.user._id;
 
     axios
-      .post("http://localhost:4000/api/review", { review, videogameId, user })
+      .post("http://localhost:4000/api/review", {
+        review,
+        videogameId,
+        videogameName,
+        user,
+      })
       .then(({ data }) => data)
       .catch((err) => console.log("Error while creating a review", err));
   };
@@ -239,17 +247,30 @@ class ShowVideogame extends Component {
 
     const allScreenshots = thisGameScreenshootsArray.map((screenshoot) => (
       <Carousel.Item key={screenshoot.id}>
-         <img className="d-block w-100" src={screenshoot.image} alt="vg-screenshot" />
+        <img
+          className="d-block w-100"
+          src={screenshoot.image}
+          alt="vg-screenshot"
+        />
       </Carousel.Item>
     ));
 
     //Siempre hacer un ternario porque no siempre está listo para hacer un mapeo.
-    const allDevelopers = developers ? (developers.map((developer) => <p>{developer.name}</p>)) : null;
+    const allDevelopers = developers
+      ? developers.map((developer) => <p>{developer.name}</p>)
+      : null;
 
-    const allGenres = genres ? (genres.map(genre => <span>{genre.name} </span>)) : null;
-    
-    const allStores = stores ? (stores.map(store => <p className="store-link"><a href={store.url}>{store.store.name}</a></p>)) : null;
-    
+    const allGenres = genres
+      ? genres.map((genre) => <span>{genre.name} </span>)
+      : null;
+
+    const allStores = stores
+      ? stores.map((store) => (
+          <p className="store-link">
+            <a href={store.url}>{store.store.name}</a>
+          </p>
+        ))
+      : null;
 
     return (
       <div>
@@ -259,9 +280,13 @@ class ShowVideogame extends Component {
 
         <main id="vg-detail-container">
           <section className="vg-title">{name}</section>
-          <section>{parentPlatformsNames} | {playtime} hours</section>
-          <section><Rating>{rating}</Rating></section>
-          
+          <section>
+            {parentPlatformsNames} | {playtime} hours
+          </section>
+          <section>
+            <Rating>{rating}</Rating>
+          </section>
+
           <section id="vg-detail-carousel">
             <Carousel>{allScreenshots}</Carousel>
           </section>
@@ -270,7 +295,7 @@ class ShowVideogame extends Component {
           <section>{description_raw}</section>
           <hr />
           <section>
-            <div className="info-vg-detail-container" >
+            <div className="info-vg-detail-container">
               <div className="info-vg-detail">
                 <p className="info-vg-detail-title">Platforms</p>
                 <p>{parentPlatformsNames}</p>
@@ -280,12 +305,12 @@ class ShowVideogame extends Component {
                 <p>{allGenres}</p>
               </div>
             </div>
-            <div className="info-vg-detail-container" >
-              <div className="info-vg-detail" style={{paddingTop: "1.5rem"}}>
+            <div className="info-vg-detail-container">
+              <div className="info-vg-detail" style={{ paddingTop: "1.5rem" }}>
                 <p className="info-vg-detail-title">Developers</p>
                 <p>{allDevelopers}</p>
               </div>
-              <div className="info-vg-detail" style={{paddingTop: "1.5rem"}}>
+              <div className="info-vg-detail" style={{ paddingTop: "1.5rem" }}>
                 <p className="info-vg-detail-title">Release date</p>
                 <p>{released}</p>
               </div>
@@ -298,12 +323,14 @@ class ShowVideogame extends Component {
             <div className="stores-container">{allStores}</div>
 
             <h4>Or sell this game in our marketplace by clicking</h4>
-            <Link to={`/marketplace/add/${id}`}><Button variant="danger">here</Button></Link>
+            <Link to={`/marketplace/add/${id}`}>
+              <Button variant="danger">HERE</Button>
+            </Link>
           </section>
 
           <section>
             <hr style={{ backgroundColor: "white" }} />
-            
+
             <p>Add a review</p>
             <form onSubmit={this.handleFormSubmit}>
               <div>
@@ -316,9 +343,9 @@ class ShowVideogame extends Component {
                 ></textarea>
               </div>
 
-    
-              <Button type="submit" variant="danger">Post your review</Button>
-
+              <Button type="submit" variant="danger">
+                Post your review
+              </Button>
             </form>
 
             <hr style={{ backgroundColor: "white" }} />

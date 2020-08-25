@@ -64,9 +64,9 @@ class MarketplacePage extends Component {
     const { offersToShow } = this.state;
 
     return (
-      <div>
+      <div style={{ textAlign: "center" }}>
         <h1>MARKETPLACE</h1>
-        <p>Buy a game</p>
+        <p>Check the games others users are selling</p>
 
         <div className="header" id="myHeader">
           {/* SEARCH BAR */}

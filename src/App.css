@@ -199,14 +199,14 @@ button.navbar-button {
 }
 
 .store-link {
-  background-color: hsla(0,0%,100%,.1);
+  background-color: hsla(0, 0%, 100%, 0.1);
   border-radius: 6px;
   width: fit-content;
   padding: 0.4rem 0.7rem;
 }
 
 .store-link a {
-  color: hsla(0,0%,100%,.5)!important;
+  color: hsla(0, 0%, 100%, 0.5) !important;
   text-decoration: none;
 }
 
@@ -297,6 +297,22 @@ button.navbar-button {
   width: 100px;
   border-radius: 3px;
   margin: 0 7px;
+}
+
+.container-review-profile {
+  width: 100%;
+}
+
+.each-review-profile {
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5em;
+}
+
+.each-review-profile p {
+  margin: 0;
 }
 
 .showInfo {

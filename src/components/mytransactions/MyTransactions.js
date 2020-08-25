@@ -8,27 +8,33 @@ import Button from "react-bootstrap/Button";
 
 class MyTransactions extends Component {
   state = {
-    allTransactions: [],
-    transactions: [],
+    allTransactions: [], //All transactions
+    transactionsToShow: [], //Transactions of the user we need to show
   };
 
   componentDidMount() {
     axios
       .get("http://localhost:4000/api/offer")
-      .then((allOffers) => {
-        console.log(allOffers.data);
+      .then((transactions) => {
+        const allTransac = transactions.data;
+        const thisUserId = this.props.user._id;
+
+        let thisUserTransac = allTransac.filter((eachTransac) =>
+          eachTransac.user._id.includes(thisUserId)
+        );
         this.setState({
-          allTransactions: allOffers.data,
+          allTransactions: transactions.data,
+          transactionsToShow: thisUserTransac,
         });
       })
       .catch((err) => console.log(err));
   }
 
   render() {
-    const { allTransactions } = this.state;
+    const { transactionsToShow } = this.state;
     return (
       <div>
-        {allTransactions.map((oneTransaction) => {
+        {transactionsToShow.map((oneTransaction) => {
           return (
             <div className="container-all-offers">
               <main className="all-offers">

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar/Navbar";
 import MyTransactions from "../components/mytransactions/MyTransactions";
+import MyReviews from "../components/myreviews/MyReviews";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
-
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
 class UserPage extends Component {
   state = {};
@@ -48,6 +46,15 @@ class UserPage extends Component {
     }
   }
 
+  displayReviews() {
+    const transactions = document.getElementById("reviews");
+    if (transactions.style.display === "none") {
+      transactions.style.display = "block";
+    } else {
+      transactions.style.display = "none";
+    }
+  }
+
   render() {
     //console.log(this.state)
     const { logout } = this.props;
@@ -76,13 +83,15 @@ class UserPage extends Component {
         <div id="buttons-my-profile">
           <button className="buttons-my-profile">My games</button>
 
-          <button className="buttons-my-profile">My reviews</button>
+          <button className="buttons-my-profile" onClick={this.displayReviews}>
+            My reviews
+          </button>
 
           <button
             className="buttons-my-profile"
             onClick={this.displayTransactions}
           >
-            My transacrions
+            My transactions
           </button>
         </div>
 
@@ -96,6 +105,14 @@ class UserPage extends Component {
 
         <div id="transactions" style={{ display: "none" }}>
           <MyTransactions />
+        </div>
+
+        <div
+          id="reviews"
+          className="container-review-profile"
+          style={{ display: "none" }}
+        >
+          <MyReviews />
         </div>
 
         <Navbar />

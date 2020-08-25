@@ -183,6 +183,10 @@ button.navbar-button {
 .img-games-marketplace {
   width: 100%;
 }
+
+.margin-buttons-marketplace {
+  margin: 0.3em;
+}
 /*ADD GAME PAGE*/
 .suggestion {
   padding-left: 2px;
@@ -261,6 +265,12 @@ button.navbar-button {
   border-radius: 3px;
   margin: 0 7px;
 }
+
+/*EDIT PROFILE*/
+.margin-inputs-edit-profile {
+  margin: 0.5em;
+}
+
 /* VIDEOGAME DETAILS */
 .reviews-section {
   margin-bottom: 4rem;

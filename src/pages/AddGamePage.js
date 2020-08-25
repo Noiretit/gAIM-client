@@ -30,6 +30,10 @@ class AddGamePage extends Component {
     }
   }
 
+  componentDidUpdate() {
+    console.log(this.state.videoGames);
+  }
+
   filterGames = (searchString) => {
     const lowerSearchString = searchString.toLowerCase();
 
@@ -48,13 +52,17 @@ class AddGamePage extends Component {
   };
 
   render() {
+    const oneGame = this.state.videoGamesToShow.map((gameObj) => {
+      console.log(gameObj.parent_platforms);
+    });
+
     return (
       <div>
         <p>Create an offer here</p>
 
         <div className="header" id="myHeader">
           {/* SEARCH BAR */}
-          <h2>Search:</h2>
+          <h5>Search for the game you want to sell:</h5>
           <SearchBar filterGames={this.filterGames} />
         </div>
 
@@ -73,6 +81,116 @@ class AddGamePage extends Component {
                       />
                       <Card.Body>
                         <Card.Title>{gameObj.name}</Card.Title>
+                        <p>
+                          {gameObj.parent_platforms.map((oneGame, index) => {
+                            if (oneGame.platform.name === "PlayStation") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/playstation-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "Xbox") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/xbox-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "PC") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/pc-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "Nintendo") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/nintendo-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (
+                              oneGame.platform.name === "Apple Macintosh"
+                            ) {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/apple-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "iOS") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/apple-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "Android") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/android-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "Linux") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/linux-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "Web") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/web-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "SEGA") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/sega-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else if (oneGame.platform.name === "Atari") {
+                              return (
+                                <img
+                                  key={index}
+                                  className="platform-icon"
+                                  src="../../images/atari-platform-white.svg"
+                                  alt="platform-icon"
+                                />
+                              );
+                            } else {
+                              return (
+                                <p key={index}>- {oneGame.platform.name}</p>
+                              );
+                            }
+                          })}
+                        </p>
                         <Link to={`/marketplace/add/${gameObj.id}`}>
                           <Button variant="danger">Sell this game</Button>
                         </Link>

@@ -176,12 +176,12 @@ button.navbar-button {
   left: 171px;
 }
 
-#container-all-offers {
+.container-all-offers {
   display: block;
   text-align: -webkit-center;
 }
 
-#all-offers .card {
+.all-offers .card {
   background-color: rgb(37, 36, 36);
   margin: 2rem 0;
   width: 90%;

@@ -122,7 +122,7 @@ class Profile extends Component {
 
         <div className="header" id="myHeader">
           {/* SEARCH BAR */}
-          <h2><span role="img" aria-label="emoji">🕵🏻‍♀️ </span>Search<span role="img" aria-label="emoji"> 🕵🏻‍♂️</span></h2>
+          <h2>Search</h2>
           <SearchBar filterGames={this.filterGames} />
 
           {/* FILTER BUTTONS */}

@@ -2,8 +2,26 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../../lib/AuthProvider";
 import "./AddGame.css";
+import $ from "jquery";
 
 class AddGame extends Component {
+  componentDidMount() {
+    /*Jquery*/
+    $(function () {
+      // this will get the full URL at the address bar
+      var url = window.location.href;
+
+      // passes on every "a" tag
+      $(".links-navbar").each(function () {
+        // checks if its the same on the address bar
+        if (url == this.href) {
+          //   $(this).closest("a").addClass("changeMenuColor");
+          $(this).addClass("changeMenuColor");
+        }
+      });
+    });
+  }
+
   render() {
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function () {
@@ -40,7 +58,7 @@ class AddGame extends Component {
 
           <nav className="navbar-add-game">
             <div>
-              <Link to="/home">
+              <Link className="links-navbar" to="/home">
                 <img
                   className="icons-navbar"
                   src={"../../images/favicon-aim-navbar-grey.svg"}
@@ -51,7 +69,7 @@ class AddGame extends Component {
             </div>
 
             <div>
-              <Link to="/videogames">
+              <Link className="links-navbar" to="/videogames">
                 <img
                   id="searchIcon"
                   className="icons-navbar"
@@ -63,7 +81,7 @@ class AddGame extends Component {
             </div>
 
             <div>
-              <Link to="/marketplace">
+              <Link className="links-navbar" to="/marketplace">
                 <img
                   className="icons-navbar"
                   src={"../../images/new-marketplace-greyish.svg"}
@@ -74,7 +92,7 @@ class AddGame extends Component {
             </div>
 
             <div>
-              <Link to="/myprofile">
+              <Link className="links-navbar" to="/myprofile">
                 <img
                   className="icons-navbar"
                   src={"../../images/new-user-greyish.svg"}

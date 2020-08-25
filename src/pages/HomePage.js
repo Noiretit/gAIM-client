@@ -162,7 +162,7 @@ class Home extends Component {
         {/* LAST RELEASED */}
         <section style={{ marginTop: "1.5rem" }} className="home-section">
           <div className="title-container">
-            <h2>🔥 Last released 🔥</h2>
+            <h2><span aria-label="emoji" role="img">🔥</span> Last released <span aria-label="emoji" role="img">🔥</span></h2>
           </div>
           <Carousel>{lastReleasedGames}</Carousel>
         </section>
@@ -171,7 +171,7 @@ class Home extends Component {
         <section className="home-section">
           <div className="title-container">
             <h2>
-              👑 Top year
+            <span aria-label="emoji" role="img">👑</span> Top year
               <select
                 className="home-select"
                 name="year"
@@ -223,8 +223,8 @@ class Home extends Component {
                 <option value="1977">1977</option>
                 <option value="1976">1976</option>
                 <option value="1975">1975</option>
-              </select>{" "}
-              👑
+              </select>
+              <span aria-label="emoji" role="img">👑</span>
             </h2>
           </div>
           <Carousel>{topGamesSelectedYear}</Carousel>
@@ -234,7 +234,7 @@ class Home extends Component {
         <section className="home-section">
           <div className="title-container">
             <h2 style={{ fontSize: "1.3rem" }}>
-              💥 Top genre
+              <span aria-label="emoji" role="img">💥</span> Top genre
               <select
                 className="home-select"
                 name="genre"
@@ -256,7 +256,7 @@ class Home extends Component {
                 <option value="sports">"sports"</option>
                 <option value="strategy">"strategy"</option>
               </select>{" "}
-              💥
+              <span aria-label="emoji" role="img">💥</span>
             </h2>
           </div>
           <Carousel>{topGameSelectedGenre}</Carousel>

@@ -3,6 +3,7 @@
 // import Navbar from "../components/navbar/Navbar";
 // import Avatars from "@dicebear/avatars";
 // import sprites from "@dicebear/avatars-identicon-sprites";
+// import Spinner from 'react-bootstrap/Spinner'
 
 // let options = {};
 // let avatars = new Avatars(sprites);
@@ -27,6 +28,10 @@
 //       <div>
 //         <h1>Welcome {this.props.user.username}</h1>
 //         <p>Your favorite genre is {this.props.user.genre}</p>
+
+//         <Spinner animation="border" role="status">
+//         <span className="sr-only">Loading...</span>
+//         </Spinner>
 
 //         <button className="navbar-button" onClick={logout}>
 //           Logout

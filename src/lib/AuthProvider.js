@@ -1,5 +1,8 @@
 import React from "react";
 import auth from "./auth-service"; // Importamos funciones para llamadas axios a la API
+import Spinner from 'react-bootstrap/Spinner'
+
+
 const { Consumer, Provider } = React.createContext();
 
 // HOC para crear Consumer
@@ -79,7 +82,9 @@ class AuthProvider extends React.Component {
     return isLoading ? (
       // si está loading, devuelve un <div> y sino devuelve un componente <Provider> con un objeto con los valores: { isLoggedin, user, login, logout, signup}
       // el objeto pasado en la prop value estará disponible para todos los componentes <Consumer>
-      <div>Loading</div>
+      <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>
     ) : (
       <Provider value={{ isLoggedin, user, login, logout, signup }}>
         {this.props.children}

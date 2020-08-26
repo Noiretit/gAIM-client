@@ -8,6 +8,7 @@ import Rating from "../../components/rating/Rating";
 
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
+import Accordion from 'react-bootstrap/Accordion'
 
 import "../../App.css";
 
@@ -309,8 +310,17 @@ class ShowVideogame extends Component {
             <Carousel>{allScreenshots}</Carousel>
           </section>
           <hr />
+          {/* <h2>About</h2>
+          <section className="description-vg-detail">{description_raw}</section> */}
           <h2>About</h2>
-          <section className="description-vg-detail">{description_raw}</section>
+          <Accordion defaultActiveKey="0">
+            <Accordion.Toggle as={Button} className="acc-button" variant="outline-secondary" eventKey="0">
+                <p>Show less</p>
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="0">
+            <section className="description-vg-detail">{description_raw}</section>
+            </Accordion.Collapse>
+          </Accordion>
           <hr />
           <section>
             <div className="info-vg-detail-container">
@@ -430,7 +440,7 @@ class ShowVideogame extends Component {
                     </p>
                   </div>
 
-                  {this.props.user._id == reviewObj.user._id ? (
+                  {this.props.user._id === reviewObj.user._id ? (
                     <img
                       onClick={(e) => this.removeComment(e, reviewObj._id)}
                       id="close-icon"

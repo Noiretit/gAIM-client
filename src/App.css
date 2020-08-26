@@ -199,6 +199,7 @@ button.navbar-button {
 
 .description-vg-detail {
   font-weight: 200;
+  margin-top: 10px;
 }
 
 #vg-detail-carousel .carousel-inner {
@@ -261,6 +262,15 @@ button.navbar-button {
   flex-direction: column;
   justify-content: center;
   text-align: initial;
+}
+
+.acc-button{
+  margin-bottom: 0
+}
+
+.acc-button p {
+  margin-bottom: 0;
+  font-size: small;
 }
 
 /*MARKETPLACE*/

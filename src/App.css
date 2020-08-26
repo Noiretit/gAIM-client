@@ -42,6 +42,20 @@ button.navbar-button {
   margin-top: 10px;
   margin-bottom: 0;
 }
+
+.fav-icon {
+  width: 1.8rem;
+  position: relative;
+  left: 3.9rem;
+}
+
+.clicked-fav-icon {
+  filter: invert(14%) sepia(44%) saturate(7126%) hue-rotate(354deg) brightness(104%) contrast(118%);
+}
+
+.search-see-more{
+  margin-left: 2rem;
+}
 /* HOMEPAGE */
 .carousel-item {
   height: 172.5px;

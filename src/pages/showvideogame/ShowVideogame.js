@@ -17,6 +17,7 @@ class ShowVideogame extends Component {
     review: "",
     thisGameReviewsArray: [],
     thisGameScreenshootsArray: [],
+    expandButton: "Show less",
   };
 
   componentDidMount() {
@@ -24,6 +25,7 @@ class ShowVideogame extends Component {
     this.getOneVideogame();
     this.getVideogameReviews();
     this.getVideogameScreenshots();
+
   }
 
   componentDidUpdate() {
@@ -33,6 +35,8 @@ class ShowVideogame extends Component {
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
+
+  
 
   getOneVideogame = () => {
     const { id } = this.props.match.params;
@@ -116,7 +120,7 @@ class ShowVideogame extends Component {
       ) //A añadir a cada llamada
       .then(() => {
         console.log(this.state);
-        this.setState({ review: "" }, () => this.componentDidMount());
+        this.setState({ review: "" }, () => this.getVideogameReviews());
       })
       .catch((err) => console.log("Error while creating a review", err));
   };
@@ -147,6 +151,7 @@ class ShowVideogame extends Component {
       thisGameReviewsArray,
       thisGameScreenshootsArray,
       id,
+      expandButton
     } = this.state;
 
     const parentPlatformsNames = parent_platforms
@@ -315,13 +320,8 @@ class ShowVideogame extends Component {
           <section className="description-vg-detail">{description_raw}</section> */}
           <h2>About</h2>
           <Accordion defaultActiveKey="0">
-            <Accordion.Toggle
-              as={Button}
-              className="acc-button"
-              variant="outline-secondary"
-              eventKey="0"
-            >
-              <p>Show less</p>
+            <Accordion.Toggle as={Button} value={expandButton} onClick={() => expandButton === "Show less" ? this.setState({expandButton: "Show more"}) : this.setState({expandButton: "Show less"})} className="acc-button" variant="outline-secondary" eventKey="0">
+                <p>{expandButton}</p>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
               <section className="description-vg-detail">

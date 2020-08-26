@@ -12,8 +12,6 @@ body {
 .changeMenuColor {
   filter: invert(100%) sepia(43%) saturate(1%) hue-rotate(86deg)
     brightness(113%) contrast(101%);
-  /* filter: invert(27%) sepia(94%) saturate(1987%) hue-rotate(336deg)
-    brightness(90%) contrast(92%); */
 }
 
 .App {
@@ -50,10 +48,11 @@ button.navbar-button {
 }
 
 .clicked-fav-icon {
-  filter: invert(14%) sepia(44%) saturate(7126%) hue-rotate(354deg) brightness(104%) contrast(118%);
+  filter: invert(14%) sepia(44%) saturate(7126%) hue-rotate(354deg)
+    brightness(104%) contrast(118%);
 }
 
-.search-see-more{
+.search-see-more {
   margin-left: 2rem;
 }
 /* HOMEPAGE */
@@ -132,7 +131,7 @@ button.navbar-button {
 }
 
 .genre-card-text {
-  font-weight: 200
+  font-weight: 200;
 }
 #container-search-buttons {
   display: flex;
@@ -198,7 +197,7 @@ button.navbar-button {
   font-weight: 800;
 }
 
-.description-vg-detail{
+.description-vg-detail {
   font-weight: 200;
 }
 
@@ -241,11 +240,11 @@ button.navbar-button {
   text-decoration: none;
 }
 
-.info-vg-section-content{
+.info-vg-section-content {
   font-weight: 200;
 }
 
-.review-emoji{
+.review-emoji {
   font-size: 3rem;
 }
 
@@ -255,7 +254,7 @@ button.navbar-button {
   justify-content: space-around;
 }
 
-.vg-detail-review-container{
+.vg-detail-review-container {
   padding: 0px 1rem;
   width: 100%;
   display: flex;
@@ -378,7 +377,7 @@ button.navbar-button {
   margin: 2.5rem 0;
 }
 
-.three-options-buttons {
+.three-options-buttons  {
   margin: 0 10px;
 }
 

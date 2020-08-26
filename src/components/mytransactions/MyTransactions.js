@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import "./MyTransactions.css";
 
 class MyTransactions extends Component {
   state = {
@@ -64,15 +65,15 @@ class MyTransactions extends Component {
                       </Button>
                     </Link>
 
-                    {/* <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, oneTransaction._id, oneTransaction.status)
-                        }
-                      >
-                        Buy it
-                      </Button> */}
+                    <img
+                      onClick={(e) =>
+                        this.removeTransaction(e, oneTransaction._id)
+                      }
+                      id="close-icon"
+                      className="close-icon"
+                      src={"../../../images/close-icon-red.svg"}
+                      alt="close"
+                    />
                   </Card.Body>
                 </Card>
               </main>

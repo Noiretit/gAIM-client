@@ -14,21 +14,25 @@ class MarketplacePage extends Component {
     offersToShow: [], //What we will see with the search bar
   };
 
+  //Show only the game status "Selling"
   componentDidMount() {
     axios
       .get("http://localhost:4000/api/offer")
       .then((allOffers) => {
         console.log(allOffers.data);
+        const offers = allOffers.data;
+
+        let onlySellingGames = offers.filter((eachOffer) =>
+          eachOffer.status.includes("selling")
+        );
+        console.log(onlySellingGames);
+
         this.setState({
-          allOffers: allOffers.data,
-          offersToShow: allOffers.data,
+          allOffers: onlySellingGames,
+          offersToShow: onlySellingGames,
         });
       })
       .catch((err) => console.log(err));
-  }
-
-  componentDidUpdate() {
-    console.log(this.state.allOffers.data);
   }
 
   filterGames = (searchString) => {

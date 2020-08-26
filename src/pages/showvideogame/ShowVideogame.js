@@ -25,7 +25,7 @@ class ShowVideogame extends Component {
     this.getOneVideogame();
     this.getVideogameReviews();
     this.getVideogameScreenshots();
-    window.scrollTo(0, 0);
+
   }
 
   componentDidUpdate() {
@@ -35,6 +35,8 @@ class ShowVideogame extends Component {
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
+
+  
 
   getOneVideogame = () => {
     const { id } = this.props.match.params;
@@ -118,7 +120,7 @@ class ShowVideogame extends Component {
       ) //A añadir a cada llamada
       .then(() => {
         console.log(this.state);
-        this.setState({ review: "" }, () => this.componentDidMount());
+        this.setState({ review: "" }, () => this.getVideogameReviews());
       })
       .catch((err) => console.log("Error while creating a review", err));
   };

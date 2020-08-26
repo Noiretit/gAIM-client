@@ -25,7 +25,6 @@ class ShowVideogame extends Component {
     this.getOneVideogame();
     this.getVideogameReviews();
     this.getVideogameScreenshots();
-
   }
 
   componentDidUpdate() {
@@ -35,8 +34,6 @@ class ShowVideogame extends Component {
     // console.log(this.props)
     // console.log(this.props.user._id)
   }
-
-  
 
   getOneVideogame = () => {
     const { id } = this.props.match.params;
@@ -151,7 +148,7 @@ class ShowVideogame extends Component {
       thisGameReviewsArray,
       thisGameScreenshootsArray,
       id,
-      expandButton
+      expandButton,
     } = this.state;
 
     const parentPlatformsNames = parent_platforms
@@ -320,8 +317,19 @@ class ShowVideogame extends Component {
           <section className="description-vg-detail">{description_raw}</section> */}
           <h2>About</h2>
           <Accordion defaultActiveKey="0">
-            <Accordion.Toggle as={Button} value={expandButton} onClick={() => expandButton === "Show less" ? this.setState({expandButton: "Show more"}) : this.setState({expandButton: "Show less"})} className="acc-button" variant="outline-secondary" eventKey="0">
-                <p>{expandButton}</p>
+            <Accordion.Toggle
+              as={Button}
+              value={expandButton}
+              onClick={() =>
+                expandButton === "Show less"
+                  ? this.setState({ expandButton: "Show more" })
+                  : this.setState({ expandButton: "Show less" })
+              }
+              className="acc-button"
+              variant="outline-secondary"
+              eventKey="0"
+            >
+              <p>{expandButton}</p>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
               <section className="description-vg-detail">
@@ -377,18 +385,12 @@ class ShowVideogame extends Component {
           <hr style={{ backgroundColor: "white" }} />
           <section>
             <div className="review-title">
-              <span role="img" aria-label="emoji" className="review-emoji">
-                👾{" "}
-              </span>
-              <span>Add a review</span>
-              <span role="img" aria-label="emoji" className="review-emoji">
-                {" "}
-                👾
-              </span>
+              <h4>Add a review</h4>
             </div>
             <form onSubmit={this.handleFormSubmit}>
               <div style={{ marginBottom: "0.5rem" }}>
                 <textarea
+                  className="text-area-vg-review"
                   type="text"
                   name="review"
                   value={review}
@@ -397,25 +399,9 @@ class ShowVideogame extends Component {
               </div>
 
               <div className="review-title">
-                <span
-                  style={{ paddingLeft: "0.6rem" }}
-                  role="img"
-                  aria-label="emoji"
-                  className="review-emoji"
-                >
-                  👾
-                </span>
                 <Button type="submit" variant="danger">
                   Post your review
                 </Button>
-                <span
-                  style={{ paddingRight: "0.6rem" }}
-                  role="img"
-                  aria-label="emoji"
-                  className="review-emoji"
-                >
-                  👾
-                </span>
               </div>
             </form>
 

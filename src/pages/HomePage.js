@@ -162,7 +162,7 @@ class Home extends Component {
         {/* LAST RELEASED */}
         <section style={{ marginTop: "1.5rem" }} className="home-section">
           <div className="title-container">
-            <h2><span aria-label="emoji" role="img">🔥</span> Last released <span aria-label="emoji" role="img">🔥</span></h2>
+          <h2><span aria-label="emoji" role="img">🔥</span> Last released <span aria-label="emoji" role="img">🔥</span></h2>
           </div>
           <Carousel>{lastReleasedGames}</Carousel>
         </section>
@@ -234,7 +234,7 @@ class Home extends Component {
         <section className="home-section">
           <div className="title-container">
             <h2 style={{ fontSize: "1.3rem" }}>
-              <span aria-label="emoji" role="img">💥</span> Top genre
+            <span aria-label="emoji" role="img">💥</span> Top genre
               <select
                 className="home-select"
                 name="genre"
@@ -261,10 +261,6 @@ class Home extends Component {
           </div>
           <Carousel>{topGameSelectedGenre}</Carousel>
         </section>
-
-        <div style={{ marginBottom: "6rem" }} className="logo-home">
-          <img src="/images/Group.svg" alt="logo" />
-        </div>
 
         <Navbar />
       </div>

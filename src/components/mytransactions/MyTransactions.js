@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import "./MyTransactions.css";
 
 class MyTransactions extends Component {
   state = {
@@ -28,6 +29,15 @@ class MyTransactions extends Component {
         });
       })
       .catch((err) => console.log(err));
+  }
+
+  removeTransaction(e, transactionId) {
+    const id = transactionId;
+
+    axios
+      .post("http://localhost:4000/api/offer/delete", { id })
+      .then(() => this.componentDidMount())
+      .catch((err) => console.log("Error while removing comment", err));
   }
 
   render() {
@@ -64,15 +74,15 @@ class MyTransactions extends Component {
                       </Button>
                     </Link>
 
-                    {/* <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, oneTransaction._id, oneTransaction.status)
-                        }
-                      >
-                        Buy it
-                      </Button> */}
+                    <img
+                      onClick={(e) =>
+                        this.removeTransaction(e, oneTransaction._id)
+                      }
+                      id="delete-icon"
+                      className="delete-icon"
+                      src={"../../../images/delete-icon-red.svg"}
+                      alt="close"
+                    />
                   </Card.Body>
                 </Card>
               </main>

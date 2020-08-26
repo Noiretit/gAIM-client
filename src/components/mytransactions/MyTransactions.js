@@ -34,9 +34,9 @@ class MyTransactions extends Component {
     const { transactionsToShow } = this.state;
     return (
       <div>
-        {transactionsToShow.map((oneTransaction) => {
+        {transactionsToShow.map((oneTransaction, index) => {
           return (
-            <div className="container-all-offers">
+            <div key={index} className="container-all-offers">
               <main className="all-offers">
                 <Card key={oneTransaction._id}>
                   <Card.Img

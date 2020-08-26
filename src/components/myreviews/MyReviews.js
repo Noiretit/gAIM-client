@@ -32,6 +32,12 @@ class MyReviews extends Component {
       .catch((err) => console.log(err));
   }
 
+  removeComment(e, reviewId) {
+    const id = reviewId;
+
+    axios.post("http://localhost:4000/api/review/delete", { id });
+  }
+
   render() {
     const { reviewsToShow } = this.state;
 
@@ -70,7 +76,10 @@ class MyReviews extends Component {
                   </Button>
                 </Link>
               </div>
+
               <img
+                onClick={(e) => this.removeComment(e, oneReview._id)}
+                id="close-icon"
                 className="close-icon"
                 src={"../../../images/close-icon-grey.svg"}
                 alt="close"

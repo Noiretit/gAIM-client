@@ -14,9 +14,9 @@ class Profile extends Component {
     videoGames: [], //All the games
     videoGamesToShow: [], //What we will see with the search bar
     favoriteVideogames: [],
-    year: "",
-    genre: "",
-    platform: "",
+    year: "all",
+    genre: "all",
+    platform: "all",
   };
 
   componentDidMount() {
@@ -54,11 +54,66 @@ class Profile extends Component {
     this.setState({ videoGamesToShow: filteredGames });
   };
 
-  // handleChange = (event) => {
-  //   let filteredGames = [];
+  handleChange = (event) => {
+    let { name, value } = event.target;
+    this.setState({ [name]: value }, () => this.filterByProperty(this.state));
+  };
 
-  //   filteredGames = this.state.videoGames;
-  // };
+  filterByProperty = (search) => {
+    let filteredGames = [];
+
+    // eslint-disable-next-line array-callback-return
+    filteredGames = this.state.videoGames.filter((game) => {
+      if (
+        search.year !== "all" &&
+        search.genre === "all" &&
+        search.platform === "all"
+      ) {
+        return game.year === search.year;
+      } else if (
+        search.year === "all" &&
+        search.genre !== "all" &&
+        search.platform === "all"
+      ) {
+        return game.genre === search.genre;
+      } else if (
+        search.year === "all" &&
+        search.genre === "all" &&
+        search.platform !== "all"
+      ) {
+        return game.platform === search.platform;
+      } else if (
+        search.year !== "all" &&
+        search.genre !== "all" &&
+        search.platform === "all"
+      ) {
+        return game.year === search.year && game.genre === search.genre;
+      } else if (
+        search.year === "all" &&
+        search.genre !== "all" &&
+        search.platform !== "all"
+      ) {
+        return game.genre === search.genre && game.platform === search.platform;
+      } else if (
+        search.year !== "all" &&
+        search.genre !== "all" &&
+        search.platform !== "all"
+      ) {
+        return (
+          game.year === search.year &&
+          game.genre === search.genre &&
+          game.platform === search.platform
+        );
+      } else if (
+        search.year === "all" &&
+        search.genre === "all" &&
+        search.platform === "all"
+      ) {
+        return true;
+      }
+    });
+    this.setState({ videoGamesToShow: filteredGames });
+  };
 
   // handleSelectedYear = (event) => {
   //   this.setState({ year: event.target.value }, () => {
@@ -150,7 +205,7 @@ class Profile extends Component {
               name="platform"
               onChange={this.handleChange}
             >
-              <option defaultValue>Platform:</option>
+              <option value="all">Platform:</option>
               <option value="8">Android</option>
               <option value="5">Apple Macintosh</option>
               <option value="9">Atari</option>
@@ -176,7 +231,7 @@ class Profile extends Component {
                 name="year"
                 onChange={this.handleChange}
               >
-                <option defaultValue>Year:</option>
+                <option value="all">Year:</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
@@ -233,7 +288,7 @@ class Profile extends Component {
                 name="genre"
                 onChange={this.handleChange}
               >
-                <option defaultValue>Genre:</option>
+                <option value="all">Genre:</option>
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
                 <option value="arcade">Arcade</option>

@@ -54,126 +54,134 @@ class Profile extends Component {
     this.setState({ videoGamesToShow: filteredGames });
   };
 
-  handleChange = (event) => {
-    let { name, value } = event.target;
-    this.setState({ [name]: value }, () => this.filterByProperty(this.state));
-  };
+  // handleChange = (event) => {
+  //   let { name, value } = event.target;
+  //   this.setState({ [name]: value }, () => this.filterByProperty(this.state));
+  // };
 
-  filterByProperty = (search) => {
-    let filteredGames = [];
+  // filterByProperty = (search) => {
+  //   let filteredGames = [];
 
-    // eslint-disable-next-line array-callback-return
-    filteredGames = this.state.videoGames.filter((game) => {
-      if (
-        search.year !== "all" &&
-        search.genre === "all" &&
-        search.platform === "all"
-      ) {
-        return game.year === search.year;
-      } else if (
-        search.year === "all" &&
-        search.genre !== "all" &&
-        search.platform === "all"
-      ) {
-        return game.genre === search.genre;
-      } else if (
-        search.year === "all" &&
-        search.genre === "all" &&
-        search.platform !== "all"
-      ) {
-        return game.platform === search.platform;
-      } else if (
-        search.year !== "all" &&
-        search.genre !== "all" &&
-        search.platform === "all"
-      ) {
-        return game.year === search.year && game.genre === search.genre;
-      } else if (
-        search.year === "all" &&
-        search.genre !== "all" &&
-        search.platform !== "all"
-      ) {
-        return game.genre === search.genre && game.platform === search.platform;
-      } else if (
-        search.year !== "all" &&
-        search.genre !== "all" &&
-        search.platform !== "all"
-      ) {
-        return (
-          game.year === search.year &&
-          game.genre === search.genre &&
-          game.platform === search.platform
-        );
-      } else if (
-        search.year === "all" &&
-        search.genre === "all" &&
-        search.platform === "all"
-      ) {
-        return true;
-      }
+  //   // eslint-disable-next-line array-callback-return
+  //   filteredGames = this.state.videoGames.filter((game) => {
+  //     if (
+  //       search.year !== "all" &&
+  //       search.genre === "all" &&
+  //       search.platform === "all"
+  //     ) {
+  //       return game.released.substring(0, 4) === search.year;
+  //     } else if (
+  //       search.year === "all" &&
+  //       search.genre !== "all" &&
+  //       search.platform === "all"
+  //     ) {
+  //       console.log(game.genres);
+  //       const arr = [];
+
+  //       // return game.genres.map((genre) =>
+  //       //   Object.values(genre).filter((name) => name === search.genre)
+  //       // );
+  //     } else if (
+  //       search.year === "all" &&
+  //       search.genre === "all" &&
+  //       search.platform !== "all"
+  //     ) {
+  //       return game.platform === search.platform;
+  //     } else if (
+  //       search.year !== "all" &&
+  //       search.genre !== "all" &&
+  //       search.platform === "all"
+  //     ) {
+  //       return (
+  //         game.released.substring(0, 4) === search.year &&
+  //         game.genre === search.genre
+  //       );
+  //     } else if (
+  //       search.year === "all" &&
+  //       search.genre !== "all" &&
+  //       search.platform !== "all"
+  //     ) {
+  //       return game.genre === search.genre && game.platform === search.platform;
+  //     } else if (
+  //       search.year !== "all" &&
+  //       search.genre !== "all" &&
+  //       search.platform !== "all"
+  //     ) {
+  //       return (
+  //         game.released.substring(0, 4) === search.year &&
+  //         game.genre === search.genre &&
+  //         game.platform === search.platform
+  //       );
+  //     } else if (
+  //       search.year === "all" &&
+  //       search.genre === "all" &&
+  //       search.platform === "all"
+  //     ) {
+  //       return true;
+  //     }
+  //   });
+  //   this.setState({ videoGamesToShow: filteredGames });
+  // };
+
+  handleSelectedYear = (event) => {
+    this.setState({ year: event.target.value }, () => {
+      this.filterGamesPerYear();
     });
-    this.setState({ videoGamesToShow: filteredGames });
   };
 
-  // handleSelectedYear = (event) => {
-  //   this.setState({ year: event.target.value }, () => {
-  //     this.filterGamesPerYear();
-  //   });
-  // };
+  filterGamesPerYear() {
+    const { year } = this.state;
 
-  // filterGamesPerYear() {
-  //   const { year } = this.state;
+    axios
+      .get(
+        `https://api.rawg.io/api/games?dates=${year}-01-01,${year}-12-31&ordering=-rating`
+      )
+      .then((topSelectedYearResponse) => {
+        const dataResults = topSelectedYearResponse.data.results;
+        console.log(dataResults);
 
-  //   axios
-  //     .get(
-  //       `https://api.rawg.io/api/games?dates=${year}-01-01,${year}-12-31&ordering=-rating`
-  //     )
-  //     .then((topSelectedYearResponse) => {
-  //       const dataResults = topSelectedYearResponse.data.results;
-  //       console.log(dataResults);
+        this.setState({ ...this.state, videoGamesToShow: dataResults });
+      });
+  }
 
-  //       this.setState({ ...this.state, videoGamesToShow: dataResults });
-  //     });
-  // }
+  handleSelectedPlatform = (event) => {
+    this.setState({ platform: event.target.value }, () => {
+      this.filterGamesPerPlatform();
+    });
+  };
 
-  // handleSelectedPlatform = (event) => {
-  //   this.setState({ platform: event.target.value }, () => {
-  //     this.filterGamesPerPlatform();
-  //   });
-  // };
+  filterGamesPerPlatform = (event) => {
+    const { platform } = this.state;
 
-  // filterGamesPerPlatform = (event) => {
-  //   const { platform } = this.state;
+    axios
+      .get(
+        `https://api.rawg.io/api/games?parent_platforms=${platform}&ordering=-rating`
+      )
+      .then((topSelectedGamePerPlatform) => {
+        const dataresults = topSelectedGamePerPlatform.data.results;
 
-  //   axios
-  //     .get(
-  //       `https://api.rawg.io/api/games?parent_platforms=${platform}&ordering=-rating`
-  //     )
-  //     .then((topSelectedGamePerPlatform) => {
-  //       const dataresults = topSelectedGamePerPlatform.data.results;
+        this.setState({ ...this.state, videoGamesToShow: dataresults });
+      });
+  };
 
-  //       this.setState({ ...this.state, videoGamesToShow: dataresults });
-  //     });
-  // };
+  handleSelectedGenre = (event) => {
+    this.setState({ genre: event.target.value }, () => {
+      this.filterGamesPerGenre();
+    });
+  };
 
-  // handleSelectedGenre = (event) => {
-  //   this.setState({ genre: event.target.value }, () => {
-  //     this.filterGamesPerGenre();
-  //   });
-  // };
+  filterGamesPerGenre = (event) => {
+    const { genre } = this.state;
 
-  // filterGamesPerGenre = (event) => {
-  //   const { genre } = this.state;
+    axios
+      .get(`https://api.rawg.io/api/games?genres=${genre}&ordering=-rating`)
+      .then((topSelectedGenreResponse) => {
+        const dataResults = topSelectedGenreResponse.data.results;
+        console.log(dataResults);
 
-  //   axios
-  //     .get(`https://api.rawg.io/api/games?genres=${genre}&ordering=-rating`)
-  //     .then((topSelectedGenreResponse) => {
-  //       const dataResults = topSelectedGenreResponse.data.results;
-  //       console.log(dataResults);
-
-  //       this.setState({ ...this.state, videoGamesToShow: dataResults });
-  //     });
-  // };
+        this.setState({ ...this.state, videoGamesToShow: dataResults });
+      });
+  };
 
   handleFavorite(event, videogameID) {
     const favoriteVideogames = videogameID;
@@ -203,7 +211,7 @@ class Profile extends Component {
               className="platform-input"
               id="selectedPlatform"
               name="platform"
-              onChange={this.handleChange}
+              onChange={this.handleSelectedPlatform}
             >
               <option value="all">Platform:</option>
               <option value="8">Android</option>
@@ -229,7 +237,7 @@ class Profile extends Component {
                 className="year-and-genre"
                 id="selectedYear"
                 name="year"
-                onChange={this.handleChange}
+                onChange={this.handleSelectedYear}
               >
                 <option value="all">Year:</option>
                 <option value="2020">2020</option>
@@ -286,7 +294,7 @@ class Profile extends Component {
                 className="year-and-genre"
                 id="selectedGenre"
                 name="genre"
-                onChange={this.handleChange}
+                onChange={this.handleSelectedGenre}
               >
                 <option value="all">Genre:</option>
                 <option value="action">Action</option>

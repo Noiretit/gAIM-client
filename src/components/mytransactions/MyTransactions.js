@@ -31,6 +31,15 @@ class MyTransactions extends Component {
       .catch((err) => console.log(err));
   }
 
+  removeTransaction(e, transactionId) {
+    const id = transactionId;
+
+    axios
+      .post("http://localhost:4000/api/offer/delete", { id })
+      .then(() => this.componentDidMount())
+      .catch((err) => console.log("Error while removing comment", err));
+  }
+
   render() {
     const { transactionsToShow } = this.state;
     return (
@@ -69,9 +78,9 @@ class MyTransactions extends Component {
                       onClick={(e) =>
                         this.removeTransaction(e, oneTransaction._id)
                       }
-                      id="close-icon"
-                      className="close-icon"
-                      src={"../../../images/close-icon-red.svg"}
+                      id="delete-icon"
+                      className="delete-icon"
+                      src={"../../../images/delete-icon-red.svg"}
                       alt="close"
                     />
                   </Card.Body>

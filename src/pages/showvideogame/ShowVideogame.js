@@ -8,7 +8,7 @@ import Rating from "../../components/rating/Rating";
 
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
-import Accordion from 'react-bootstrap/Accordion'
+import Accordion from "react-bootstrap/Accordion";
 
 import "../../App.css";
 
@@ -20,6 +20,7 @@ class ShowVideogame extends Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.getOneVideogame();
     this.getVideogameReviews();
     this.getVideogameScreenshots();
@@ -314,11 +315,18 @@ class ShowVideogame extends Component {
           <section className="description-vg-detail">{description_raw}</section> */}
           <h2>About</h2>
           <Accordion defaultActiveKey="0">
-            <Accordion.Toggle as={Button} className="acc-button" variant="outline-secondary" eventKey="0">
-                <p>Show less</p>
+            <Accordion.Toggle
+              as={Button}
+              className="acc-button"
+              variant="outline-secondary"
+              eventKey="0"
+            >
+              <p>Show less</p>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
-            <section className="description-vg-detail">{description_raw}</section>
+              <section className="description-vg-detail">
+                {description_raw}
+              </section>
             </Accordion.Collapse>
           </Accordion>
           <hr />

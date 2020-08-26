@@ -64,6 +64,15 @@ class MarketplacePage extends Component {
     axios.post("http://localhost:4000/api/marketplace/status", { id, status });
   }
 
+  removeTransaction(e, transactionId) {
+    const id = transactionId;
+
+    axios
+      .post("http://localhost:4000/api/offer/delete", { id })
+      .then(() => this.componentDidMount())
+      .catch((err) => console.log("Error while removing comment", err));
+  }
+
   render() {
     const { offersToShow } = this.state;
 
@@ -78,7 +87,6 @@ class MarketplacePage extends Component {
         </div>
 
         {offersToShow.map((offer) => {
-          console.log(offer.status);
           if (offer.childrenPlatform === "Linux") {
             return (
               <div className="container-all-offers">
@@ -109,15 +117,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -152,15 +172,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -195,15 +227,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -238,15 +282,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -281,15 +337,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -324,16 +392,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
-                      <Button variant="secondary">Buy it</Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -368,15 +447,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -411,15 +502,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -454,15 +557,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -497,15 +612,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -540,15 +667,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -583,15 +722,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -626,15 +777,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -669,15 +832,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -712,15 +887,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -755,15 +942,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -798,15 +997,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -841,15 +1052,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -884,15 +1107,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -927,15 +1162,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -970,15 +1217,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1013,15 +1272,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1056,15 +1327,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1099,15 +1382,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1142,15 +1437,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1185,15 +1492,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1228,15 +1547,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1271,15 +1602,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1314,15 +1657,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1357,15 +1712,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1400,15 +1767,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1443,15 +1822,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1486,15 +1877,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1529,15 +1932,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1572,15 +1987,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1615,15 +2042,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1658,15 +2097,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1701,15 +2152,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1744,15 +2207,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1787,15 +2262,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1830,15 +2317,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1873,15 +2372,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1916,15 +2427,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -1959,15 +2482,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -2002,15 +2537,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -2045,15 +2592,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>
@@ -2084,15 +2643,27 @@ class MarketplacePage extends Component {
                         </Button>
                       </Link>
 
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="secondary"
-                        onClick={(e) =>
-                          this.handleChangeStatus(e, offer._id, offer.status)
-                        }
-                      >
-                        Buy it
-                      </Button>
+                      {this.props.user._id === offer.user._id ? null : (
+                        <Button
+                          className="margin-buttons-marketplace"
+                          variant="secondary"
+                          onClick={(e) =>
+                            this.handleChangeStatus(e, offer._id, offer.status)
+                          }
+                        >
+                          Buy it
+                        </Button>
+                      )}
+
+                      {this.props.user._id === offer.user._id ? (
+                        <img
+                          onClick={(e) => this.removeTransaction(e, offer._id)}
+                          id="delete-icon"
+                          className="delete-icon-marketplace"
+                          src={"../../../images/delete-icon-red.svg"}
+                          alt="close"
+                        />
+                      ) : null}
                     </Card.Body>
                   </Card>
                 </main>

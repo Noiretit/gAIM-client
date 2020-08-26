@@ -3,7 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
+import userService from "../lib/user-service";
 import Navbar from "../components/navbar/Navbar";
 import SearchBar from "../components/searchbar/SearchBar";
 
@@ -14,6 +14,7 @@ class Profile extends Component {
     videoGames: [], //All the games
     videoGamesToShow: [], //What we will see with the search bar
     favoriteVideogames: [],
+    userFavGames: [],
     year: "all",
     genre: "all",
     platform: "all",
@@ -21,7 +22,6 @@ class Profile extends Component {
 
   componentDidMount() {
     let test = [];
-    console.log(this.state);
 
     for (var i = 1; i < 10; i++) {
       axios.get("https://api.rawg.io/api/games?page=" + i).then((response) => {
@@ -31,10 +31,27 @@ class Profile extends Component {
         this.setState({ videoGames: test, videoGamesToShow: test });
       });
     }
+
+    this.getUserInfo();
   }
 
+  getUserInfo = () => {
+    userService
+      .getOne()
+      .then((userObj) => {
+        this.setState({ userFavGames: userObj.favoriteVideogames });
+      })
+      .catch((err) =>
+        console.log("Error while mounting component, UserPage.js", err)
+      );
+  };
+
   componentDidUpdate() {
+    const { userFavGames } = this.state; //Fav games of user
     // console.log(this.props.user._id);
+    console.log(this.props.user);
+    console.log(this.state.userFavGames);
+    console.log(userFavGames.includes("4280"));
   }
 
   filterGames = (searchString) => {
@@ -184,13 +201,27 @@ class Profile extends Component {
   };
 
   handleFavorite(event, videogameID) {
-    const favoriteVideogames = videogameID;
-    const userID = this.props.user._id;
+    const favoriteVideogames = videogameID.toString(); //ID of the game
+    const userID = this.props.user._id; //ID of the user
+    const { userFavGames } = this.state; //Fav games of user
 
-    axios.post("http://localhost:4000/api/myprofile/favorite", {
-      favoriteVideogames,
-      userID,
-    });
+    if (!userFavGames.includes(favoriteVideogames)) {
+      console.log("game added");
+
+      axios
+        .post("http://localhost:4000/api/myprofile/favorite", {
+          favoriteVideogames,
+          userID,
+        })
+        .then(() => {
+          this.getUserInfo();
+        })
+        .catch((err) =>
+          console.log("Error in handleFavorite SearchPage.js", err)
+        );
+    } else {
+      console.log("already inside");
+    }
   }
 
   render() {
@@ -454,7 +485,8 @@ class Profile extends Component {
                       </Button>
                     </Link>
                     <img
-                      className="fav-icon"
+                      id={gameObj.id}
+                      className="fav-icon fav-game"
                       src="../../images/jquery-heart-2.svg"
                       alt="fav-icon"
                       onClick={(e) => this.handleFavorite(e, gameObj.id)}

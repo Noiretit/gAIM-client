@@ -106,7 +106,7 @@ class UserPage extends Component {
             className="buttons-my-profile"
             onClick={this.displayTransactions}
           >
-            My transactions
+            My offers
           </Button>
         </div>
 

@@ -14,6 +14,11 @@ body {
     brightness(113%) contrast(101%);
 }
 
+.favorite-game {
+  filter: invert(14%) sepia(44%) saturate(7126%) hue-rotate(354deg)
+    brightness(104%) contrast(118%);
+}
+
 .App {
   padding: 20px;
 }
@@ -24,13 +29,16 @@ button.navbar-button {
   border-radius: 3px;
   margin: 0 10px;
 }
+
 .start-btn {
   width: 10rem;
 }
+
 #home-btn {
   color: white;
   text-decoration: none;
 }
+
 /* LOGIN & SIGNUP */
 .login-signup-inputs {
   background-color: #c8c8c8;
@@ -264,8 +272,8 @@ button.navbar-button {
   text-align: initial;
 }
 
-.acc-button{
-  margin-bottom: 0
+.acc-button {
+  margin-bottom: 0;
 }
 
 .acc-button p {
@@ -284,6 +292,12 @@ button.navbar-button {
 .margin-buttons-marketplace {
   margin: 0.3em;
 }
+
+.delete-icon-marketplace {
+  width: 30px;
+  margin: 0 0.3em;
+}
+
 /*ADD GAME PAGE*/
 .suggestion {
   padding-left: 2px;

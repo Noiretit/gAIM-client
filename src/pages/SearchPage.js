@@ -53,70 +53,71 @@ class Profile extends Component {
     this.setState({ videoGamesToShow: filteredGames });
   };
 
-  // handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   this.setState({ [name]: value }), this.filterPerGenrePlatformYear();
+  handleChange = (event) => {
+    let filteredGames = [];
+
+    filteredGames = this.state.videoGames;
+  };
+
+  // handleSelectedYear = (event) => {
+  //   this.setState({ year: event.target.value }, () => {
+  //     this.filterGamesPerYear();
+  //   });
   // };
 
-  handleSelectedYear = (event) => {
-    this.setState({ year: event.target.value }, () => {
-      this.filterGamesPerYear();
-    });
-  };
+  // filterGamesPerYear() {
+  //   const { year } = this.state;
 
-  filterGamesPerYear() {
-    const { year } = this.state;
+  //   axios
+  //     .get(
+  //       `https://api.rawg.io/api/games?dates=${year}-01-01,${year}-12-31&ordering=-rating`
+  //     )
+  //     .then((topSelectedYearResponse) => {
+  //       const dataResults = topSelectedYearResponse.data.results;
+  //       console.log(dataResults);
 
-    axios
-      .get(
-        `https://api.rawg.io/api/games?dates=${year}-01-01,${year}-12-31&ordering=-rating`
-      )
-      .then((topSelectedYearResponse) => {
-        const dataResults = topSelectedYearResponse.data.results;
-        console.log(dataResults);
+  //       this.setState({ ...this.state, videoGamesToShow: dataResults });
+  //     });
+  // }
 
-        this.setState({ ...this.state, videoGamesToShow: dataResults });
-      });
-  }
+  // handleSelectedPlatform = (event) => {
+  //   this.setState({ platform: event.target.value }, () => {
+  //     this.filterGamesPerPlatform();
+  //   });
+  // };
 
-  handleSelectedPlatform = (event) => {
-    this.setState({ platform: event.target.value }, () => {
-      this.filterGamesPerPlatform();
-    });
-  };
+  // filterGamesPerPlatform = (event) => {
+  //   const { platform } = this.state;
 
-  filterGamesPerPlatform = (event) => {
-    const { platform } = this.state;
+  //   axios
+  //     .get(
+  //       `https://api.rawg.io/api/games?parent_platforms=${platform}&ordering=-rating`
+  //     )
+  //     .then((topSelectedGamePerPlatform) => {
+  //       const dataresults = topSelectedGamePerPlatform.data.results;
 
-    axios
-      .get(
-        `https://api.rawg.io/api/games?parent_platforms=${platform}&ordering=-rating`
-      )
-      .then((topSelectedGamePerPlatform) => {
-        const dataresults = topSelectedGamePerPlatform.data.results;
+  //       this.setState({ ...this.state, videoGamesToShow: dataresults });
+  //     });
+  // };
 
-        this.setState({ ...this.state, videoGamesToShow: dataresults });
-      });
-  };
+  // handleSelectedGenre = (event) => {
+  //   this.setState({ genre: event.target.value }, () => {
+  //     this.filterGamesPerGenre();
+  //   });
+  // };
 
-  handleSelectedGenre = (event) => {
-    this.setState({ genre: event.target.value }, () => {
-      this.filterGamesPerGenre();
-    });
-  };
+  // filterGamesPerGenre = (event) => {
+  //   const { genre } = this.state;
 
-  filterGamesPerGenre = (event) => {
-    const { genre } = this.state;
+  //   axios
+  //     .get(`https://api.rawg.io/api/games?genres=${genre}&ordering=-rating`)
+  //     .then((topSelectedGenreResponse) => {
+  //       const dataResults = topSelectedGenreResponse.data.results;
+  //       console.log(dataResults);
 
-    axios
-      .get(`https://api.rawg.io/api/games?genres=${genre}&ordering=-rating`)
-      .then((topSelectedGenreResponse) => {
-        const dataResults = topSelectedGenreResponse.data.results;
-        console.log(dataResults);
-
-        this.setState({ ...this.state, videoGamesToShow: dataResults });
-      });
-  };
+  //       this.setState({ ...this.state, videoGamesToShow: dataResults });
+  //     });
+  // };
 
   render() {
     return (
@@ -256,11 +257,13 @@ class Profile extends Component {
                     alt={gameObj.name}
                   />
                   <Card.Body>
-                    <Card.Title><h4>{gameObj.name}</h4></Card.Title>
+                    <Card.Title>
+                      <h4>{gameObj.name}</h4>
+                    </Card.Title>
                     <Card.Text className="genre-card-text">
                       Genre:
                       {gameObj.genres.map((oneGenre, index) => {
-                        return <span> {oneGenre.name} </span>;
+                        return <span key={index}> {oneGenre.name} </span>;
                       })}
                     </Card.Text>
                     <Card.Text>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "../../lib/AuthProvider";
 import axios from "axios";
+import "./MyReviews.css";
 
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -55,7 +56,9 @@ class MyReviews extends Component {
                 />
               </div>
               <div className="vg-detail-review-container">
-                <p>{day}/{month}/{year}, at {hour}:{minutes}:</p>
+                <p>
+                  {day}/{month}/{year}, at {hour}:{minutes}:
+                </p>
                 <p>{oneReview.review}</p>
 
                 <Link to={`/videogames/${oneReview.videogameId}`}>
@@ -67,6 +70,11 @@ class MyReviews extends Component {
                   </Button>
                 </Link>
               </div>
+              <img
+                className="close-icon"
+                src={"../../../images/close-icon-grey.svg"}
+                alt="close"
+              />
             </div>
           );
         })}

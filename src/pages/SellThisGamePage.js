@@ -52,7 +52,7 @@ class ShowVideogame extends Component {
     const user = this.props.user._id;
 
     axios
-      .post("http://localhost:4000/api/offer", {
+      .post(`${process.env.REACT_APP_API_URL}/api/offer`, {
         price,
         childrenPlatform,
         videoGameId,

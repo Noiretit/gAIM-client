@@ -14,7 +14,7 @@ class MyReviews extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/api/review")
+      .get(`${process.env.REACT_APP_API_URL}/api/review`)
       .then((reviews) => {
         const allReviews = reviews.data;
         const thisUserId = this.props.user._id;
@@ -36,7 +36,7 @@ class MyReviews extends Component {
     const id = reviewId;
 
     axios
-      .post("http://localhost:4000/api/review/delete", { id })
+      .post(`${process.env.REACT_APP_API_URL}/api/review/delete`, { id })
       .then(() => this.componentDidMount())
       .catch((err) => console.log("Error while removing comment", err));
   }

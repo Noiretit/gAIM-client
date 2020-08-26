@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./MyTransactions.css";
-import Switch from "react-bootstrap/esm/Switch";
 
 class MyTransactions extends Component {
   state = {
@@ -16,7 +15,7 @@ class MyTransactions extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/api/offer")
+      .get(`${process.env.REACT_APP_API_URL}/api/offer`)
       .then((transactions) => {
         const allTransac = transactions.data;
         const thisUserId = this.props.user._id;
@@ -36,7 +35,7 @@ class MyTransactions extends Component {
     const id = transactionId;
 
     axios
-      .post("http://localhost:4000/api/offer/delete", { id })
+      .post(`${process.env.REACT_APP_API_URL}/api/offer/delete`, { id })
       .then(() => this.componentDidMount())
       .catch((err) => console.log("Error while removing comment", err));
   }
@@ -2957,53 +2956,6 @@ class MyTransactions extends Component {
                 </main>
               </div>
             );
-          }
-
-          {
-            /* return (
-            <div key={index} className="container-all-offers">
-              <main className="all-offers">
-                <Card key={oneTransaction._id}>
-                  <Card.Img
-                    variant="top"
-                    src={oneTransaction.videoGamePic}
-                    alt={oneTransaction.videoGameName}
-                  />
-                  <Card.Body>
-                    <Card.Title>{oneTransaction.videoGameName}</Card.Title>
-
-                    <img
-                      className="platform-icon"
-                      src="../../images/linux-platform-white.svg"
-                      alt="platform-icon"
-                    />
-                    <p>Platform: {oneTransaction.childrenPlatform} </p>
-
-                    <p>{oneTransaction.price} €</p>
-
-                    <Link to={`/videogames/${oneTransaction.videoGameId}`}>
-                      <Button
-                        className="margin-buttons-marketplace"
-                        variant="danger"
-                      >
-                        Details <small>about the game</small>
-                      </Button>
-                    </Link>
-
-                    <img
-                      onClick={(e) =>
-                        this.removeTransaction(e, oneTransaction._id)
-                      }
-                      id="delete-icon"
-                      className="delete-icon"
-                      src={"../../../images/delete-icon-red.svg"}
-                      alt="close"
-                    />
-                  </Card.Body>
-                </Card>
-              </main>
-            </div>
-          ); */
           }
         })}
       </div>

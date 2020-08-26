@@ -17,7 +17,7 @@ class MarketplacePage extends Component {
   //Show only the game status "Selling"
   componentDidMount() {
     axios
-      .get("http://localhost:4000/api/offer")
+      .get(`${process.env.REACT_APP_API_URL}/api/offer`)
       .then((allOffers) => {
         console.log(allOffers.data);
         const offers = allOffers.data;
@@ -61,14 +61,14 @@ class MarketplacePage extends Component {
       status = "booked";
     }
 
-    axios.post("http://localhost:4000/api/marketplace/status", { id, status });
+    axios.post(`${process.env.REACT_APP_API_URL}/api/marketplace/status`, { id, status });
   }
 
   removeTransaction(e, transactionId) {
     const id = transactionId;
 
     axios
-      .post("http://localhost:4000/api/offer/delete", { id })
+      .post(`${process.env.REACT_APP_API_URL}/api/offer/delete`, { id })
       .then(() => this.componentDidMount())
       .catch((err) => console.log("Error while removing comment", err));
   }

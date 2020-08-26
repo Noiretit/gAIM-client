@@ -211,7 +211,7 @@ class Profile extends Component {
       console.log("game added");
 
       axios
-        .post("http://localhost:4000/api/myprofile/favorite", {
+        .post(`${process.env.REACT_APP_API_URL}/api/myprofile/favorite`, {
           favoriteVideogames,
           userID,
         })

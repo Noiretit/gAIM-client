@@ -61,7 +61,7 @@ class ShowVideogame extends Component {
     const thisVideogameId = this.props.match.params.id; //ID del videojuego
 
     axios
-      .get(`http://localhost:4000/api/review`)
+      .get(`${process.env.REACT_APP_API_URL}/api/review`)
       .then((response) => {
         const AllReviews = response.data;
         const thisGameReviews = AllReviews.filter((eachReview) =>
@@ -109,7 +109,7 @@ class ShowVideogame extends Component {
 
     axios
       .post(
-        "http://localhost:4000/api/review",
+        `${process.env.REACT_APP_API_URL}/api/review`,
         {
           review,
           videogameId,
@@ -129,7 +129,7 @@ class ShowVideogame extends Component {
     const id = reviewId;
 
     axios
-      .post("http://localhost:4000/api/review/delete", { id })
+      .post(`${process.env.REACT_APP_API_URL}/api/review/delete`, { id })
       .then(() => this.getVideogameReviews())
       .catch((err) => console.log("Error while removing comment", err));
   }

@@ -62,7 +62,7 @@ class UserPage extends Component {
     const { logout } = this.props;
     // eslint-disable-next-line no-unused-vars
     const { username, email, genre, gender } = this.state;
-    console.log(this.props.history);
+    console.log(this.props);
 
     return (
       <div className="container-my-profile">
@@ -73,26 +73,25 @@ class UserPage extends Component {
           alt="profile-pic"
         ></img>
 
-        {/* <p><span>Username:</span> {username}</p>
+        <p><span>Username:</span> {username}</p>
         <p><span>Email:</span> {email}</p>
         <p><span>Favorite genre:</span> {genre}</p>
-        <p><span>Gender:</span> {gender}</p> */}
         <Link to={"/myprofile/edit"}>
-          <Button variant="danger">Edit your profile</Button>
+          <Button variant="secondary">Edit your profile</Button>
         </Link>
 
         <span className="separation-line"></span>
 
         <div id="buttons-my-profile">
-          <Button variant="danger" className="buttons-my-profile">My games</Button>
+          <Button variant="secondary" className="buttons-my-profile">My games</Button>
 
-          <Button variant="danger" className="buttons-my-profile" onClick={this.displayReviews}>
+          <Button variant="secondary" className="buttons-my-profile" onClick={this.displayReviews}>
             My reviews
           </Button>
 
           <Button
             style={{paddingRight: "10px"}}
-            variant="danger" className="buttons-my-profile"
+            variant="secondary" className="buttons-my-profile"
             onClick={this.displayTransactions}
           >
             My transactions

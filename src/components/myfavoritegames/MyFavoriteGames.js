@@ -13,7 +13,7 @@ class MyFavoriteGames extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/api/myprofile")
+      .get(`${process.env.REACT_APP_API_URL}/api/myprofile`)
       .then((profile) => {
         console.log(profile.data);
       })

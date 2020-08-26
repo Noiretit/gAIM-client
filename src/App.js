@@ -5,7 +5,6 @@ import { Switch } from "react-router-dom";
 import Signup from "./pages/SignupPage";
 import Login from "./pages/LoginPage";
 import Home from "./pages/StartPage";
-import Private from "./pages/Private";
 import HomePage from "./pages/HomePage";
 import UserPage from "./pages/UserPage";
 import SearchPage from "./pages/SearchPage";
@@ -30,7 +29,6 @@ class App extends Component {
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
 
-            <PrivateRoute exact path="/private" component={Private} />
             <PrivateRoute exact path="/home" component={HomePage} />
             <PrivateRoute exact path="/myprofile" component={UserPage} />
             <PrivateRoute

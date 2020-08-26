@@ -41,11 +41,10 @@ class Signup extends Component {
   }
 
   render() {
-    // const { username, email, password, genre, gender, picture } = this.state;
     const { username, email, password } = this.state;
 
     return (
-      <div style={{textAlign: "center", marginTop: "3rem"}}>
+      <div style={{textAlign: "center", marginTop: "3rem", textAlignLast:"center"}}>
         <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
         <h1 style={{marginTop: "1rem"}} >Sign Up</h1>
         <form onSubmit={this.handleFormSubmit}>

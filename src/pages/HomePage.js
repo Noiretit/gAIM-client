@@ -7,9 +7,6 @@ import "../App.css";
 
 import Navbar from "../components/navbar/Navbar";
 
-// let allGametitle = document.getElementById("titreAllGames");
-// console.log(allGametitle);
-
 class Home extends Component {
   state = {
     lastReleased: [],
@@ -54,7 +51,6 @@ class Home extends Component {
         `https://api.rawg.io/api/games?dates=2010-01-01,2020-01-01&genres=${this.state.genre}&ordering=-rating&parent_platforms=1,2,3,7`
       )
       .then((topSelectedGenreResponse) => {
-        // console.log(topSelectedGenreResponse.data.results);
 
         const dataResults = topSelectedGenreResponse.data.results.slice(0, 10);
 
@@ -90,8 +86,6 @@ class Home extends Component {
         `https://api.rawg.io/api/games?dates=2010-01-01,2020-01-01&genres=${genre}&ordering=-rating&parent_platforms=1,2,3,7`
       )
       .then((topSelectedGenreResponse) => {
-        console.log(topSelectedGenreResponse.data.results);
-
         const dataResults = topSelectedGenreResponse.data.results.slice(0, 10);
 
         this.setState({ ...this.state, topSelectedGenre: dataResults });
@@ -121,7 +115,6 @@ class Home extends Component {
         </Link>
       </Carousel.Item>
     ));
-    // <Link to={`/videogames/${gameObj.id}`}>See more</Link>
 
     //Renderisar top 10 selected year
     const topGamesSelectedYear = topSelectedYear.map((videoGame) => (
@@ -136,7 +129,6 @@ class Home extends Component {
         <Carousel.Caption>{videoGame.name}</Carousel.Caption>
       </Carousel.Item>
     ));
-    // console.log(lastReleasedGames);
 
     //Renderisar top 10 selected genre
     const topGameSelectedGenre = topSelectedGenre.map((videoGame) => (
@@ -154,7 +146,6 @@ class Home extends Component {
 
     return (
       <div>
-        {/* <Link to={"/private"}>Private</Link> */}
         <div className="logo-home">
           <img src="/images/Group.svg" alt="logo" />
         </div>

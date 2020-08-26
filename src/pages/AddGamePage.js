@@ -30,10 +30,6 @@ class AddGamePage extends Component {
     }
   }
 
-  componentDidUpdate() {
-    console.log(this.state.videoGames);
-  }
-
   filterGames = (searchString) => {
     const lowerSearchString = searchString.toLowerCase();
 
@@ -56,12 +52,16 @@ class AddGamePage extends Component {
 
     return (
       <div>
-
-        <div className="header" id="myHeader">
+        <div className="logo-home">
+          <img src="/images/Group.svg" alt="logo" />
+        </div>
+        <div className="header" >
           {/* SEARCH BAR */}
           <h5>Search for the game you want to sell:</h5>
           <SearchBar filterGames={this.filterGames} />
         </div>
+
+        <hr className="separation-hr" />
 
         {/* ALL GAMES */}
         <div className="content">
@@ -71,11 +71,13 @@ class AddGamePage extends Component {
                 <div className="container-all-offers">
                   <main className="all-offers">
                     <Card key={gameObj.id}>
-                      <Card.Img
-                        variant="top"
-                        src={gameObj.background_image}
-                        alt={gameObj.name}
-                      />
+                      <Link to={`/videogames/${gameObj.id}`}>
+                        <Card.Img
+                          variant="top"
+                          src={gameObj.background_image}
+                          alt={gameObj.name}
+                        />
+                      </Link>
                       <Card.Body>
                         <Card.Title>{gameObj.name}</Card.Title>
                         <p>

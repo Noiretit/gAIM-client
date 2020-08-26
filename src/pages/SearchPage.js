@@ -48,14 +48,6 @@ class Profile extends Component {
       );
   };
 
-  componentDidUpdate() {
-    // const { userFavGames } = this.state; //Fav games of user
-    // console.log(this.props.user._id);
-    // console.log(this.props.user);
-    // console.log(this.state.userFavGames);
-    // console.log(userFavGames.includes("4280"));
-  }
-
   filterGames = (searchString) => {
     const lowerSearchString = searchString.toLowerCase();
 
@@ -73,75 +65,6 @@ class Profile extends Component {
     this.setState({ videoGamesToShow: filteredGames });
   };
 
-  // handleChange = (event) => {
-  //   let { name, value } = event.target;
-  //   this.setState({ [name]: value }, () => this.filterByProperty(this.state));
-  // };
-
-  // filterByProperty = (search) => {
-  //   let filteredGames = [];
-
-  //   // eslint-disable-next-line array-callback-return
-  //   filteredGames = this.state.videoGames.filter((game) => {
-  //     if (
-  //       search.year !== "all" &&
-  //       search.genre === "all" &&
-  //       search.platform === "all"
-  //     ) {
-  //       return game.released.substring(0, 4) === search.year;
-  //     } else if (
-  //       search.year === "all" &&
-  //       search.genre !== "all" &&
-  //       search.platform === "all"
-  //     ) {
-  //       console.log(game.genres);
-  //       const arr = [];
-
-  //       // return game.genres.map((genre) =>
-  //       //   Object.values(genre).filter((name) => name === search.genre)
-  //       // );
-  //     } else if (
-  //       search.year === "all" &&
-  //       search.genre === "all" &&
-  //       search.platform !== "all"
-  //     ) {
-  //       return game.platform === search.platform;
-  //     } else if (
-  //       search.year !== "all" &&
-  //       search.genre !== "all" &&
-  //       search.platform === "all"
-  //     ) {
-  //       return (
-  //         game.released.substring(0, 4) === search.year &&
-  //         game.genre === search.genre
-  //       );
-  //     } else if (
-  //       search.year === "all" &&
-  //       search.genre !== "all" &&
-  //       search.platform !== "all"
-  //     ) {
-  //       return game.genre === search.genre && game.platform === search.platform;
-  //     } else if (
-  //       search.year !== "all" &&
-  //       search.genre !== "all" &&
-  //       search.platform !== "all"
-  //     ) {
-  //       return (
-  //         game.released.substring(0, 4) === search.year &&
-  //         game.genre === search.genre &&
-  //         game.platform === search.platform
-  //       );
-  //     } else if (
-  //       search.year === "all" &&
-  //       search.genre === "all" &&
-  //       search.platform === "all"
-  //     ) {
-  //       return true;
-  //     }
-  //   });
-  //   this.setState({ videoGamesToShow: filteredGames });
-  // };
-
   handleSelectedYear = (event) => {
     this.setState({ year: event.target.value }, () => {
       this.filterGamesPerYear();
@@ -157,7 +80,6 @@ class Profile extends Component {
       )
       .then((topSelectedYearResponse) => {
         const dataResults = topSelectedYearResponse.data.results;
-        // console.log(dataResults);
 
         this.setState({ ...this.state, videoGamesToShow: dataResults });
       });
@@ -196,7 +118,6 @@ class Profile extends Component {
       .get(`https://api.rawg.io/api/games?genres=${genre}&ordering=-rating`)
       .then((topSelectedGenreResponse) => {
         const dataResults = topSelectedGenreResponse.data.results;
-        console.log(dataResults);
 
         this.setState({ ...this.state, videoGamesToShow: dataResults });
       });
@@ -245,7 +166,7 @@ class Profile extends Component {
           <img src="/images/Group.svg" alt="logo" />
         </div>
 
-        <div className="header" id="myHeader">
+        <div className="header">
           {/* SEARCH BAR */}
           <h2>Search</h2>
           <SearchBar filterGames={this.filterGames} />

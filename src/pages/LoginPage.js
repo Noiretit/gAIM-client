@@ -9,7 +9,6 @@ class Login extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
-    //console.log("Login -> form submit", { email, password });
     this.props.login({ email, password });
   };
 
@@ -21,7 +20,7 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div style={{textAlign: "center", marginTop: "3rem"}}>
+      <div style={{textAlign: "center", marginTop: "3rem", textAlignLast:"center"}}>
         <img src="/images/logo-gAIM-blanco.svg" alt="logo" />
         <hr/>
         <h1>Login</h1>

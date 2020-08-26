@@ -287,6 +287,22 @@ button.navbar-button {
 }
 
 /*MARKETPLACE*/
+.separation-hr {
+  width: 50%;
+  background-color: white;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.p-marketplace {
+  margin-top: 1rem;
+  font-weight: 200;
+}
+
+.check-games-p {
+  font-weight: 200;
+}
+
 .offersToShow {
   border: 1px solid white;
 }
@@ -340,6 +356,24 @@ button.navbar-button {
 .platform-icon-ios {
   width: 45px;
   margin: 0 5px;
+}
+
+.seller-container{
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 9rem;
+}
+
+.seller-container input {
+  text-align-last: center;
+}
+
+.seller-container select {
+  width: 8rem;
+}
+
+.label-selling-game {
+  margin-top: 0.9rem;
 }
 /*MY PROFILE*/
 .container-my-profile {

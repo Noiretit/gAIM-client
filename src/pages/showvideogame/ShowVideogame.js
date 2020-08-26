@@ -27,23 +27,12 @@ class ShowVideogame extends Component {
     this.getVideogameScreenshots();
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.thisGameScreenshootsArray);
-    // console.log(this.state.developers);
-    // console.log(this.state.genres);
-    // console.log(this.props)
-    // console.log(this.props.user._id)
-  }
-
   getOneVideogame = () => {
     const { id } = this.props.match.params;
     axios
       .get(`https://api.rawg.io/api/games/${id}`)
       .then((gameObj) => {
         const oneGame = gameObj.data;
-        // const oneGame = gameObj.data.platforms[0].platform.name;
-
-        // console.log(this.state);
         this.setState(oneGame);
       })
       .catch((err) =>
@@ -64,9 +53,6 @@ class ShowVideogame extends Component {
         const thisGameReviews = AllReviews.filter((eachReview) =>
           eachReview.videogameId.includes(thisVideogameId)
         );
-
-        // console.log(thisGameReviews)
-
         this.setState({ thisGameReviewsArray: thisGameReviews });
       })
       .catch((err) =>
@@ -116,7 +102,6 @@ class ShowVideogame extends Component {
         { withCredentials: true }
       ) //A añadir a cada llamada
       .then(() => {
-        console.log(this.state);
         this.setState({ review: "" }, () => this.getVideogameReviews());
       })
       .catch((err) => console.log("Error while creating a review", err));
@@ -292,14 +277,15 @@ class ShowVideogame extends Component {
           <span key={platform.id}>{platform.platform.name} |</span>
         ))
       : null;
-    // console.log(description_raw)
 
     return (
       <div>
+      {/* Videogame image */}
         <div id="test-img-vg">
           <img src={background_image} alt="vg-img" className="bg-img-cover" />
         </div>
 
+        {/* Game info */}
         <main id="vg-detail-container">
           <section className="vg-title">{name}</section>
           <section>
@@ -313,8 +299,8 @@ class ShowVideogame extends Component {
             <Carousel>{allScreenshots}</Carousel>
           </section>
           <hr />
-          {/* <h2>About</h2>
-          <section className="description-vg-detail">{description_raw}</section> */}
+
+          {/* Description */}
           <h2>About</h2>
           <Accordion defaultActiveKey="0">
             <Accordion.Toggle
@@ -338,6 +324,8 @@ class ShowVideogame extends Component {
             </Accordion.Collapse>
           </Accordion>
           <hr />
+
+          {/* Game info */}
           <section>
             <div className="info-vg-detail-container">
               <div className="info-vg-detail">
@@ -370,12 +358,14 @@ class ShowVideogame extends Component {
           </section>
           <hr style={{ backgroundColor: "white" }} />
 
+          {/* Online platforms */}
           <section>
             <h4>Buy this game online</h4>
             <div className="stores-container">{allStores}</div>
 
             <hr style={{ backgroundColor: "white" }} />
-
+            
+            {/* Access to marketplace */}
             <h4>Want to get rid of this game?</h4>
             <Link to={`/marketplace/add/${id}`}>
               <Button variant="danger">Sell it here</Button>
@@ -383,6 +373,8 @@ class ShowVideogame extends Component {
           </section>
 
           <hr style={{ backgroundColor: "white" }} />
+
+          {/* Review form */}
           <section>
             <div className="review-title">
               <h4>Add a review</h4>
@@ -407,6 +399,8 @@ class ShowVideogame extends Component {
 
             <hr style={{ backgroundColor: "white" }} />
           </section>
+
+          {/* VG reviews' list */}
           <section className="reviews-section">
             {thisGameReviewsArray.map((reviewObj) => {
               const dateOfCreation = new Date(reviewObj.createdAt);

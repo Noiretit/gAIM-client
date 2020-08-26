@@ -15,7 +15,6 @@ class AddGame extends Component {
       $(".links-navbar").each(function () {
         // checks if its the same on the address bar
         if (url === this.href) {
-          //   $(this).closest("a").addClass("changeMenuColor");
           $(this).addClass("changeMenuColor");
         }
       });

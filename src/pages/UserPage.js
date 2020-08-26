@@ -25,7 +25,6 @@ class UserPage extends Component {
   }
 
   componentDidUpdate(nextProps) {
-    console.log(this.state);
     if (this.state === {}) {
       return true;
     }
@@ -57,11 +56,9 @@ class UserPage extends Component {
   }
 
   render() {
-    //console.log(this.state)
     const { logout } = this.props;
     // eslint-disable-next-line no-unused-vars
     const { username, email, genre, gender } = this.state;
-    console.log(this.props);
 
     return (
       <div className="container-my-profile">

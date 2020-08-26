@@ -37,10 +37,6 @@ class EditUserPage extends Component {
     this.setState({ gender: event.target.value });
   };
 
-  componentDidUpdate() {
-    console.log(this.state);
-  }
-
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, email, genre, gender } = this.state;

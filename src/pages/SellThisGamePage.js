@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
-import { Link } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import axios from "axios";
 
@@ -15,10 +14,6 @@ class ShowVideogame extends Component {
     this.getOneVideogame();
   }
 
-  componentDidUpdate() {
-    console.log(this.state);
-    console.log(this.props.user._id);
-  }
 
   getOneVideogame = () => {
     const { id } = this.props.match.params;
@@ -191,15 +186,22 @@ class ShowVideogame extends Component {
       : null;
 
     return (
-      <div>
-        <Link to={"/marketplace/add"}>Back</Link>
-        <h3>You're going to sell {name}</h3>
+      <div className="seller-container">
+        <div className="logo-home">
+          <img src="/images/Group.svg" alt="logo" />
+        </div>
+      
+        <h3>Selling: {name}</h3>
 
         <form onSubmit={this.handleFormSubmit}>
+          
           <img style={{ width: "100%" }} src={background_image} alt={name} />
-          <div>{parentPlatformsNames}</div>
 
-          <label>Name:</label>
+          <hr className="separation-hr" style={{marginBottom: "1rem"}} />
+
+          <div>Available on: {parentPlatformsNames}</div>
+
+          <label className="label-selling-game">Name:</label>
           <div>
             <input
               type="text"
@@ -210,18 +212,18 @@ class ShowVideogame extends Component {
             />
           </div>
 
-          <label>Price:</label>
+          <label className="label-selling-game">Price (in €):</label>
           <div>
             <input
               name="price"
-              type="text"
-              placeholder="25€"
+              type="number"
+              placeholder="25"
               value={price}
               onChange={this.handleChange}
             />
           </div>
 
-          <label>Platforms: </label>
+          <label className="label-selling-game">Platforms: </label>
           <div>
             <select
               className="login-signup-inputs"

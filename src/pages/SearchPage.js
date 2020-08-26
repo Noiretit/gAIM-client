@@ -31,7 +31,10 @@ class Profile extends Component {
         this.setState({ videoGames: test, videoGamesToShow: test });
       });
     }
+    window.scrollTo(0, 0);
   }
+
+  
 
   componentDidUpdate() {
     // console.log(this.props.user._id);

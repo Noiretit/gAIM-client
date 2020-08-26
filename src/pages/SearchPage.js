@@ -13,6 +13,7 @@ class Profile extends Component {
   state = {
     videoGames: [], //All the games
     videoGamesToShow: [], //What we will see with the search bar
+    favoriteVideogames: [],
     year: "",
     genre: "",
     platform: "",
@@ -29,11 +30,13 @@ class Profile extends Component {
         }
         this.setState({ videoGames: test, videoGamesToShow: test });
       });
-    }
+    };
+
+
   }
 
   componentDidUpdate() {
-    console.log(this.state);
+    // console.log(this.props.user._id);
   }
 
   filterGames = (searchString) => {
@@ -52,11 +55,6 @@ class Profile extends Component {
 
     this.setState({ videoGamesToShow: filteredGames });
   };
-
-  // handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   this.setState({ [name]: value }), this.filterPerGenrePlatformYear();
-  // };
 
   handleSelectedYear = (event) => {
     this.setState({ year: event.target.value }, () => {
@@ -117,6 +115,13 @@ class Profile extends Component {
         this.setState({ ...this.state, videoGamesToShow: dataResults });
       });
   };
+
+  handleFavorite(event, videogameID) {
+    const favoriteVideogames = videogameID;
+    const userID = this.props.user._id
+
+    axios.post('http://localhost:4000/api/myprofile/favorite', {favoriteVideogames, userID})
+  }
 
   render() {
     return (
@@ -259,8 +264,8 @@ class Profile extends Component {
                     <Card.Title><h4>{gameObj.name}</h4></Card.Title>
                     <Card.Text className="genre-card-text">
                       Genre:
-                      {gameObj.genres.map((oneGenre, index) => {
-                        return <span> {oneGenre.name} </span>;
+                      {gameObj.genres.map((oneGenre) => {
+                        return <span key={oneGenre.id}> {oneGenre.name} </span>;
                       })}
                     </Card.Text>
                     <Card.Text>
@@ -371,9 +376,10 @@ class Profile extends Component {
                         }
                       })}
                     </Card.Text>
-                    <Link to={`/videogames/${gameObj.id}`}>
-                      <Button variant="danger">See more</Button>
-                    </Link>
+                      <Link to={`/videogames/${gameObj.id}`}>
+                        <Button className="search-see-more" variant="danger">See more</Button>
+                      </Link>
+                      <img className="fav-icon" src="../../images/jquery-heart-2.svg" alt="fav-icon" onClick={(e) => this.handleFavorite(e, gameObj.id)}/>
                   </Card.Body>
                 </Card>
               );

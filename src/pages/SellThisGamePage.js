@@ -60,7 +60,7 @@ class ShowVideogame extends Component {
         videoGamePic,
         user,
       })
-      .then(({ data }) => data)
+      .then(() => this.props.history.push("/marketplace"))
       .catch((err) => console.log("Err while creating a new offer", err));
   };
 
@@ -189,7 +189,6 @@ class ShowVideogame extends Component {
           return childrenPlatforms.push(oneChild.platform.name);
         })
       : null;
-       
 
     return (
       <div>

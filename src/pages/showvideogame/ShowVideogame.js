@@ -23,7 +23,6 @@ class ShowVideogame extends Component {
     this.getOneVideogame();
     this.getVideogameReviews();
     this.getVideogameScreenshots();
-    
   }
 
   componentDidUpdate() {
@@ -104,26 +103,31 @@ class ShowVideogame extends Component {
     const user = this.props.user._id;
 
     axios
-      .post("http://localhost:4000/api/review", {
-        review,
-        videogameId,
-        videogameName,
-        user,
+      .post(
+        "http://localhost:4000/api/review",
+        {
+          review,
+          videogameId,
+          videogameName,
+          user,
+        },
+        { withCredentials: true }
+      ) //A añadir a cada llamada
+      .then(() => {
+        console.log(this.state);
+        this.setState({ review: "" }, () => this.componentDidMount());
       })
-      .then(({ data }) => data)
       .catch((err) => console.log("Error while creating a review", err));
   };
 
-  // changeDescription = () => {
-  //   const {description_raw} = this.state
-  //   const middleSpans = '<span id="dots">...</span><span id="more">';
-  //   let newDescription = description_raw.slice(0, 500) + middleSpans + description_raw.slice(500);
-  //   const endSpan = "</span>";
-  //   let usableNewDescription = newDescription += endSpan;
+  removeComment(e, reviewId) {
+    const id = reviewId;
 
-  //   console.log(usableNewDescription)
-  //   console.log('<p>Hello</p>')
-  // }
+    axios
+      .post("http://localhost:4000/api/review/delete", { id })
+      .then(() => this.getVideogameReviews())
+      .catch((err) => console.log("Error while removing comment", err));
+  }
 
   render() {
     const {
@@ -263,7 +267,9 @@ class ShowVideogame extends Component {
 
     //Siempre hacer un ternario porque no siempre está listo para hacer un mapeo.
     const allDevelopers = developers
-      ? developers.map((developer) => <span key={developer.id}>{developer.name}</span>)
+      ? developers.map((developer) => (
+          <span key={developer.id}>{developer.name}</span>
+        ))
       : null;
 
     const allGenres = genres
@@ -278,7 +284,11 @@ class ShowVideogame extends Component {
         ))
       : null;
 
-    const allChildPlatforms = platforms ? platforms.map((platform) => ( <span key={platform.id}>{platform.platform.name} | </span>)) : null;
+    const allChildPlatforms = platforms
+      ? platforms.map((platform) => (
+          <span key={platform.id}>{platform.platform.name} |</span>
+        ))
+      : null;
     // console.log(description_raw)
 
     return (
@@ -316,21 +326,29 @@ class ShowVideogame extends Component {
             <div className="info-vg-detail-container">
               <div className="info-vg-detail">
                 <p className="info-vg-detail-title">Platforms</p>
-                <section className="info-vg-section-content">| {allChildPlatforms}</section>
+                <section className="info-vg-section-content">
+                  | {allChildPlatforms}
+                </section>
               </div>
               <div className="info-vg-detail">
                 <p className="info-vg-detail-title">Genre</p>
-                <section className="info-vg-section-content">{allGenres} |</section>
+                <section className="info-vg-section-content">
+                  {allGenres} |
+                </section>
               </div>
             </div>
             <div className="info-vg-detail-container">
               <div className="info-vg-detail" style={{ paddingTop: "1.5rem" }}>
                 <p className="info-vg-detail-title">Developers</p>
-                <section className="info-vg-section-content">{allDevelopers}</section>
+                <section className="info-vg-section-content">
+                  {allDevelopers}
+                </section>
               </div>
               <div className="info-vg-detail" style={{ paddingTop: "1.5rem" }}>
                 <p className="info-vg-detail-title">Release date</p>
-                <section className="info-vg-section-content">{released}</section>
+                <section className="info-vg-section-content">
+                  {released}
+                </section>
               </div>
             </div>
           </section>
@@ -350,14 +368,18 @@ class ShowVideogame extends Component {
 
           <hr style={{ backgroundColor: "white" }} />
           <section>
-
             <div className="review-title">
-              <span role="img" aria-label="emoji" className="review-emoji">👾 </span>
+              <span role="img" aria-label="emoji" className="review-emoji">
+                👾{" "}
+              </span>
               <span>Add a review</span>
-              <span role="img" aria-label="emoji" className="review-emoji"> 👾</span>
+              <span role="img" aria-label="emoji" className="review-emoji">
+                {" "}
+                👾
+              </span>
             </div>
             <form onSubmit={this.handleFormSubmit}>
-              <div style={{marginBottom: "0.5rem"}}>
+              <div style={{ marginBottom: "0.5rem" }}>
                 <textarea
                   type="text"
                   name="review"
@@ -367,11 +389,25 @@ class ShowVideogame extends Component {
               </div>
 
               <div className="review-title">
-                <span style={{paddingLeft: "0.6rem"}} role="img" aria-label="emoji" className="review-emoji">👾</span>
+                <span
+                  style={{ paddingLeft: "0.6rem" }}
+                  role="img"
+                  aria-label="emoji"
+                  className="review-emoji"
+                >
+                  👾
+                </span>
                 <Button type="submit" variant="danger">
                   Post your review
                 </Button>
-                <span style={{paddingRight: "0.6rem"}} role="img" aria-label="emoji" className="review-emoji">👾</span>
+                <span
+                  style={{ paddingRight: "0.6rem" }}
+                  role="img"
+                  aria-label="emoji"
+                  className="review-emoji"
+                >
+                  👾
+                </span>
               </div>
             </form>
 
@@ -379,7 +415,6 @@ class ShowVideogame extends Component {
           </section>
           <section className="reviews-section">
             {thisGameReviewsArray.map((reviewObj) => {
-
               const dateOfCreation = new Date(reviewObj.createdAt);
               const year = dateOfCreation.getFullYear();
               const month = dateOfCreation.getMonth() + 1;
@@ -399,10 +434,21 @@ class ShowVideogame extends Component {
                     <p>{reviewObj.user.username}</p>
                   </div>
                   <div className="vg-detail-review-container">
-                    
                     <p>{reviewObj.review}</p>
-                    <p>{day}/{month}/{year}, at {hour}:{minutes}</p>
+                    <p>
+                      {day}/{month}/{year}, at {hour}:{minutes}
+                    </p>
                   </div>
+
+                  {this.props.user._id === reviewObj.user._id ? (
+                    <img
+                      onClick={(e) => this.removeComment(e, reviewObj._id)}
+                      id="close-icon"
+                      className="close-icon"
+                      src={"../../../images/close-icon-grey.svg"}
+                      alt="close"
+                    />
+                  ) : null}
                 </div>
               );
             })}

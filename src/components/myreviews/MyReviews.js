@@ -35,7 +35,10 @@ class MyReviews extends Component {
   removeComment(e, reviewId) {
     const id = reviewId;
 
-    axios.post("http://localhost:4000/api/review/delete", { id });
+    axios
+      .post("http://localhost:4000/api/review/delete", { id })
+      .then(() => this.componentDidMount())
+      .catch((err) => console.log("Error while removing comment", err));
   }
 
   render() {

@@ -22,6 +22,7 @@
 }
 
 .navbar-add-game {
+  padding-top: 0.6em;
   display: flex;
   justify-content: space-around;
   background-color: black;

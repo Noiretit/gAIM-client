@@ -46,7 +46,7 @@ class MyReviews extends Component {
 
     return (
       <div>
-        {reviewsToShow.map((oneReview) => {
+        {reviewsToShow.map((oneReview, index) => {
           const dateOfCreation = new Date(oneReview.createdAt);
           const year = dateOfCreation.getFullYear();
           const month = dateOfCreation.getMonth() + 1;
@@ -55,7 +55,7 @@ class MyReviews extends Component {
           const minutes = dateOfCreation.getMinutes();
 
           return (
-            <div className="my-reviews-container" key={oneReview.id}>
+            <div className="my-reviews-container" key={index}>
               <div className="profile-pic-container">
                 <img
                   style={{ marginBottom: "1em" }}

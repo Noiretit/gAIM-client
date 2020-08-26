@@ -203,7 +203,7 @@ class Profile extends Component {
   };
 
   handleFavorite(event, videogameID) {
-    const favoriteVideogames = videogameID.toString(); //ID of the game
+    const favoriteVideogames = videogameID.toString(); //ID of the game we are clicking on
     const userID = this.props.user._id; //ID of the user
     const { userFavGames } = this.state; //Fav games of user
 
@@ -212,7 +212,7 @@ class Profile extends Component {
 
       axios
         .post("http://localhost:4000/api/myprofile/favorite", {
-          favoriteVideogames,
+          favoriteVideogames, //ID of the game we are clicking on
           userID,
         })
         .then(() => {
@@ -222,7 +222,19 @@ class Profile extends Component {
           console.log("Error in handleFavorite SearchPage.js", err)
         );
     } else {
-      console.log("already inside");
+      console.log("game removed from favorite");
+
+      axios
+        .post("http://localhost:4000/api/myprofile/removeFavorite", {
+          favoriteVideogames, //ID of the game we are clicking on
+          userID,
+        })
+        .then(() => {
+          this.getUserInfo();
+        })
+        .catch((err) =>
+          console.log("Error in handleFavorite SearchPage.js", err)
+        );
     }
   }
 
@@ -356,6 +368,9 @@ class Profile extends Component {
         <div id="all-cards">
           <main id="each-card">
             {this.state.videoGamesToShow.map((gameObj) => {
+              const { userFavGames } = this.state; //Fav games of user
+              const favoriteVideogames = gameObj.id.toString(); //ID of the game
+
               return (
                 <Card key={gameObj.id}>
                   <Card.Img
@@ -486,13 +501,24 @@ class Profile extends Component {
                         See more
                       </Button>
                     </Link>
-                    <img
-                      id={gameObj.id}
-                      className="fav-icon fav-game"
-                      src="../../images/jquery-heart-2.svg"
-                      alt="fav-icon"
-                      onClick={(e) => this.handleFavorite(e, gameObj.id)}
-                    />
+
+                    {userFavGames.includes(favoriteVideogames) ? (
+                      <img
+                        id={gameObj.id}
+                        className="fav-icon fav-game"
+                        src="../../images/favorite-icon-full.svg"
+                        alt="fav-icon"
+                        onClick={(e) => this.handleFavorite(e, gameObj.id)}
+                      />
+                    ) : (
+                      <img
+                        id={gameObj.id}
+                        className="fav-icon fav-game"
+                        src="../../images/jquery-heart-2.svg"
+                        alt="fav-icon"
+                        onClick={(e) => this.handleFavorite(e, gameObj.id)}
+                      />
+                    )}
                   </Card.Body>
                 </Card>
               );

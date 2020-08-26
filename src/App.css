@@ -90,8 +90,8 @@ button.navbar-button {
 .home-section h2 {
   background-color: rgb(70, 67, 67);
   padding: 0.3rem 0.7rem;
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   text-align-last: center;
   margin-bottom: 0;
 }
@@ -104,8 +104,8 @@ button.navbar-button {
   opacity: 1;
 }
 .carousel-inner {
-  border-bottom-right-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 /* SEARCH PAGE */
 .header {
@@ -193,6 +193,11 @@ button.navbar-button {
     from(rgba(0, 0, 0, 1)),
     to(rgba(0, 0, 0, 0.01))
   );
+}
+
+.text-area-vg-review {
+  width: 90%;
+  height: 15vh;
 }
 
 #vg-detail-container {

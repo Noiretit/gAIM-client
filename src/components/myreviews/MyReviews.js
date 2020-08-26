@@ -18,7 +18,7 @@ class MyReviews extends Component {
       .then((reviews) => {
         const allReviews = reviews.data;
         const thisUserId = this.props.user._id;
-        console.log(allReviews);
+        // console.log(allReviews);
 
         let thisUserReviews = allReviews.filter((eachReview) =>
           eachReview.user._id.includes(thisUserId)

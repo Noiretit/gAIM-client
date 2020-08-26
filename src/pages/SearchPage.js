@@ -51,9 +51,9 @@ class Profile extends Component {
   componentDidUpdate() {
     const { userFavGames } = this.state; //Fav games of user
     // console.log(this.props.user._id);
-    console.log(this.props.user);
-    console.log(this.state.userFavGames);
-    console.log(userFavGames.includes("4280"));
+    // console.log(this.props.user);
+    // console.log(this.state.userFavGames);
+    // console.log(userFavGames.includes("4280"));
   }
 
   filterGames = (searchString) => {
@@ -157,7 +157,7 @@ class Profile extends Component {
       )
       .then((topSelectedYearResponse) => {
         const dataResults = topSelectedYearResponse.data.results;
-        console.log(dataResults);
+        // console.log(dataResults);
 
         this.setState({ ...this.state, videoGamesToShow: dataResults });
       });

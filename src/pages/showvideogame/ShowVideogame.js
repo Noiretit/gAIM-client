@@ -22,6 +22,7 @@ class ShowVideogame extends Component {
     this.getOneVideogame();
     this.getVideogameReviews();
     this.getVideogameScreenshots();
+    
   }
 
   componentDidUpdate() {
@@ -30,6 +31,7 @@ class ShowVideogame extends Component {
     // console.log(this.state.genres);
     // console.log(this.props)
     // console.log(this.props.user._id)
+    this.changeDescription();
   }
 
   getOneVideogame = () => {
@@ -111,6 +113,17 @@ class ShowVideogame extends Component {
       .then(({ data }) => data)
       .catch((err) => console.log("Error while creating a review", err));
   };
+
+  // changeDescription = () => {
+  //   const {description_raw} = this.state
+  //   const middleSpans = '<span id="dots">...</span><span id="more">';
+  //   let newDescription = description_raw.slice(0, 500) + middleSpans + description_raw.slice(500);
+  //   const endSpan = "</span>";
+  //   let usableNewDescription = newDescription += endSpan;
+
+  //   console.log(usableNewDescription)
+  //   console.log('<p>Hello</p>')
+  // }
 
   render() {
     const {
@@ -265,9 +278,8 @@ class ShowVideogame extends Component {
         ))
       : null;
 
-      
-      const allChildPlatforms = platforms ? platforms.map((platform) => ( <span key={platform.id}>{platform.platform.name} |</span>)) : null;
-      console.log(allChildPlatforms)
+    const allChildPlatforms = platforms ? platforms.map((platform) => ( <span key={platform.id}>{platform.platform.name} |</span>)) : null;
+    // console.log(description_raw)
 
     return (
       <div>

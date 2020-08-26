@@ -54,11 +54,11 @@ class Profile extends Component {
     this.setState({ videoGamesToShow: filteredGames });
   };
 
-  handleChange = (event) => {
-    let filteredGames = [];
+  // handleChange = (event) => {
+  //   let filteredGames = [];
 
-    filteredGames = this.state.videoGames;
-  };
+  //   filteredGames = this.state.videoGames;
+  // };
 
   // handleSelectedYear = (event) => {
   //   this.setState({ year: event.target.value }, () => {

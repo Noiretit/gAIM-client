@@ -53,7 +53,27 @@ class UserPage extends Component {
 
   displayTransactions() {
     const transactions = document.getElementById("transactions");
-    if (transactions.style.display === "none") {
+    const reviews = document.getElementById("reviews");
+    const favGames = document.getElementById("favGames");
+    if (
+      transactions.style.display === "none" &&
+      reviews.style.display === "none" &&
+      favGames.style.display === "block"
+    ) {
+      transactions.style.display = "block";
+      favGames.style.display = "none";
+    } else if (
+      transactions.style.display === "none" &&
+      reviews.style.display === "block" &&
+      favGames.style.display === "none"
+    ) {
+      transactions.style.display = "block";
+      reviews.style.display = "none";
+    } else if (
+      transactions.style.display === "none" &&
+      reviews.style.display === "none" &&
+      favGames.style.display === "none"
+    ) {
       transactions.style.display = "block";
     } else {
       transactions.style.display = "none";
@@ -61,17 +81,57 @@ class UserPage extends Component {
   }
 
   displayReviews() {
-    const transactions = document.getElementById("reviews");
-    if (transactions.style.display === "none") {
-      transactions.style.display = "block";
-    } else {
+    const transactions = document.getElementById("transactions");
+    const reviews = document.getElementById("reviews");
+    const favGames = document.getElementById("favGames");
+    if (
+      reviews.style.display === "none" &&
+      transactions.style.display === "block" &&
+      favGames.style.display === "none"
+    ) {
+      reviews.style.display = "block";
       transactions.style.display = "none";
+    } else if (
+      reviews.style.display === "none" &&
+      transactions.style.display === "none" &&
+      favGames.style.display === "block"
+    ) {
+      reviews.style.display = "block";
+      favGames.style.display = "none";
+    } else if (
+      reviews.style.display === "none" &&
+      transactions.style.display === "none" &&
+      favGames.style.display === "none"
+    ) {
+      reviews.style.display = "block";
+    } else {
+      reviews.style.display = "none";
     }
   }
 
   displayFavGames() {
+    const transactions = document.getElementById("transactions");
+    const reviews = document.getElementById("reviews");
     const favGames = document.getElementById("favGames");
-    if (favGames.style.display === "none") {
+    if (
+      favGames.style.display === "none" &&
+      reviews.style.display === "none" &&
+      transactions.style.display === "block"
+    ) {
+      favGames.style.display = "block";
+      transactions.style.display = "none";
+    } else if (
+      favGames.style.display === "none" &&
+      reviews.style.display === "block" &&
+      transactions.style.display === "none"
+    ) {
+      favGames.style.display = "block";
+      reviews.style.display = "none";
+    } else if (
+      favGames.style.display === "none" &&
+      reviews.style.display === "none" &&
+      transactions.style.display === "none"
+    ) {
       favGames.style.display = "block";
     } else {
       favGames.style.display = "none";

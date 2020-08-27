@@ -48,10 +48,6 @@ class Profile extends Component {
       );
   };
 
-  componentDidUpdate() {
-    console.log(this.state.videoGames);
-  }
-
   filterGames = (searchString) => {
     const lowerSearchString = searchString.toLowerCase();
 
@@ -150,7 +146,7 @@ class Profile extends Component {
       console.log("game removed from favorite");
 
       axios
-        .post("http://localhost:4000/api/myprofile/removeFavorite", {
+        .post(`${process.env.REACT_APP_API_URL}/api/myprofile/removeFavorite`, {
           favoriteVideogames, //ID of the game we are clicking on
           userID,
         })

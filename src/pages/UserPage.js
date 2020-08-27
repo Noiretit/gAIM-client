@@ -30,8 +30,6 @@ class UserPage extends Component {
             })
           ).then((arr) => {
             this.setState({ ...userObj, favorites: arrFavGames });
-            console.log(this.state.favorites);
-            console.log(this.state);
           });
         }
       })
@@ -41,7 +39,6 @@ class UserPage extends Component {
   }
 
   componentDidUpdate(prevState) {
-    console.log(this.state.favorites);
     if (this.state !== prevState) {
       return true;
     }

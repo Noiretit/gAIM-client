@@ -134,6 +134,7 @@ class ShowVideogame extends Component {
       thisGameScreenshootsArray,
       id,
       expandButton,
+      // eslint-disable-next-line no-unused-vars
       userFavGames,
     } = this.state;
 

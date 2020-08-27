@@ -59,7 +59,7 @@ class EditUserPage extends Component {
           src={`https://avatars.dicebear.com/v2/${gender}/${username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
           alt="profile-pic"
         ></img>
-        <form style={{ marginBottom: "6em" }} onSubmit={this.handleFormSubmit}>
+        <form style={{ marginBottom: "6em", textAlignLast: "center" }} onSubmit={this.handleFormSubmit}>
           <div>
             <label>Username:</label>
             <div>

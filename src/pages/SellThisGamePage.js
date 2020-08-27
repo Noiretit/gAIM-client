@@ -120,7 +120,7 @@ class ShowVideogame extends Component {
               <img
                 key={index}
                 className="platform-icon"
-                src="../../images/apple-platform-white.svg"
+                src="../../images/ios.svg"
                 alt="platform-icon"
               />
             );

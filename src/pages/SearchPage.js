@@ -48,6 +48,10 @@ class Profile extends Component {
       );
   };
 
+  componentDidUpdate() {
+    console.log(this.state.videoGames);
+  }
+
   filterGames = (searchString) => {
     const lowerSearchString = searchString.toLowerCase();
 

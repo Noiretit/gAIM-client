@@ -473,6 +473,10 @@ button.navbar-button {
   margin: 0 10px;
 }
 
+.card-fav-profile {
+  background-color: rgb(37, 36, 36);
+}
+
 /*EDIT PROFILE*/
 .margin-inputs-edit-profile {
   margin: 0.5em;

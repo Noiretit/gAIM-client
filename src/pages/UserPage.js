@@ -7,51 +7,53 @@ import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import Card from "react-bootstrap/Card";
+
 class UserPage extends Component {
   state = {
-    favGameImg: "",
-    favGameName: "",
-    favGameDescription: "",
+    favorites: null,
   };
-  getUserInfo = () => {
+
+  componentDidMount() {
     userService
       .getOne()
       .then((userObj) => {
-        this.setState(userObj);
+        let arrFavGames = [];
+
+        if (userObj.favoriteVideogames) {
+          Promise.all(
+            userObj.favoriteVideogames.map(async (oneGameId) => {
+              let oneGameData = await axios.get(
+                `https://api.rawg.io/api/games/${oneGameId}`
+              );
+              arrFavGames.push(oneGameData.data);
+            })
+          ).then((arr) => {
+            this.setState({ ...userObj, favorites: arrFavGames });
+            console.log(this.state.favorites);
+            console.log(this.state);
+          });
+        }
       })
       .catch((err) =>
         console.log("Error while mounting component, UserPage.js", err)
       );
-  };
-  getEveryFavGamesObj() {
-    // eslint-disable-next-line no-unused-vars
-    const favGames = this.state.favoriteVideogames
-      ? this.state.favoriteVideogames.map((oneGameId) =>
-          axios
-            .get(`https://api.rawg.io/api/games/${oneGameId}`)
-            .then((oneGameData) =>
-              //this.setState({ favoriteGames: oneGameData.data })
-              console.log(oneGameData.data)
-            )
-            .catch((err) => console.log("err linea 74", err))
-        )
-      : null;
   }
-  componentDidMount() {
-    this.getUserInfo();
-  }
-  componentDidUpdate(nextProps) {
-    this.getEveryFavGamesObj();
-    if (this.state === {}) {
+
+  componentDidUpdate(prevState) {
+    console.log(this.state.favorites);
+    if (this.state !== prevState) {
       return true;
     }
   }
+
   componentWillUnmount() {
     // fix Warning: Can't perform a React state update on an unmounted component
     this.setState = (state, callback) => {
       return;
     };
   }
+
   displayTransactions() {
     const transactions = document.getElementById("transactions");
     if (transactions.style.display === "none") {
@@ -60,6 +62,7 @@ class UserPage extends Component {
       transactions.style.display = "none";
     }
   }
+
   displayReviews() {
     const transactions = document.getElementById("reviews");
     if (transactions.style.display === "none") {
@@ -68,10 +71,21 @@ class UserPage extends Component {
       transactions.style.display = "none";
     }
   }
+
+  displayFavGames() {
+    const favGames = document.getElementById("favGames");
+    if (favGames.style.display === "none") {
+      favGames.style.display = "block";
+    } else {
+      favGames.style.display = "none";
+    }
+  }
+
   render() {
     const { logout } = this.props;
     // eslint-disable-next-line no-unused-vars
-    const { username, email, genre, gender, favoriteVideogames } = this.state;
+    const { username, email, genre, gender, favorites } = this.state;
+
     return (
       <div className="container-my-profile">
         <img
@@ -93,10 +107,18 @@ class UserPage extends Component {
           <Button variant="secondary">Edit your profile</Button>
         </Link>
         <span className="separation-line"></span>
+
+        <div id="favorite-games"></div>
+
         <div id="buttons-my-profile">
-          <Button variant="secondary" className="buttons-my-profile">
+          <Button
+            variant="secondary"
+            className="buttons-my-profile"
+            onClick={this.displayFavGames}
+          >
             My games
           </Button>
+
           <Button
             variant="secondary"
             className="buttons-my-profile"
@@ -120,10 +142,40 @@ class UserPage extends Component {
             alt="Logout"
           />
         </button>
-        <div></div>
+
+        <div id="favGames" style={{ display: "none" }}>
+          {favorites
+            ? favorites.map((oneFav, index) => (
+                <div className="container-all-offers">
+                  <main className="all-offers">
+                    <Card
+                      className="card-fav-profile"
+                      key={index}
+                      style={{ width: "18rem" }}
+                    >
+                      <Card.Img variant="top" src={oneFav.background_image} />
+                      <Card.Body>
+                        <Card.Title>{oneFav.name}</Card.Title>
+                        <Link to={`/videogame/${oneFav.id}`}>
+                          <Button
+                            className="margin-buttons-marketplace"
+                            variant="danger"
+                          >
+                            Details <small>about the game</small>
+                          </Button>
+                        </Link>
+                      </Card.Body>
+                    </Card>
+                  </main>
+                </div>
+              ))
+            : null}
+        </div>
+
         <div id="transactions" style={{ display: "none" }}>
           <MyTransactions />
         </div>
+
         <div
           id="reviews"
           className="container-review-profile"
@@ -131,6 +183,7 @@ class UserPage extends Component {
         >
           <MyReviews />
         </div>
+
         <Navbar />
       </div>
     );

@@ -134,6 +134,7 @@ class ShowVideogame extends Component {
       thisGameScreenshootsArray,
       id,
       expandButton,
+      userFavGames,
     } = this.state;
 
     const parentPlatformsNames = parent_platforms
@@ -280,7 +281,7 @@ class ShowVideogame extends Component {
 
     return (
       <div>
-      {/* Videogame image */}
+        {/* Videogame image */}
         <div id="test-img-vg">
           <img src={background_image} alt="vg-img" className="bg-img-cover" />
         </div>
@@ -364,7 +365,7 @@ class ShowVideogame extends Component {
             <div className="stores-container">{allStores}</div>
 
             <hr style={{ backgroundColor: "white" }} />
-            
+
             {/* Access to marketplace */}
             <h4>Want to get rid of this game?</h4>
             <Link to={`/marketplace/add/${id}`}>

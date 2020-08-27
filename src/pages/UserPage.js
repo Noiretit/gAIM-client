@@ -6,9 +6,14 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 class UserPage extends Component {
-  state = {};
+  state = {
+    favGameImg: "",
+    favGameName: "",
+    favGameDescription: "",
+  };
   getUserInfo = () => {
     userService
       .getOne()
@@ -20,23 +25,36 @@ class UserPage extends Component {
       );
   };
 
+  getEveryFavGamesObj() {
+    const favGames = this.state.favoriteVideogames
+      ? this.state.favoriteVideogames.map((oneGameId) =>
+          axios
+            .get(`https://api.rawg.io/api/games/${oneGameId}`)
+            .then((oneGameData) =>
+              //this.setState({ favoriteGames: oneGameData.data })
+              console.log(oneGameData.data)
+            )
+            .catch((err) => console.log("err linea 74", err))
+        )
+      : null;
+  }
+
   componentDidMount() {
     this.getUserInfo();
   }
 
   componentDidUpdate(nextProps) {
+    this.getEveryFavGamesObj();
     if (this.state === {}) {
       return true;
     }
   }
-
   componentWillUnmount() {
     // fix Warning: Can't perform a React state update on an unmounted component
     this.setState = (state, callback) => {
       return;
     };
   }
-
   displayTransactions() {
     const transactions = document.getElementById("transactions");
     if (transactions.style.display === "none") {
@@ -45,7 +63,6 @@ class UserPage extends Component {
       transactions.style.display = "none";
     }
   }
-
   displayReviews() {
     const transactions = document.getElementById("reviews");
     if (transactions.style.display === "none") {
@@ -54,11 +71,10 @@ class UserPage extends Component {
       transactions.style.display = "none";
     }
   }
-
   render() {
     const { logout } = this.props;
     // eslint-disable-next-line no-unused-vars
-    const { username, email, genre, gender } = this.state;
+    const { username, email, genre, gender, favoriteVideogames } = this.state;
 
     return (
       <div className="container-my-profile">
@@ -68,7 +84,6 @@ class UserPage extends Component {
           src={`https://avatars.dicebear.com/v2/${gender}/${username}.svg?options[padding]=0.4&options[background]=%2300ff99`}
           alt="profile-pic"
         ></img>
-
         <p>
           <span>Username:</span> {username}
         </p>
@@ -81,14 +96,11 @@ class UserPage extends Component {
         <Link to={"/myprofile/edit"}>
           <Button variant="secondary">Edit your profile</Button>
         </Link>
-
         <span className="separation-line"></span>
-
         <div id="buttons-my-profile">
           <Button variant="secondary" className="buttons-my-profile">
             My games
           </Button>
-
           <Button
             variant="secondary"
             className="buttons-my-profile"
@@ -96,7 +108,6 @@ class UserPage extends Component {
           >
             My reviews
           </Button>
-
           <Button
             style={{ paddingRight: "10px" }}
             variant="secondary"
@@ -106,7 +117,6 @@ class UserPage extends Component {
             My offers
           </Button>
         </div>
-
         <button className="logout-link" onClick={logout}>
           <img
             className="logout-icon"
@@ -114,6 +124,8 @@ class UserPage extends Component {
             alt="Logout"
           />
         </button>
+
+        <div></div>
 
         <div id="transactions" style={{ display: "none" }}>
           <MyTransactions />
@@ -132,5 +144,4 @@ class UserPage extends Component {
     );
   }
 }
-
 export default withAuth(UserPage);

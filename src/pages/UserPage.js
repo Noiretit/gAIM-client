@@ -145,11 +145,7 @@ class UserPage extends Component {
             ? favorites.map((oneFav, index) => (
                 <div className="container-all-offers">
                   <main className="all-offers">
-                    <Card
-                      className="card-fav-profile"
-                      key={index}
-                      style={{ width: "18rem" }}
-                    >
+                    <Card className="card-fav-profile" key={index}>
                       <Card.Img variant="top" src={oneFav.background_image} />
                       <Card.Body>
                         <Card.Title>{oneFav.name}</Card.Title>

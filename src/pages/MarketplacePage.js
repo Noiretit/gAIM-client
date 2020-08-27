@@ -58,7 +58,12 @@ class MarketplacePage extends Component {
       status = "booked";
     }
 
-    axios.post(`${process.env.REACT_APP_API_URL}/api/marketplace/status`, { id, status });
+    axios.post(`${process.env.REACT_APP_API_URL}/api/marketplace/status`, {
+      id,
+      status,
+    });
+
+    this.componentDidMount();
   }
 
   removeTransaction(e, transactionId) {
@@ -74,13 +79,17 @@ class MarketplacePage extends Component {
     const { offersToShow } = this.state;
 
     return (
-      <div style={{ textAlign: "center", marginTop: "1rem", marginBottom: "7rem"}}>
+      <div
+        style={{ textAlign: "center", marginTop: "1rem", marginBottom: "7rem" }}
+      >
         <div className="logo-home">
           <img src="/images/Group.svg" alt="logo" />
         </div>
         <h1>Markeplace</h1>
-        <p className="check-games-p">Check the games others users are selling</p>
-       
+        <p className="check-games-p">
+          Check the games others users are selling
+        </p>
+
         <div className="header">
           {/* SEARCH BAR */}
           <SearchBar filterGames={this.filterGames} />
@@ -106,7 +115,10 @@ class MarketplacePage extends Component {
                         src="../../images/linux-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
 
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
@@ -160,7 +172,10 @@ class MarketplacePage extends Component {
                         src="../../images/playstation-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -213,7 +228,10 @@ class MarketplacePage extends Component {
                         src="../../images/playstation-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -266,7 +284,10 @@ class MarketplacePage extends Component {
                         src="../../images/playstation-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -319,7 +340,10 @@ class MarketplacePage extends Component {
                         src="../../images/playstation-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -372,7 +396,10 @@ class MarketplacePage extends Component {
                         src="../../images/playstation-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -425,7 +452,10 @@ class MarketplacePage extends Component {
                         src="../../images/playstation-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -478,7 +508,10 @@ class MarketplacePage extends Component {
                         src="../../images/playstation-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -531,7 +564,10 @@ class MarketplacePage extends Component {
                         src="../../images/pc-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -584,7 +620,10 @@ class MarketplacePage extends Component {
                         src="../../images/xbox-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -637,7 +676,10 @@ class MarketplacePage extends Component {
                         src="../../images/xbox-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -690,7 +732,10 @@ class MarketplacePage extends Component {
                         src="../../images/xbox-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -743,7 +788,10 @@ class MarketplacePage extends Component {
                         src="../../images/xbox-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -796,7 +844,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-switch-platform.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -849,7 +900,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-3ds-platform.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -902,7 +956,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-3ds-platform.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -955,7 +1012,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1008,7 +1068,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1061,7 +1124,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1114,7 +1180,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1167,7 +1236,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1220,7 +1292,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1273,7 +1348,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1326,7 +1404,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1379,7 +1460,10 @@ class MarketplacePage extends Component {
                         src="../../images/nintendo-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1432,7 +1516,10 @@ class MarketplacePage extends Component {
                         src="../../images/apple-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1485,7 +1572,10 @@ class MarketplacePage extends Component {
                         src="../../images/apple-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1538,7 +1628,10 @@ class MarketplacePage extends Component {
                         src="../../images/apple-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1591,7 +1684,10 @@ class MarketplacePage extends Component {
                         src="../../images/apple-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1644,7 +1740,10 @@ class MarketplacePage extends Component {
                         src="../../images/android-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1697,7 +1796,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1750,7 +1852,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1803,7 +1908,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1856,7 +1964,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1909,7 +2020,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -1962,7 +2076,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2015,7 +2132,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2068,7 +2188,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2121,7 +2244,10 @@ class MarketplacePage extends Component {
                         src="../../images/atari-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2174,7 +2300,10 @@ class MarketplacePage extends Component {
                         src="../../images/sega-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2227,7 +2356,10 @@ class MarketplacePage extends Component {
                         src="../../images/sega-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2280,7 +2412,10 @@ class MarketplacePage extends Component {
                         src="../../images/sega-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2333,7 +2468,10 @@ class MarketplacePage extends Component {
                         src="../../images/sega-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2386,7 +2524,10 @@ class MarketplacePage extends Component {
                         src="../../images/sega-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2439,7 +2580,10 @@ class MarketplacePage extends Component {
                         src="../../images/sega-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2492,7 +2636,10 @@ class MarketplacePage extends Component {
                         src="../../images/sega-platform-white.svg"
                         alt="platform-icon"
                       />
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"
@@ -2541,7 +2688,10 @@ class MarketplacePage extends Component {
                     <Card.Body>
                       <Card.Title>{offer.videoGameName}</Card.Title>
 
-                      <p className="p-marketplace" >Platform: {offer.childrenPlatform} | Price: {offer.price}€</p>
+                      <p className="p-marketplace">
+                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        {offer.price}€
+                      </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>
                         <Button
                           className="margin-buttons-marketplace"

@@ -30,37 +30,16 @@ class App extends Component {
             <AnonRoute exact path="/login" component={Login} />
 
             <PrivateRoute exact path="/home" component={HomePage} />
-            <PrivateRoute exact path="/myprofile" component={UserPage} />
-            <PrivateRoute
-              exact
-              path="/myprofile/edit"
-              component={EditUserPage}
-            />
+
             <PrivateRoute exact path="/videogames" component={SearchPage} />
+            <PrivateRoute exact path="/videogames/:id" component={ShowVideogame}/>
 
-            <PrivateRoute
-              exact
-              path="/videogames/:id"
-              component={ShowVideogame}
-            />
+            <PrivateRoute exact path="/myprofile" component={UserPage} />
+            <PrivateRoute exact path="/myprofile/edit" component={EditUserPage}/>
 
-            <PrivateRoute
-              exact
-              path="/marketplace"
-              component={MarketplacePage}
-            />
-
-            <PrivateRoute
-              exact
-              path="/marketplace/add"
-              component={AddGamePage}
-            />
-
-            <PrivateRoute
-              exact
-              path="/marketplace/add/:id"
-              component={SellThisGame}
-            />
+            <PrivateRoute exact path="/marketplace" component={MarketplacePage}/>
+            <PrivateRoute exact path="/marketplace/add" component={AddGamePage}/>
+            <PrivateRoute exact path="/marketplace/add/:id" component={SellThisGame}/>
           </Switch>
         </div>
       </AuthProvider>

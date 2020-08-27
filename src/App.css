@@ -94,6 +94,7 @@ button.navbar-button {
   border-top-left-radius: 10px;
   text-align-last: center;
   margin-bottom: 0;
+  font-size: 1.3rem;
 }
 /* Darkens Home img */
 .d-block {
@@ -178,6 +179,12 @@ button.navbar-button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.h2-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 /* SHOWVIDEOGAME */

@@ -14,7 +14,6 @@ class ShowVideogame extends Component {
     this.getOneVideogame();
   }
 
-
   getOneVideogame = () => {
     const { id } = this.props.match.params;
     axios
@@ -187,17 +186,19 @@ class ShowVideogame extends Component {
 
     return (
       <div className="seller-container">
-        <div className="logo-home">
-          <img src="/images/Group.svg" alt="logo" />
-        </div>
-      
-        <h3>Selling: {name}</h3>
+        <img
+          style={{ width: "100%" }}
+          className="img-sellthisgamepage"
+          src={background_image}
+          alt={name}
+        />
 
-        <form onSubmit={this.handleFormSubmit}>
-          
-          <img style={{ width: "100%" }} src={background_image} alt={name} />
-
-          <hr className="separation-hr" style={{marginBottom: "1rem"}} />
+        <form
+          className="form-sellthisgamepage"
+          onSubmit={this.handleFormSubmit}
+        >
+          <h3>Selling: {name}</h3>
+          <hr className="separation-hr" style={{ marginBottom: "2rem" }} />
 
           <div>Available on: {parentPlatformsNames}</div>
 

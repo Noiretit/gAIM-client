@@ -47,7 +47,7 @@ class MyTransactions extends Component {
         {transactionsToShow.map((oneTransaction, index) => {
           if (oneTransaction.childrenPlatform === "Linux") {
             return (
-              <div className="container-all-offers">
+              <div key={index} className="container-all-offers">
                 <main className="all-offers">
                   <Card key={oneTransaction._id}>
                     <Card.Img
@@ -544,7 +544,7 @@ class MyTransactions extends Component {
             );
           } else if (oneTransaction.childrenPlatform === "PC") {
             return (
-              <div className="container-all-offers">
+              <div key={index} className="container-all-offers">
                 <main className="all-offers">
                   <Card key={oneTransaction._id}>
                     <Card.Img
@@ -792,7 +792,7 @@ class MyTransactions extends Component {
             );
           } else if (oneTransaction.childrenPlatform === "Xbox 360") {
             return (
-              <div className="container-all-offers">
+              <div key={index} className="container-all-offers">
                 <main className="all-offers">
                   <Card key={oneTransaction._id}>
                     <Card.Img

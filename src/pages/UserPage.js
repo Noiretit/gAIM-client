@@ -143,7 +143,7 @@ class UserPage extends Component {
         <div id="favGames" style={{ display: "none" }}>
           {favorites
             ? favorites.map((oneFav, index) => (
-                <div className="container-all-offers">
+                <div key={index} className="container-all-offers">
                   <main className="all-offers">
                     <Card className="card-fav-profile" key={index}>
                       <Card.Img variant="top" src={oneFav.background_image} />

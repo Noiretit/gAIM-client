@@ -24,6 +24,7 @@ class UserPage extends Component {
       );
   };
   getEveryFavGamesObj() {
+    // eslint-disable-next-line no-unused-vars
     const favGames = this.state.favoriteVideogames
       ? this.state.favoriteVideogames.map((oneGameId) =>
           axios

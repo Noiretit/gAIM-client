@@ -7,7 +7,6 @@ import { withAuth } from "../lib/AuthProvider";
 import userService from "../lib/user-service";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-
 class UserPage extends Component {
   state = {
     favGameImg: "",
@@ -24,7 +23,6 @@ class UserPage extends Component {
         console.log("Error while mounting component, UserPage.js", err)
       );
   };
-
   getEveryFavGamesObj() {
     const favGames = this.state.favoriteVideogames
       ? this.state.favoriteVideogames.map((oneGameId) =>
@@ -38,11 +36,9 @@ class UserPage extends Component {
         )
       : null;
   }
-
   componentDidMount() {
     this.getUserInfo();
   }
-
   componentDidUpdate(nextProps) {
     this.getEveryFavGamesObj();
     if (this.state === {}) {
@@ -75,7 +71,6 @@ class UserPage extends Component {
     const { logout } = this.props;
     // eslint-disable-next-line no-unused-vars
     const { username, email, genre, gender, favoriteVideogames } = this.state;
-
     return (
       <div className="container-my-profile">
         <img
@@ -124,13 +119,10 @@ class UserPage extends Component {
             alt="Logout"
           />
         </button>
-
         <div></div>
-
         <div id="transactions" style={{ display: "none" }}>
           <MyTransactions />
         </div>
-
         <div
           id="reviews"
           className="container-review-profile"
@@ -138,7 +130,6 @@ class UserPage extends Component {
         >
           <MyReviews />
         </div>
-
         <Navbar />
       </div>
     );

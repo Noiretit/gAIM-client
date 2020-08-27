@@ -565,7 +565,7 @@ class MarketplacePage extends Component {
                         alt="platform-icon"
                       />
                       <p className="p-marketplace">
-                        Platform: {offer.childrenPlatform} | Price:{" "}
+                        Platform: {offer.childrenPlatform} | Price:
                         {offer.price}€
                       </p>
                       <Link to={`/videogames/${offer.videoGameId}`}>

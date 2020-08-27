@@ -51,7 +51,6 @@ class Home extends Component {
         `https://api.rawg.io/api/games?dates=2010-01-01,2020-01-01&genres=${this.state.genre}&ordering=-rating&parent_platforms=1,2,3,7`
       )
       .then((topSelectedGenreResponse) => {
-
         const dataResults = topSelectedGenreResponse.data.results.slice(0, 10);
 
         this.setState({ ...this.state, topSelectedGenre: dataResults });
@@ -152,17 +151,28 @@ class Home extends Component {
 
         {/* LAST RELEASED */}
         <section style={{ marginTop: "1.5rem" }} className="home-section">
-          <div className="title-container">
-          <h2><span aria-label="emoji" role="img">🔥</span> Last released <span aria-label="emoji" role="img">🔥</span></h2>
+          <div style={{ height: "53px" }} className="title-container">
+            <h2 className="h2-top" style={{ height: "53px" }}>
+              <span aria-label="emoji" role="img">
+                🔥
+              </span>{" "}
+              Last released{" "}
+              <span aria-label="emoji" role="img">
+                🔥
+              </span>
+            </h2>
           </div>
           <Carousel>{lastReleasedGames}</Carousel>
         </section>
 
         {/* TOP SELECTED YEAR */}
         <section className="home-section">
-          <div className="title-container">
-            <h2>
-            <span aria-label="emoji" role="img">👑</span> Top year
+          <div style={{ height: "53px" }} className="title-container">
+            <h2 className="h2-top" style={{ height: "53px" }}>
+              <span aria-label="emoji" role="img">
+                👑
+              </span>{" "}
+              Top year
               <select
                 className="home-select"
                 name="year"
@@ -215,7 +225,9 @@ class Home extends Component {
                 <option value="1976">1976</option>
                 <option value="1975">1975</option>
               </select>
-              <span aria-label="emoji" role="img">👑</span>
+              <span aria-label="emoji" role="img">
+                👑
+              </span>
             </h2>
           </div>
           <Carousel>{topGamesSelectedYear}</Carousel>
@@ -223,9 +235,15 @@ class Home extends Component {
 
         {/* TOP SELECTED GENRE */}
         <section className="home-section">
-          <div className="title-container">
-            <h2 style={{ fontSize: "1.3rem" }}>
-            <span aria-label="emoji" role="img">💥</span> Top genre
+          <div style={{ height: "53px" }} className="title-container">
+            <h2
+              className="h2-top"
+              style={{ fontSize: "1.3rem", height: "53px" }}
+            >
+              <span aria-label="emoji" role="img">
+                💥
+              </span>{" "}
+              Top genre
               <select
                 className="home-select"
                 name="genre"
@@ -247,7 +265,9 @@ class Home extends Component {
                 <option value="sports">"sports"</option>
                 <option value="strategy">"strategy"</option>
               </select>{" "}
-              <span aria-label="emoji" role="img">💥</span>
+              <span aria-label="emoji" role="img">
+                💥
+              </span>
             </h2>
           </div>
           <Carousel>{topGameSelectedGenre}</Carousel>

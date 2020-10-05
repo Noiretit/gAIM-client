@@ -209,7 +209,7 @@ class UserPage extends Component {
                       <Card.Img variant="top" src={oneFav.background_image} />
                       <Card.Body>
                         <Card.Title>{oneFav.name}</Card.Title>
-                        <Link to={`/videogame/${oneFav.id}`}>
+                        <Link to={`/videogames/${oneFav.id}`}>
                           <Button
                             className="margin-buttons-marketplace"
                             variant="danger"
